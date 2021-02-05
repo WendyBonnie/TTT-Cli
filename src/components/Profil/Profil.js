@@ -44,7 +44,7 @@ class Client extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/client/getDataClient", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/getDataClient", options)
       .then((response) => {
         return response.json();
       })
@@ -91,7 +91,7 @@ class Client extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/client/delete", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/delete", options)
       .then((response) => {
         return response.json();
       })

@@ -22,7 +22,7 @@ class DailyMenu extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/client/menu/", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/menu/", options)
       .then((response) => {
         return response.json();
       })
@@ -57,7 +57,7 @@ class DailyMenu extends Component {
           </Card.Body>
           <Card.Img
             variant="top"
-            src={"http://localhost:8080/" + this.state.menu}
+            src={"https://back-end.osc-fr1.scalingo.io/" + this.state.menu}
             className="dailyMenu"
             alt="Menu du Jour"
           />

@@ -33,7 +33,7 @@ class footer extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/serveur/delete", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/serveur/delete", options)
       .then((response) => {
         return response.json();
       })

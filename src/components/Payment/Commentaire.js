@@ -40,7 +40,7 @@ class Commentaires extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/client/commentaire", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/commentaire", options)
       .then((response) => {
         return response.json();
       })

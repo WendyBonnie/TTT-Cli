@@ -37,7 +37,7 @@ class CheckoutForm extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/client/getDataClient", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/getDataClient", options)
       .then((response) => {
         return response.json();
       })
@@ -66,7 +66,7 @@ class CheckoutForm extends Component {
 
       mode: "payment",
       successUrl:
-        "http://localhost:8080/client/transfert?qte=" +
+        "https://back-end.osc-fr1.scalingo.io/client/transfert?qte=" +
         10 +
         "&mail=" +
         this.state.client.email +
@@ -91,7 +91,7 @@ class CheckoutForm extends Component {
       mode: "payment",
 
       successUrl:
-        "http://localhost:8080/client/transfert?qte=" +
+        "https://back-end.osc-fr1.scalingo.io/client/transfert?qte=" +
         2 +
         "&mail=" +
         this.state.client.email +
@@ -116,7 +116,7 @@ class CheckoutForm extends Component {
 
       mode: "payment",
       successUrl:
-        "http://localhost:8080/client/transfert?qte=" +
+        "https://back-end.osc-fr1.scalingo.io/client/transfert?qte=" +
         5 +
         "&mail=" +
         this.state.client.email +
@@ -142,7 +142,7 @@ class CheckoutForm extends Component {
       mode: "payment",
 
       successUrl:
-        "http://localhost:8080/client/transfert?qte=" +
+        "https://back-end.osc-fr1.scalingo.io/client/transfert?qte=" +
         amount +
         "&mail=" +
         this.state.client.email +

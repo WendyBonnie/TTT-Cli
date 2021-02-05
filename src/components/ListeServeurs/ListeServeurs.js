@@ -27,7 +27,7 @@ class Liste extends Component {
       /*body: JSON.stringify(data),*/
     };
 
-    fetch("http://localhost:8080/client/getDataServeur", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/getDataServeur", options)
       .then((response) => {
         return response.json();
       })
@@ -61,7 +61,7 @@ class Liste extends Component {
           </Row>
           <Row className="rowImage">
             <Col>
-              <Image src={"http://localhost:8080/" + element.serveurPicture} />
+              <Image src={"https://back-end.osc-fr1.scalingo.io/" + element.serveurPicture} />
             </Col>
           </Row>
           <Row className="butTips">
@@ -80,7 +80,7 @@ class Liste extends Component {
                     body: JSON.stringify(data),
                   };
 
-                  fetch("http://localhost:8080/client/emailServeur", options)
+                  fetch("https://back-end.osc-fr1.scalingo.io/client/emailServeur", options)
                     .then((response) => {
                       return response;
                     })
@@ -133,7 +133,7 @@ class Liste extends Component {
                   body: JSON.stringify(data),
                 };
 
-                fetch("http://localhost:8080/client/emailServeur", options)
+                fetch("https://back-end.osc-fr1.scalingo.io/client/emailServeur", options)
                   .then((response) => {
                     return response;
                   })

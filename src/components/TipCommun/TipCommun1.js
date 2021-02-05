@@ -58,7 +58,7 @@ class TipCommun1 extends Component {
       body: JSON.stringify(data1),
     };
 
-    fetch("http://localhost:8080/client/payin", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/payin", options)
       .then((response) => {
         return response.json();
       })
@@ -80,7 +80,7 @@ class TipCommun1 extends Component {
       body: JSON.stringify(data1),
     };
 
-    fetch("http://localhost:8080/client/getWalletId", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/getWalletId", options)
       .then((response) => {
         return response.json();
       })
