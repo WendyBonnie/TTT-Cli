@@ -1,0 +1,101 @@
+body {
+  background-color: #efefef;
+}
+
+.blocprincipalProfil {
+  background: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 30px;
+  border-radius: 28px;
+  border: none;
+  color: #555;
+
+  box-shadow: 1px 1px 3px #999;
+  padding: 7%;
+  margin-top: -10%;
+}
+.infoProfil {
+  text-align: center;
+  margin-top: 10%;
+  font-size: 26px;
+  font-family: "Montserrat", sans-serif;
+}
+.form-control {
+  padding: 1.375rem 0.75rem;
+}
+
+.userLogoProfil {
+  color: #f4a521;
+}
+.buttontip {
+  margin-top: -90px;
+  margin-left: 170px;
+  display: none;
+}
+
+.Titre-profil {
+  color: #f4a521;
+  text-align: center;
+  font-size: 28px;
+}
+
+.Bloc-principal .formBasicCheckbox {
+  font-size: initial;
+  color: white;
+}
+.buttondeco {
+  margin-top: 10%;
+  margin-bottom: 20px;
+  background-color: #f5a624 !important;
+  color: white;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+  padding: 5%;
+  width: 100%;
+}
+
+.buttonedit {
+  margin-top: 10%;
+  background-color: #f5a624 !important;
+  color: white;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+  padding: 5%;
+  width: 100%;
+}
+.buttondelete {
+  margin-top: 10%;
+  background-color: #f5a624 !important;
+  color: white;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+  width: 100%;
+  padding: 5%;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .blocprincipalProfil {
+    margin-top: 0%;
+    box-shadow: none;
+  }
+  .formProfil {
+    width: 100%;
+    margin-top: 4%;
+  }
+
+  .buttondelete {
+    padding: 3% !important;
+    width: 100% !important;
+  }
+
+  .buttondeco {
+    padding: 3% !important;
+    width: 100% !important;
+  }
+
+  .buttonedit {
+    padding: 3% !important;
+  }
+}

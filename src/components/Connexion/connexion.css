@@ -1,0 +1,160 @@
+.connexion {
+  background: #ffffff;
+  border-radius: 28px;
+  border: none;
+  margin-top: -7.5% !important;
+  color: #555;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 10%;
+  margin-bottom: 10%;
+}
+
+.connexion a {
+  color: #f5a624;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 28px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.text {
+  font-size: 31px;
+  font-weight: lighter;
+  margin-top: 0px;
+  color: #4a4a4a;
+}
+.text2 {
+  font-size: 30px;
+  font-weight: lighter;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+.forgetpwd {
+  font-size: 10px;
+  color: #e05858;
+  display: inherit;
+  margin-top: -20px;
+  text-decoration: none !important;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.connexion .politique {
+  text-align: right;
+}
+
+.connectButton {
+  border-radius: 28px;
+  border-color: #f5a624;
+  background-color: #f5a624;
+  color: white;
+  padding-left: 28%;
+  padding-right: 28%;
+}
+
+.creerCompte {
+  color: #f5a624;
+}
+
+.connexion .politique {
+  font-size: 14px;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .connexion {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .formConnexion {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .form-control {
+    width: 50%;
+  }
+
+  .text {
+    margin-bottom: 5%;
+  }
+
+  .passwordConnexion {
+    margin-bottom: 4%;
+  }
+  .connexion .btn-primary {
+    width: 50%;
+  }
+  .connectButton {
+    width: 50%;
+    padding-bottom: 1% !important;
+    padding-top: 1% !important;
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
+
+  .blocprincipalClient {
+    margin-bottom: 10%;
+  }
+
+  .connexion .colMdp {
+    text-align: right;
+  }
+}
+
+@media only screen and (min-device-width: 768px) {
+  .connexPic {
+    display: block;
+
+    background-image: url("/logoTTT/drink (7).jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+
+  .formConnexion {
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  .connexion {
+    padding: 0% !important;
+    margin-top: 0% !important;
+  }
+  .blocprincipalClient {
+    margin-bottom: 0%;
+  }
+
+  .container {
+    margin-right: 0% !important;
+    margin-bottom: 0% !important;
+  }
+
+  .form-control {
+    width: 70%;
+  }
+
+  .connexion .colMdp {
+    text-align: left;
+  }
+
+  .connectButton {
+    float: right;
+  }
+  .connectButton:hover {
+    background-color: #f5a624;
+    border-color: white;
+  }
+
+  .blocCompte {
+    text-align: right;
+  }
+}

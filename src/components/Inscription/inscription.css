@@ -1,0 +1,101 @@
+.bigBlocClient .blocprincipalClient {
+  background: #ffffff !important;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 30px;
+  border-radius: 20px 20px 20px 20px;
+  border: none;
+  color: #555;
+
+  box-shadow: 1px 1px 3px #999;
+  padding: 50px;
+  margin-top: -12% !important;
+}
+body {
+  background-color: #ffffff !important;
+}
+
+.TitreInscription {
+  color: #f5a624 !important;
+  text-align: left;
+  font-size: 25px !important;
+}
+
+.sous-titre {
+  text-align: left;
+  color: #4a4a4a;
+  font-size: 14px;
+  margin-bottom: 25%;
+}
+.form1 {
+  margin-top: -40px;
+}
+.form2 {
+  margin-bottom: 50px;
+}
+
+.checkbox {
+  font-weight: lighter;
+  margin-top: 25px;
+  font-size: 15px;
+  color: black;
+}
+.buttonInscri {
+  background-color: #f5a624 !important;
+  font-size: 9px;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+
+  /* margin-top: -100px; */
+}
+.buttonInscri:hover {
+  background-color: #ffc107 !important;
+  border-color: #f5a624 !important;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .form1 {
+    width: 100%;
+    margin-bottom: 2%;
+  }
+  .form2 {
+    width: 100%;
+  }
+
+  .buttonInscri {
+    padding-bottom: 1% !important;
+    padding-top: 1% !important;
+    width: 50% !important;
+
+    border-radius: 28px !important;
+  }
+
+  .bigBlocClient .blocprincipalClient {
+    margin-top: 0% !important;
+    box-shadow: none;
+    padding: 0%;
+  }
+
+  .form1 {
+    margin-top: 0.5%;
+  }
+
+  .sous-titre {
+    margin-bottom: 3%;
+  }
+
+  .colInscr {
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .bigBlocClient .col {
+    padding-left: 0%;
+  }
+
+  .backInscr {
+    display: block;
+    background-image: url("/logoTTT/drink (7).jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+}

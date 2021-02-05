@@ -1,0 +1,57 @@
+.blocHome {
+  background: #ffffff;
+  border-radius: 28px;
+  border: none;
+  margin-top: -7.5% !important;
+  color: #555;
+  box-shadow: 1px 1px 3px #999;
+  padding: 4%;
+  margin-bottom: 20%;
+  padding-bottom: 21%;
+  text-align: left;
+}
+.ContainerHome {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.rowButton {
+  background-color: #f5a624 !important;
+  color: white;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+  padding: 3%;
+  width: 80%;
+}
+.blocHome h1 {
+  margin-top: 15%;
+  font-size: 20px;
+}
+
+.blocHome h2 {
+  font-size: 28px;
+  color: #f5a624;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .blocHome {
+    margin-top: 0% !important;
+    box-shadow: none;
+    padding-bottom: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .sansCompte {
+    background-color: #f5a624;
+    margin-bottom: 4%;
+  }
+  .rowButton {
+    width: 40%;
+  }
+  .blocHome .col-12 {
+    text-align: center;
+  }
+
+  .blocHome button {
+    padding-bottom: 1% !important;
+    padding-top: 1% !important;
+  }
+}

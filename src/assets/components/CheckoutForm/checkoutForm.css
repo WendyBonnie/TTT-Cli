@@ -1,0 +1,76 @@
+.tipButton1 {
+  background-color: #f5a624 !important;
+  color: white;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+  padding: 3%;
+  box-shadow: none;
+  border-width: 0px;
+}
+
+.tipButton2 {
+  background-color: #f5a624 !important;
+  color: white;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+  padding: 3%;
+  box-shadow: none;
+  border-width: 0px;
+}
+
+.tipButton3 {
+  background-color: #f5a624 !important;
+  color: white;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+  padding: 3%;
+  box-shadow: none;
+  border-width: 0px;
+}
+.RowPourboire {
+  margin-top: 5%;
+}
+.titleTips {
+  text-align: center;
+  color: #f5a624;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 5%;
+}
+.amount {
+  text-align: center;
+  color: #f5a624;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 5%;
+}
+
+.validAmount {
+  background-color: #f5a624 !important;
+  color: white;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+  padding: 3%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.amountMsg {
+  text-align: center;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+}
+
+@media only screen and (min-device-width: 768px) {
+.allButton{
+  text-align: center;
+}
+
+.validAmount{
+  padding:1%;
+  margin-bottom: 10%;
+}
+.form-control{
+  width:100%;
+  text-align:center
+}
+}

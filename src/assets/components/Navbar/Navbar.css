@@ -1,0 +1,71 @@
+.footerClient {
+  background-color: #f5a624;
+  padding-bottom: 17%;
+}
+
+.footerClient img {
+  width: 100%;
+}
+
+.partie1 {
+  background-color: #f5a624;
+  padding-bottom: 20%;
+}
+
+.colUserMobile {
+  display: block;
+  text-align: right;
+  margin-top: 1%;
+}
+
+.logoPartie1 img {
+  width: 100%;
+}
+
+.nav button {
+  background-color: #f5a624 !important;
+  border-color: #f5a624 !important;
+}
+
+.btn-success:focus {
+  box-shadow: none !important;
+}
+
+.dropdown-menu {
+  background-color: #f5a624;
+}
+
+.dropdown-menu a {
+  color: white;
+  font-size: 27px;
+  margin-bottom:11%;
+}
+@media only screen and (min-device-width: 768px) {
+  .partie1{
+    padding-bottom: 6%;
+  }
+  .logoPartie1 {
+    text-align: center;
+  }
+  .logoPartie1 img {
+    width: 27%;
+  }
+
+
+
+  .nav img {
+    width: 100%;
+  }
+
+  .sansCompte {
+    padding-left: 0% !important;
+    padding-right: 0% !important;
+  }
+
+  .connexion{
+    background-color: transparent;
+  }
+
+
+  
+}

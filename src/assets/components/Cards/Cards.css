@@ -1,0 +1,11 @@
+.card-body .align {
+  text-align: center !important;
+}
+
+.card {
+  text-align: center;
+}
+
+.card-body img {
+  margin-top: 20%;
+}

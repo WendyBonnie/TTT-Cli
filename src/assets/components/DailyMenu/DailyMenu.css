@@ -1,0 +1,40 @@
+.blocprincipal {
+  background: #ffffff;
+  font-family: "Montserrat", sans-serif;
+margin-top:-10%;
+  margin-bottom: 30px;
+  border-radius: 12px 9px 12px;
+  border: none;
+  color: #555;
+  box-shadow: 1px 1px 3px #999;
+  padding: 70px;
+  border-radius: 28px;
+  border: none;
+  color: #555;
+  box-shadow: 1px 1px 3px #999;
+}
+
+.button {
+  font-size: 12px;
+  margin-top: 28px;
+}
+.Titre {
+  color: #f4a521;
+  text-align: center;
+  font-size: 18px;
+}
+.datemenu {
+  text-align: center;
+}
+.card {
+  border: unset;
+}
+
+
+@media only screen and (min-device-width: 768px) {
+  .blocprincipal{
+    margin-top:0%;
+    box-shadow:none
+  }
+
+}

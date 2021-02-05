@@ -1,0 +1,54 @@
+.formCommun {
+  padding: 30px;
+}
+.mainBlocCommun {
+  border-radius: 28px !important;
+  background-color: white !important;
+  margin-top: -10% !important;
+  padding-top: 5% !important;
+}
+.titleCommun {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+.communButton {
+  background-color: #f5a624 !important;
+  font-size: 20px;
+  border-radius: 28px !important;
+  border-color: #f5a624 !important;
+}
+.ButtonCol {
+  text-align: center !important;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .mainBlocCommun {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 0px !important;
+    background-color: white !important;
+    margin-top: 0% !important;
+    padding-top: 5% !important;
+  }
+  .formCommunGrp {
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+  .titleCommun {
+    font-size: 30px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  .communButton {
+    background-color: #f5a624 !important;
+    font-size: 20px;
+    border-radius: 28px !important;
+    border-color: #f5a624 !important;
+  }
+  .ButtonCol {
+    text-align: center !important;
+  }
+}

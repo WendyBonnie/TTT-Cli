@@ -1,0 +1,42 @@
+body{
+    font-family: "Montserrat", sans-serif!important;
+  }
+
+
+.titreCom{
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 4%;
+}
+
+.contCom{
+    border-radius:28px;
+    margin-top: -10%;
+    background-color: white;
+    padding-bottom: 10%;
+}
+
+.contCom .coms{
+    margin-bottom: 5%;
+}
+
+.buttonStatut{
+    background-color: orange;
+    border-radius: 28px;
+    border-width: 0px;
+    color: white;
+    padding: 2%;
+    margin-top: 5%;
+    font-size: 20px;
+    margin-bottom:5%
+}
+
+@media only screen and (min-device-width: 768px) {
+   .contCom{
+       margin-top: 0%;
+   }
+
+   .caract{
+       text-align: right;
+   }
+}
