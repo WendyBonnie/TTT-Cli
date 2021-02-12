@@ -22,7 +22,7 @@ class HomePageClient extends Component {
             <h1>Donner un Tip</h1>
             <h2>Avec compte client</h2>
             <p>Me connecter à mon espace Tipourboire</p>
-            <Link to={"/connexion"}>
+            <Link to={"/"}>
               <Button className="rowButton">Donner un pourboire</Button>
             </Link>
           </Col>

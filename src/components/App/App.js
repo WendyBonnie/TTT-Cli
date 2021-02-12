@@ -31,7 +31,7 @@ import MangoCards from "../MangoCards/MangoCards";
 
 /*Main app component*/
 class App extends Component {
-   constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       login: false,
@@ -40,16 +40,18 @@ class App extends Component {
   setLogin = (value) => {
     this.setState({ login: value });
   };
-componentDidMount(){  if (localStorage.getItem("token") !== null) {
-  this.setState({ login: true });
-}}
+  componentDidMount() {
+    if (localStorage.getItem("token") !== null) {
+      this.setState({ login: true });
+    }
+  }
   render() {
     return (
       <div>
         <Router>
           <BarreMenu />
           <Switch>
-          <Route
+            <Route
               exact
               path="/"
               render={(props) => (
@@ -57,7 +59,7 @@ componentDidMount(){  if (localStorage.getItem("token") !== null) {
               )}
             />
             <Route path="/Inscription" exact component={Inscription} />
-            
+
             <Route path="/Profil" exact component={Profil} />
             <Route path="/Home" exact component={HomePageClient} />
             <Route path="/ListeServeurs" exact component={Liste} />
@@ -76,7 +78,7 @@ componentDidMount(){  if (localStorage.getItem("token") !== null) {
               component={modifierMonProfil}
             />
           </Switch>
-          {/*<Footer />*/}
+          <Footer />
         </Router>
       </div>
     );

@@ -11,6 +11,7 @@ import qs from "qs";
 import axios from "axios";
 
 import "./TipCommun1.css";
+import { Alert } from "bootstrap";
 
 class TipCommun1 extends Component {
   constructor(props) {
@@ -22,25 +23,29 @@ class TipCommun1 extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   postToken = () => {
-    axios({
-      method: "post",
-      url: this.state.data.CardRegistrationURL,
-      data: qs.stringify({
-        cardRegistrationId: this.state.data.Id,
-        accessKeyRef: this.state.data.AccessKey,
-        data: this.state.data.PreregistrationData,
-        cardNumber: this.state.cardNumber,
-        cardExpirationDate: this.state.cardExpirationDate,
-        cardCvx: this.state.cardCvx,
-      }),
-      headers: {
-        "content-type": "application/x-www-form-urlencoded;charset=utf-8",
-      },
-    }).then((result) => {
-      this.setState({ resultat: result });
+    if (this.state.amount <= 1) {
+      window.alert("Le montant minimum du tips doit être de 2 euros");
+    } else {
+      axios({
+        method: "post",
+        url: this.state.data.CardRegistrationURL,
+        data: qs.stringify({
+          cardRegistrationId: this.state.data.Id,
+          accessKeyRef: this.state.data.AccessKey,
+          data: this.state.data.PreregistrationData,
+          cardNumber: this.state.cardNumber,
+          cardExpirationDate: this.state.cardExpirationDate,
+          cardCvx: this.state.cardCvx,
+        }),
+        headers: {
+          "content-type": "application/x-www-form-urlencoded;charset=utf-8",
+        },
+      }).then((result) => {
+        this.setState({ resultat: result });
 
-      this.payin();
-    });
+        this.payin();
+      });
+    }
   };
   payin = () => {
     const headers = new Headers({
@@ -102,6 +107,7 @@ class TipCommun1 extends Component {
         <Row>
           <Col className="blocCommun" xs={12} s={12} md={12}>
             <p className="titleCommun">Paiement du pourboire</p>
+            <h5 className="tipsMin">Le tips doit être de 2 euros minimum !</h5>
           </Col>
           <Col className="formCommun" xs={12} s={12} md={12}>
             <Form className="formCommun">

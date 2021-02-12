@@ -14,6 +14,13 @@
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
 }
+.tipsMin {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
 .communButton {
   background-color: #f5a624 !important;
   font-size: 20px;
