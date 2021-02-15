@@ -62,6 +62,11 @@
   padding-left: 28%;
   padding-right: 28%;
 }
+.connectButton:hover {
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
+}
 
 .creerCompte {
   color: #f5a624;
@@ -101,6 +106,11 @@
     padding-top: 1% !important;
     padding-left: 2% !important;
     padding-right: 2% !important;
+  }
+  .connectButton:hover {
+    background-color: rgba(255, 102, 0, 0.774) !important;
+    color: white !important;
+    border-color: yellow !important;
   }
 
   .blocprincipalClient {

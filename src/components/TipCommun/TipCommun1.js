@@ -140,7 +140,7 @@ class TipCommun1 extends Component {
             </Form>
           </Col>
           <Col className="ButtonCol" xs={12} s={12} md={12}>
-            <Button className="communButton" onClick={this.postToken}>
+            <Button className="communButtonVal" onClick={this.postToken}>
               Payer
             </Button>
           </Col>
