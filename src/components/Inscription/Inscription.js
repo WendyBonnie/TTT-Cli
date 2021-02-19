@@ -157,7 +157,7 @@ class Inscription extends Component {
             <Form.Group controlId="adress">
               <Form.Control
                 type="text"
-                placeholder="Ville/Code postale"
+                placeholder="Ville"
                 name="adress"
                 onChange={this.change}
               />

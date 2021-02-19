@@ -74,7 +74,6 @@ class BarreMenu extends Component {
 
             <Dropdown.Menu>
               <Dropdown.Item href="/Profil">Mon profil</Dropdown.Item>
-              <Dropdown.Item href="/Home">Donner un pourboire</Dropdown.Item>
               <Dropdown.Item href="/Connexion">Connexion</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

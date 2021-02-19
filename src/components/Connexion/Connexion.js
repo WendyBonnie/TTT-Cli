@@ -63,7 +63,7 @@ class Connexion extends Component {
     return (
       <Container className="connexion">
         <Row className="blocprincipalClient">
-          <Col xs={12} s={12} md={6} className='formConnexion'>
+          <Col xs={12} s={12} md={6} lg={6} className='formConnexion'>
           <Form className="formConnexion">
             <Form.Label className="text">
               Déjà membre? 

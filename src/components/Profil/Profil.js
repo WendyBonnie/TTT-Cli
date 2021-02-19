@@ -152,7 +152,7 @@ class Client extends Component {
          <Col s={12} xs={12} md={6}>
          <Link to="/ListeServeurs" className="modif">
              <Button className="buttonedit" type="submit">
-                 Donner un Tipourboire
+                 Donner un pourboire
              </Button>
          </Link>
          </Col>
