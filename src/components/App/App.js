@@ -40,9 +40,7 @@ class App extends Component {
   setLogin = (value) => {
     this.setState({ login: value });
   };
-componentDidMount(){  if (localStorage.getItem("token") !== null) {
-  this.setState({ login: true });
-}}
+
   render() {
     return (
       <div>
