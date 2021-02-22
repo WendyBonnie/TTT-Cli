@@ -43,6 +43,7 @@ class Connexion extends Component {
 
       .then(
         (responseObject) => {
+          console.log('ok')
           this.setState({ message: responseObject.message });
           if (responseObject.token && responseObject.userId) {
             /*stocker le token et l'userId dans le localStorage pour pouvoir les rappeler une fois la connection reussie */
@@ -96,6 +97,7 @@ class Connexion extends Component {
                 value={this.state.password}
               />
             </Form.Group>
+            
             <Col className='colMdp' xs={12} md={9}>
             <Link className="forgetpwd" to="/passwordReset">
              
@@ -103,18 +105,19 @@ class Connexion extends Component {
            
             </Link>
             <p className='politique'>J'ai lu et j'accepte <Link>la politique de confidentialité.</Link></p>
-          
+           
             </Col>
-            <Col md={9}> 
-             <Button
+          
+           
+            <Col md={9} className='blocCompte'>
+            <Button 
               className="connectButton"
-              onClick={this.loginClient}
+              
+              onClick={this.loginClient.bind(this)}
             >
               Se connecter
             </Button>
-            </Col>
-              <p>{this.state.message}</p>
-            <Col md={9} className='blocCompte'>
+            <p>{this.state.message}</p>
             <Form.Group>
               <Form.Label className="text2">Pas encore membre ?</Form.Label>
             </Form.Group>
