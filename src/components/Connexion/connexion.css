@@ -10,6 +10,11 @@
   margin-bottom: 10%;
 }
 
+
+
+
+
+
 .connexion a {
   color: #f5a624;
 }
@@ -62,6 +67,11 @@
   padding-left: 28%;
   padding-right: 28%;
 }
+.connectButton:hover {
+  background-color: #fcba03!important;
+  color: white !important;
+  border-color: yellow !important;
+}
 
 .creerCompte {
   color: #f5a624;
@@ -88,7 +98,10 @@
   .text {
     margin-bottom: 5%;
   }
-
+  .form-control{
+    width:75%!important;
+    text-align:left!important;
+}
   .passwordConnexion {
     margin-bottom: 4%;
   }
@@ -101,6 +114,11 @@
     padding-top: 1% !important;
     padding-left: 2% !important;
     padding-right: 2% !important;
+  }
+  .connectButton:hover {
+    background-color: #fcba03 !important;
+    color: white !important;
+    border-color: yellow !important;
   }
 
   .blocprincipalClient {

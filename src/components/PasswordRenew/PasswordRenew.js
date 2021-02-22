@@ -5,12 +5,7 @@
 /* Modules and components imports */
 import React, { Component } from "react";
 import "./PasswordRenew.css";
-import {
-  Row,
-  Col,
-  Container,
-  Button,
- } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
 /* PasswordRenew component */
 class PasswordRenew extends Component {
   constructor(props) {
@@ -49,7 +44,7 @@ class PasswordRenew extends Component {
       body: JSON.stringify(data),
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/serveur/password-renew", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/password-renew", options)
       .then((response) => response.json())
       .then(
         (responseObject) => {
@@ -63,40 +58,37 @@ class PasswordRenew extends Component {
 
   render() {
     return (
-      <Container className='renewPass'>
-      <Row>
-        <Col className="PassRenewCol" md={12} >
-      <h1 className='newPass'> Votre nouveau mot de passe</h1>
-        <form className="formRenew" onSubmit={this.passwordRenew}>
-          
-          <input
-          className="inputRenew"
-            type="email"
-            id="email"
-            name="email"
-            onChange={this.handleInput}
-            placeholder="Email"
-          />
+      <Container className="renewPass">
+        <Row>
+          <Col className="PassRenewCol" md={12}>
+            <h1 className="newPass"> Votre nouveau mot de passe</h1>
+            <form className="formRenew" onSubmit={this.passwordRenew}>
+              <input
+                className="inputRenew"
+                type="email"
+                id="email"
+                name="email"
+                onChange={this.handleInput}
+                placeholder="Email"
+              />
 
-<br/>
+              <br />
 
-         
-          <input
-          className="inputRenew"
-            type="password"
-            id="password"
-            name="password"
-            onChange={this.handleInput}
-            placeholder="Nouveau mot de passe"
-          />
-<br/>
-          <Button className="renewButton">Valider</Button>
-        </form>
+              <input
+                className="inputRenew"
+                type="password"
+                id="password"
+                name="password"
+                onChange={this.handleInput}
+                placeholder="Nouveau mot de passe"
+              />
+              <br />
+              <Button className="renewButton">Valider</Button>
+            </form>
 
-        <p>{this.state.message}</p>
-   
-      </Col>
-      </Row>
+            <p>{this.state.message}</p>
+          </Col>
+        </Row>
       </Container>
     );
   }

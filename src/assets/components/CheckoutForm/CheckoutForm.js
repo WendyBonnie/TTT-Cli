@@ -129,30 +129,36 @@ class CheckoutForm extends Component {
     // using `error.message`.
   };
   appChoice = async (event) => {
-    // When the customer clicks on the button, redirect them to Checkout.
-    const stripe = await stripePromise;
-    let amount = this.state.amount;
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [
-        {
-          price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
-          quantity: Number(amount),
-        },
-      ],
-      mode: "payment",
+    if (this.state.amount <= 1) {
+      window.alert("Le montant minimum du tips doit être de 2 euros");
 
-      successUrl:
-        "https://back-end.osc-fr1.scalingo.io/client/transfert?qte=" +
-        amount +
-        "&mail=" +
-        this.state.client.email +
-        "&RN=" +
-        localStorage.getItem("restaurantName"),
-      cancelUrl: "http://localhost:3000/Payment",
-    });
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer
-    // using `error.message`.
+      return;
+    } else {
+      // When the customer clicks on the button, redirect them to Checkout.
+      const stripe = await stripePromise;
+      let amount = this.state.amount;
+      const { error } = await stripe.redirectToCheckout({
+        lineItems: [
+          {
+            price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+            quantity: Number(amount),
+          },
+        ],
+        mode: "payment",
+
+        successUrl:
+          "https://back-end.osc-fr1.scalingo.io/client/transfert?qte=" +
+          amount +
+          "&mail=" +
+          this.state.client.email +
+          "&RN=" +
+          localStorage.getItem("restaurantName"),
+        cancelUrl: "http://localhost:3000/Payment",
+      });
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `error.message`.
+    }
   };
   change = (event) => {
     this.setState({

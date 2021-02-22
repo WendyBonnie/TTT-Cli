@@ -67,7 +67,10 @@ class footer extends Component {
               >
                 Condition Général
               </Nav.Link>
-              <Nav.Link href="#pricing" className="textFooter">
+              <Nav.Link
+                href="mailto:contact@tipourboire.com"
+                className="textFooter"
+              >
                 Contact
               </Nav.Link>
               <Nav.Link

@@ -37,7 +37,6 @@
   margin-bottom: 10%;
 }
 
-
 .general {
   text-align: center !important ;
   margin-bottom: 5%;
@@ -58,6 +57,7 @@
   border-radius: 28px !important;
   border-color: #f5a624 !important;
 }
+
 .blocPrincipalClient {
   background: #ffffff;
   border-radius: 28px;
@@ -67,24 +67,26 @@
   box-shadow: 1px 1px 3px #999;
 }
 
-.butTips{
+.butTips {
   text-align: center;
-    margin-top: -2%;
-    margin-bottom: 4%;
+  margin-top: -2%;
+  margin-bottom: 4%;
 }
 
-.colButton{
+.colButton {
   text-align: center;
   margin-bottom: 5%;
 }
 @media only screen and (min-device-width: 768px) {
-
-  .container{
-    margin-right:auto
+  .container {
+    margin-right: auto;
   }
-
-  .blocPrincipalClient{
-    margin-top: 0%!important;
+  .colButton:hover {
+    text-align: center;
+    margin-bottom: 5%;
+  }
+  .blocPrincipalClient {
+    margin-top: 0% !important;
     box-shadow: none;
   }
   .giveTip {
@@ -96,21 +98,27 @@
   .card-body {
     font-size: 45px;
   }
-  .vousEtes{
-    margin-top:0%;
-    margin-bottom:5%;
-    margin-right:0%!important
+  .vousEtes {
+    margin-top: 0%;
+    margin-bottom: 5%;
+    margin-right: 0% !important;
   }
 
-  .vousEtes img{
-    width:5%
+  .vousEtes img {
+    width: 5%;
   }
   .card {
     flex-direction: row !important;
   }
 
-  .rowImage img{
-    width:58%!important
+  .rowImage img {
+    width: 58% !important;
+  }
+
+  .blocPrincipalClient button:hover {
+    background-color: rgba(255, 102, 0, 0.774) !important;
+    color: white !important;
+    border-color: yellow !important;
   }
 
   .colLieu {

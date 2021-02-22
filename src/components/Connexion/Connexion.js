@@ -63,7 +63,7 @@ class Connexion extends Component {
     return (
       <Container className="connexion">
         <Row className="blocprincipalClient">
-          <Col xs={12} s={12} md={6} className='formConnexion'>
+          <Col xs={12} s={12} md={6} lg={6} className='formConnexion'>
           <Form className="formConnexion">
             <Form.Label className="text">
               Déjà membre? 
@@ -96,25 +96,26 @@ class Connexion extends Component {
                 value={this.state.password}
               />
             </Form.Group>
-            <Col className='colMdp' xs={12} md={8}>
+            <Col className='colMdp' xs={12} md={9}>
             <Link className="forgetpwd" to="/passwordReset">
              
                 <p>Mot de passe oublié ?</p>
            
             </Link>
             <p className='politique'>J'ai lu et j'accepte <Link>la politique de confidentialité.</Link></p>
-            <Button
+          
+            </Col>
+            <Col md={9}>  <Button
               className="connectButton"
-              type="submit"
+              
               onClick={this.loginClient}
             >
               Se connecter
-            </Button>
-            </Col>
+            </Button></Col>
 
             
             <p>{this.state.message}</p>
-            <Col md={8} className='blocCompte'>
+            <Col md={9} className='blocCompte'>
             <Form.Group>
               <Form.Label className="text2">Pas encore membre ?</Form.Label>
             </Form.Group>

@@ -20,6 +20,10 @@ body {
   font-size: 25px !important;
 }
 
+.form-control{
+  height:2%!important;
+}
+
 .sous-titre {
   text-align: left;
   color: #4a4a4a;
@@ -48,8 +52,9 @@ body {
   /* margin-top: -100px; */
 }
 .buttonInscri:hover {
-  background-color: #ffc107 !important;
-  border-color: #f5a624 !important;
+  background-color: #fcba03 !important;
+  color: white !important;
+  border-color: yellow !important;
 }
 
 @media only screen and (min-device-width: 768px) {
@@ -67,6 +72,11 @@ body {
     width: 50% !important;
 
     border-radius: 28px !important;
+  }
+  .buttonInscri:hover {
+    background-color:#fcba03 !important;
+    color: white !important;
+    border-color: yellow !important;
   }
 
   .bigBlocClient .blocprincipalClient {
