@@ -24,37 +24,35 @@ class BarreMenu extends Component {
   connect = () => {
     if (localStorage.getItem("token") === null) {
       return (
-        <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
-          <Nav className="justify-content-end">
-            <Nav.Link className="navlink">
-              <Link className="link" to="/Connexion">
-                Se connecter
-              </Link>
-            </Nav.Link>
-            <Nav.Link className="navlink">
-              <Link className="link" to="/Inscription">
-                S'inscrire
-              </Link>
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+        
+        <Dropdown className="nav justify-content-right">
+        <Dropdown.Toggle alignRight variant="success" id="dropdown-basic">
+          <img src="/logoTTT/user.png" />
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Dropdown.Item href="/Connexion">Connexion</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       );
     } else {
       return (
-        <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
-          <Nav className="justify-content-end">
-            <Nav.Link className="navlink">
-              <Link className="link" to="/Profil">
-                Gérer mon compte
-              </Link>
-            </Nav.Link>
-            <Nav.Link className="navlink">
-              <Link className="link" to="/Historique">
-                Historique de pourboires
-              </Link>
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+        <Dropdown className="nav justify-content-right">
+        <Dropdown.Toggle alignRight variant="success" id="dropdown-basic">
+          <img src="/logoTTT/user.png" />
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Dropdown.Item href="/Profil">Mon profil</Dropdown.Item>
+          <Dropdown.Item onClick={() => {
+                    window.confirm("Voulez vous vous déconnecter ?");
+                    localStorage.clear();
+                    this.props.setLogin(false);
+                    this.props.history.push("/");
+                  }}
+                  href="/" >Deconnexion</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       );
     }
   };
@@ -67,17 +65,8 @@ class BarreMenu extends Component {
     return (
       <Container fluid>
         <Row className="partie1">
-          <Dropdown className="nav justify-content-right">
-            <Dropdown.Toggle alignRight variant="success" id="dropdown-basic">
-              <img src="/logoTTT/user.png" />
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item href="/Profil">Mon profil</Dropdown.Item>
-              <Dropdown.Item href="/Connexion">Connexion</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-
+        
+          {this.connect()}
           <Col className="logoPartie1" md={12}>
             <img src="/logoTTT/logoJaune.png" />
           </Col>
