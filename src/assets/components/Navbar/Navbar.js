@@ -31,7 +31,8 @@ class BarreMenu extends Component {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="/Connexion">Connexion</Dropdown.Item>
+          <Dropdown.Item href="/">Connexion</Dropdown.Item>
+          <Dropdown.Item href="/Inscription">Inscription</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       );
