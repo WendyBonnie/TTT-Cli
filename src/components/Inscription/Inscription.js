@@ -80,7 +80,7 @@ class Inscription extends Component {
             alert(
               "Votre inscription a bien été prise en compte. Vous pouvez désormais accéder à votre compte"
             );
-            this.props.history.push("/Connexion");
+            this.props.history.push("/");
           } /* pour allez vers la page connexion une fois l'inscription done--success déclaré en back*/
         },
 
