@@ -105,16 +105,15 @@ class Connexion extends Component {
             <p className='politique'>J'ai lu et j'accepte <Link>la politique de confidentialité.</Link></p>
           
             </Col>
-            <Col md={9}>  <Button
+            <Col md={9}> 
+             <Button
               className="connectButton"
-              
               onClick={this.loginClient}
             >
               Se connecter
-            </Button></Col>
-
-            
-            <p>{this.state.message}</p>
+            </Button>
+            </Col>
+              <p>{this.state.message}</p>
             <Col md={9} className='blocCompte'>
             <Form.Group>
               <Form.Label className="text2">Pas encore membre ?</Form.Label>
