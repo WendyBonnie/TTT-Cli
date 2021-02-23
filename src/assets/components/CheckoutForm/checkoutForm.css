@@ -1,9 +1,10 @@
 .tipButton1 {
   background-color: #f5a624 !important;
   color: white;
-  border-radius: 28px !important;
+  border-radius: 48px !important;
   border-color: #f5a624 !important;
-  padding: 3%;
+  padding-bottom: 13%;
+  padding-top: 13%;
   box-shadow: none;
   border-width: 0px;
 }
@@ -11,9 +12,10 @@
 .tipButton2 {
   background-color: #f5a624 !important;
   color: white;
-  border-radius: 28px !important;
+  border-radius: 48px !important;
   border-color: #f5a624 !important;
-  padding: 3%;
+  padding-bottom: 13%;
+  padding-top: 13%;
   box-shadow: none;
   border-width: 0px;
 }
@@ -21,15 +23,20 @@
 .tipButton3 {
   background-color: #f5a624 !important;
   color: white;
-  border-radius: 28px !important;
+  border-radius: 48px !important;
   border-color: #f5a624 !important;
-  padding: 3%;
+  padding-bottom: 15%;
+  padding-top: 15%;
   box-shadow: none;
   border-width: 0px;
 }
 
 .RowPourboire {
   margin-top: 5%;
+}
+
+.RowPourboire .col{
+  text-align: center;
 }
 .titleTips {
   text-align: center;
@@ -64,19 +71,39 @@
 @media only screen and (min-device-width: 768px) {
   .allButton {
     text-align: center;
+
+  }
+  .containcheck{
+    margin-left: auto!important;
+
+  }
+
+  .tipButton1{
+    padding-top: 2%!important;
+    padding-bottom: 2%!important;
+  }
+
+  .tipButton2{
+    padding-top: 2%!important;
+    padding-bottom: 2%!important;
+  }
+
+  .tipButton3{
+    padding-top: 2%!important;
+    padding-bottom: 2%!important;
   }
   .tipButton2:hover {
-    background-color: rgba(255, 102, 0, 0.774) !important;
+    background-color: rgb(39, 38, 37)  !important;
     color: white !important;
     border-color: yellow !important;
   }
   .tipButton1:hover {
-    background-color: rgba(255, 102, 0, 0.774) !important;
+    background-color: rgb(39, 38, 37) !important;
     color: white !important;
     border-color: yellow !important;
   }
   .tipButton3:hover {
-    background-color: rgba(255, 102, 0, 0.774) !important;
+    background-color: rgb(39, 38, 37)  !important;
     color: white !important;
     border-color: yellow !important;
   }

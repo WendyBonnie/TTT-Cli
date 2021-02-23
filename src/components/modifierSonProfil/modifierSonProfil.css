@@ -49,7 +49,7 @@
 .bloc-modifierProfil .submitButton:hover,
 .bloc-modifierProfil .submitButton:active {
   border-radius: 28px !important;
-  background-color: #f5a624 !important;
+  background-color: #555 !important;
   border-color: #f5a624 !important;
   font-size: 23px !important;
   color: #ffffff;
@@ -142,7 +142,7 @@
   }
 
   .submitButton:hover {
-    background-color: #f5a624 !important;
+    background-color: #555 !important;
     width: 50%;
     border-color: #f5a624 !important;
     padding-top: 1% !important;

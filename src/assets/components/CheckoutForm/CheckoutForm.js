@@ -170,25 +170,25 @@ class CheckoutForm extends Component {
   }
   render() {
     return (
-      <Container>
+      <Container className='check'>
         <div className="blocTips">
           <div className="allButton">
             <h1 className="titleTips">Don Tipourboire</h1>
             <Row className="RowPourboire">
               <Col>
-                <button className="tipButton1" onClick={this.app1}>
-                  Donnez 2 euros
-                </button>
+                <Button className="tipButton1" onClick={this.app1}>
+                   2 €
+                </Button>
               </Col>
               <Col>
-                <button className="tipButton2" onClick={this.app2}>
-                  Donnez 5 euros
-                </button>
+                <Button className="tipButton2" onClick={this.app2}>
+                  5 €
+                </Button>
               </Col>
               <Col>
-                <button className="tipButton3" onClick={this.app}>
-                  Donnez 10 euros
-                </button>
+                <Button className="tipButton3" onClick={this.app}>
+                  10 €
+                </Button>
               </Col>
             </Row>
           </div>

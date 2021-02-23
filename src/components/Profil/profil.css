@@ -2,6 +2,7 @@ body {
   background-color: #efefef;
 }
 
+
 .blocprincipalProfil {
   background: #ffffff;
   font-family: "Montserrat", sans-serif;
@@ -34,6 +35,7 @@ body {
   margin-left: 170px;
   display: none;
 }
+
 
 .Titre-profil {
   color: #f4a521;
@@ -90,6 +92,8 @@ body {
     width: 100% !important;
   }
 
+
+  
   .buttondeco {
     padding: 3% !important;
     width: 100% !important;
