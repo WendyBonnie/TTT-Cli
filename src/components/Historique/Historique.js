@@ -81,8 +81,8 @@ class Historique extends Component {
           <Col className='titleHisto'> <h3>Historique de vos pourboire</h3></Col>
         </Row>
        
-      <Row class="table-responsive-sm">
-        <Table class="table-responsive-sm" striped hover>
+      <Row class="table-responsive">
+        <Table  striped hover>
         <thead>
       <tr>
         <th>Montant</th>

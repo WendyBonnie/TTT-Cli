@@ -122,24 +122,28 @@ class TipCommun1 extends Component {
                   type="number"
                   placeholder="Montant du Don Général"
                   onChange={this.handleInput}
+                  className='marginInput'
                 />
                 <Form.Control
                   name="cardNumber"
                   type="text"
                   placeholder="Numéro de carte bleu"
                   onChange={this.handleInput}
+                  className='marginInput'
                 />
                 <Form.Control
                   name="cardExpirationDate"
                   type="text"
                   placeholder="Date d'expiration"
                   onChange={this.handleInput}
+                  className='marginInput'
                 />
                 <Form.Control
                   name="cardCvx"
                   type="text"
                   placeholder="CVX"
                   onChange={this.handleInput}
+                  className='marginInput'
                 />
               </Form.Group>
             </Form>

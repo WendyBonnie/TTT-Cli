@@ -22,7 +22,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
 }
-.communButton {
+.communButtonVal {
   background-color: #f5a624 !important;
   font-size: 20px;
   border-radius: 28px !important;
@@ -30,6 +30,10 @@
 }
 .ButtonCol {
   text-align: center !important;
+}
+
+.marginInput{
+  margin-bottom: 7%;
 }
 
 @media only screen and (min-device-width: 768px) {
