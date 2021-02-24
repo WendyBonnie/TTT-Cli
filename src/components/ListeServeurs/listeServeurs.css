@@ -116,7 +116,7 @@
   }
 
   .blocPrincipalClient button:hover {
-    background-color: rgba(255, 102, 0, 0.774) !important;
+    background-color: #555 !important;
     color: white !important;
     border-color: yellow !important;
   }

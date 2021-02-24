@@ -68,8 +68,12 @@ class TipCommun1 extends Component {
         return response.json();
       })
       .then((result) => {
-        this.setState({ walletID: result });
-        console.log(result);
+        if(result.Type === "param_error") {
+          window.alert("Une erreur s'est produite, veuillez réessayer.")
+        }else {
+          this.setState({ walletID: result });
+          console.log(result);
+        }
       });
   };
   getWalletId = () => {
@@ -91,7 +95,8 @@ class TipCommun1 extends Component {
       })
       .then((result) => {
         this.setState({ walletID: result });
-        console.log(result);
+        this.setState({message : result.message})
+        console.log(result.ResultMessage);
       });
   };
 
@@ -144,6 +149,7 @@ class TipCommun1 extends Component {
               Payer
             </Button>
           </Col>
+         
         </Row>
       </Container>
     );

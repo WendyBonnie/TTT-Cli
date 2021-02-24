@@ -63,7 +63,6 @@ class App extends Component {
               )}
             />
             <Route path="/Inscription" exact component={Inscription} />
-
             <Route path="/Profil" exact component={Profil} />
             <Route path="/Home" exact component={HomePageClient} />
             <Route path="/ListeServeurs" exact component={Liste} />
