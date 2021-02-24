@@ -21,6 +21,10 @@
 .ButtonCol {
   text-align: center !important;
 }
+
+.marginInput{
+  margin-bottom: 7%;
+}
 @media only screen and (min-device-width: 768px) {
   .mainBlocCommun {
     margin-left: auto !important;

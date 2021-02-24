@@ -61,6 +61,7 @@ class TipCommun extends Component {
               placeholder="E-Mail"
               onChange={this.handleInput}
               value={this.state.email}
+              className='marginInput'
             />
             <Form.Control
               name="lastname"
@@ -68,6 +69,7 @@ class TipCommun extends Component {
               placeholder="Nom"
               onChange={this.handleInput}
               value={this.state.lastname}
+              className='marginInput'
             />
             <Form.Control
               name="firstname"
@@ -75,6 +77,7 @@ class TipCommun extends Component {
               placeholder="Prénom"
               onChange={this.handleInput}
               value={this.state.firstname}
+              className='marginInput'
             />
           </Form.Group>
           </Form>
