@@ -53,7 +53,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <BarreMenu />
+          <BarreMenu setLogin={this.setLogin} login={this.state.login} />
           <Switch>
             <Route
               exact

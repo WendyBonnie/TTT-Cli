@@ -43,13 +43,13 @@ class Connexion extends Component {
 
       .then(
         (responseObject) => {
-          console.log('ok')
           this.setState({ message: responseObject.message });
-          if (responseObject.token && responseObject.userId) {
-            /*stocker le token et l'userId dans le localStorage pour pouvoir les rappeler une fois la connection reussie */
+          this.setState({ message: responseObject.message });
+
+          if (responseObject.token) {
             localStorage.setItem("token", responseObject.token);
             localStorage.setItem("userID", responseObject.userId);
-            /*permet d'allez vers la page profil APRES avoir valider la connexion (et pouvoir recuperer le localstorage aussi)*/
+            this.props.setLogin(true);
             this.props.history.push("/ListeServeurs");
           }
         },
@@ -64,71 +64,64 @@ class Connexion extends Component {
     return (
       <Container className="connexion">
         <Row className="blocprincipalClient">
-          <Col xs={12} s={12} md={6} lg={6} className='formConnexion'>
-          <Form className="formConnexion">
-            <Form.Label className="text">
-              Déjà membre? 
-            </Form.Label>
-            <Form.Label className="text">
-             Connectez-vous !
-            </Form.Label>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Control
-                name="email"
-                type="email"
-                placeholder="Votre e-mail"
-                id="email"
-                onChange={this.change}
-                value={this.state.email}
-              />
-              <Form.Text className="text-muted"></Form.Text>
-            </Form.Group>
+          <Col xs={12} s={12} md={6} lg={6} className="formConnexion">
+            <Form className="formConnexion">
+              <Form.Label className="text">Déjà membre?</Form.Label>
+              <Form.Label className="text">Connectez-vous !</Form.Label>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Control
+                  name="email"
+                  type="email"
+                  placeholder="Votre e-mail"
+                  id="email"
+                  onChange={this.change}
+                  value={this.state.email}
+                />
+                <Form.Text className="text-muted"></Form.Text>
+              </Form.Group>
 
-            <Form.Group
-              className="passwordConnexion"
-              controlId="formBasicPassword"
-            >
-              <Form.Control
-                name="password"
-                type="password"
-                placeholder="Mot de passe"
-                id="password"
-                onChange={this.change}
-                value={this.state.password}
-              />
-            </Form.Group>
-            
-            <Col className='colMdp' xs={12} md={9}>
-            <Link className="forgetpwd" to="/passwordReset">
-             
-                <p>Mot de passe oublié ?</p>
-           
-            </Link>
-            <p className='politique'>J'ai lu et j'accepte <Link>la politique de confidentialité.</Link></p>
-           
-            </Col>
-          
-           
-            <Col md={9} className='blocCompte'>
-            <Button 
-              className="connectButton"
-              
-              onClick={this.loginClient.bind(this)}
-            >
-              Se connecter
-            </Button>
-            <p>{this.state.message}</p>
-            <Form.Group>
-              <Form.Label className="text2">Pas encore membre ?</Form.Label>
-            </Form.Group>
-            <Link className="creerCompte" to="/Inscription">
-              Créer mon compte
-            </Link>
-            </Col>
-          </Form>
-          
+              <Form.Group
+                className="passwordConnexion"
+                controlId="formBasicPassword"
+              >
+                <Form.Control
+                  name="password"
+                  type="password"
+                  placeholder="Mot de passe"
+                  id="password"
+                  onChange={this.change}
+                  value={this.state.password}
+                />
+              </Form.Group>
+
+              <Col className="colMdp" xs={12} md={9}>
+                <Link className="forgetpwd" to="/passwordReset">
+                  <p>Mot de passe oublié ?</p>
+                </Link>
+                <p className="politique">
+                  J'ai lu et j'accepte{" "}
+                  <Link>la politique de confidentialité.</Link>
+                </p>
+              </Col>
+
+              <Col md={9} className="blocCompte">
+                <Button
+                  className="connectButton"
+                  onClick={this.loginClient.bind(this)}
+                >
+                  Se connecter
+                </Button>
+                <p>{this.state.message}</p>
+                <Form.Group>
+                  <Form.Label className="text2">Pas encore membre ?</Form.Label>
+                </Form.Group>
+                <Link className="creerCompte" to="/Inscription">
+                  Créer mon compte
+                </Link>
+              </Col>
+            </Form>
           </Col>
-          <Col className='connexPic'></Col>
+          <Col className="connexPic"></Col>
         </Row>
       </Container>
     );
