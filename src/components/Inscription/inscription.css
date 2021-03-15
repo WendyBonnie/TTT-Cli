@@ -14,6 +14,9 @@ body {
   background-color: #ffffff !important;
 }
 
+.blocprincipalClient .cgvLink {
+  color:  #f5a624 !important;
+}
 .TitreInscription {
   color: #f5a624 !important;
   text-align: left;
