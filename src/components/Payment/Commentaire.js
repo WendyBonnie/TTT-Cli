@@ -102,8 +102,8 @@ class Commentaires extends Component {
             value={this.state.texte}
             name="texte"
             type="text"
-            class="form-control"
-            placeholder="Que voulez-vous dire ?"
+            class="form-control formCommentaire"
+            placeholder="Votre commentaire"
           ></textarea>
           </Col>
           

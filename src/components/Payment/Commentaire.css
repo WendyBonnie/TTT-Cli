@@ -15,7 +15,9 @@ body{
     background-color: white;
     padding-bottom: 10%;
 }
-
+ .contCom .formCommentaire {
+     padding-bottom: 25% !important;
+ }
 .contCom .coms{
     margin-bottom: 5%;
 }
@@ -39,4 +41,5 @@ body{
    .caract{
        text-align: right;
    }
+  
 }
