@@ -37,12 +37,12 @@
 
 .dropdown-menu a {
   color: white;
-  font-size: 27px;
+  font-size: 25px;
   margin-bottom:11%;
 }
 @media only screen and (min-device-width: 768px) {
   .partie1{
-    padding-bottom: 6%;
+    padding-bottom: 3%;
   }
   .logoPartie1 {
     text-align: center;

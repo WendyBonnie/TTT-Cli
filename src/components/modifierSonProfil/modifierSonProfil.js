@@ -181,6 +181,8 @@ class modifierMonProfil extends Component {
         >
           Mettre à jour mon profil
         </Button>
+        <br/>
+        {this.state.message}
         </Col>
         </Row>
       </div>
