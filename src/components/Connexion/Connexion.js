@@ -13,11 +13,10 @@ class Connexion extends Component {
     this.state = { email: null, password: null };
   }
 
-  change = (event) => {
-    this.setState({
-      [event.target.id]: event.target.value, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
-    });
+  change = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
+  
 
   loginClient = (e) => {
     e.preventDefault();
@@ -62,67 +61,52 @@ class Connexion extends Component {
 
   render() {
     return (
-      <Container className="connexion">
-        <Row className="blocprincipalClient">
-          <Col xs={12} s={12} md={6} lg={6} className="formConnexion">
-            <Form className="formConnexion">
-              <Form.Label className="text">Déjà membre?</Form.Label>
-              <Form.Label className="text">Connectez-vous !</Form.Label>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control
-                  name="email"
-                  type="email"
-                  placeholder="Votre e-mail"
-                  id="email"
-                  onChange={this.change}
-                  value={this.state.email}
-                />
-                <Form.Text className="text-muted"></Form.Text>
-              </Form.Group>
-
-              <Form.Group
-                className="passwordConnexion"
-                controlId="formBasicPassword"
-              >
-                <Form.Control
-                  name="password"
-                  type="password"
-                  placeholder="Mot de passe"
-                  id="password"
-                  onChange={this.change}
-                  value={this.state.password}
-                />
-              </Form.Group>
-
-              <Col className="colMdp" xs={12} md={9}>
-                <Link className="forgetpwd" to="/passwordReset">
-                  <p>Mot de passe oublié ?</p>
-                </Link>
-                <p className="politique">
-                  J'ai lu et j'accepte{" "}
-                  <Link>la politique de confidentialité.</Link>
-                </p>
-              </Col>
-
-              <Col md={9} className="blocCompte">
-                <Button
-                  className="connectButton"
-                  onClick={this.loginClient.bind(this)}
-                >
-                  Se connecter
-                </Button>
-                <p>{this.state.message}</p>
-                <Form.Group>
-                  <Form.Label className="text2">Pas encore membre ?</Form.Label>
-                </Form.Group>
-                <Link className="creerCompte" to="/Inscription">
-                  Créer mon compte
-                </Link>
-              </Col>
-            </Form>
+      <Container className="connexion-container">
+        <Row>
+          <Col>
+            <h1>Déja membre ? </h1>
+            <h1>Connectez-vous!</h1>
           </Col>
-          <Col className="connexPic"></Col>
         </Row>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Control
+            name="email"
+            type="email"
+            ClassName="formMail"
+            placeholder="Votre e-mail"
+            id="email"
+            onChange={this.change}
+            value={this.state.email}
+          />
+          <Form.Control
+            name="password"
+            type="password"
+            ClassName="formMail"
+            placeholder="Votre mot de passe"
+            id="password"
+            onChange={this.change}
+            value={this.state.password}
+          />
+        </Form.Group>
+        <Col className="colMdp" xs={12} md={12}>
+          <Link className="forgetpwd" to="/passwordReset">
+            <p>Mot de passe oublié ?</p>
+          </Link>
+        </Col>
+        <Col md={12} className="blocCompte">
+          <Button className="connectButton" onClick={this.loginClient}>
+            Se connecter
+          </Button>
+          <p>{this.state.message}</p>
+        </Col>
+        <Col className="alignRight">
+          <Form.Label className="text2">
+            Pas encore membre ?{" "}
+            <Link className="creerCompte" to="/Inscription">
+              Créer mon compte
+            </Link>
+          </Form.Label>
+        </Col>
       </Container>
     );
   }
