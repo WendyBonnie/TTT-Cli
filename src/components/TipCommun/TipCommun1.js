@@ -68,11 +68,13 @@ class TipCommun1 extends Component {
         return response.json();
       })
       .then((result) => {
-        if(result.Type === "param_error") {
-          window.alert("Une erreur s'est produite, veuillez réessayer.")
-        }else {
+        if (result.Type === "param_error") {
+          window.alert("Une erreur s'est produite, veuillez réessayer.");
+        } else {
           this.setState({ walletID: result });
-          console.log(result);
+          window.alert(
+            "Merci pour votre pourboire. A bientôt dans nos restaurants partenaires"
+          );
         }
       });
   };
@@ -95,7 +97,7 @@ class TipCommun1 extends Component {
       })
       .then((result) => {
         this.setState({ walletID: result });
-        this.setState({message : result.message})
+        this.setState({ message: result.message });
         console.log(result.ResultMessage);
       });
   };
@@ -122,28 +124,28 @@ class TipCommun1 extends Component {
                   type="number"
                   placeholder="Montant du Don Général"
                   onChange={this.handleInput}
-                  className='marginInput'
+                  className="marginInput"
                 />
                 <Form.Control
                   name="cardNumber"
                   type="text"
                   placeholder="Numéro de carte bleu"
                   onChange={this.handleInput}
-                  className='marginInput'
+                  className="marginInput"
                 />
                 <Form.Control
                   name="cardExpirationDate"
                   type="text"
                   placeholder="Date d'expiration"
                   onChange={this.handleInput}
-                  className='marginInput'
+                  className="marginInput"
                 />
                 <Form.Control
                   name="cardCvx"
                   type="text"
                   placeholder="CVX"
                   onChange={this.handleInput}
-                  className='marginInput'
+                  className="marginInput"
                 />
               </Form.Group>
             </Form>
@@ -153,7 +155,6 @@ class TipCommun1 extends Component {
               Payer
             </Button>
           </Col>
-         
         </Row>
       </Container>
     );

@@ -43,10 +43,7 @@ class Inscription extends Component {
 
   addNewRegister = (e) => {
     e.preventDefault();
-    if (!this.state.cg) {
-      this.setState({ message: "Veuillez accepter les CGU-CGV. Merci." });
-      return;
-    }
+
     const data = {
       lastname: this.state.lastname,
       firstname: this.state.firstname,
@@ -94,124 +91,120 @@ class Inscription extends Component {
     return (
       <div className="bigBlocClient">
         <Container className="blocprincipalClient ">
-         <Row className='creerInscr'>
-           
-            <Col className='colInscr' xs={12} s={12} md={7}>
-         
-            <h1 className="TitreInscription">Créer mon compte </h1>
-            <p className="sous-titre">
-              Merci de remplir les informations ci-dessous pour finaliser la
-              création de votre compte.
-            </p>
-            
-       
-           
-          <Form className="form1">
-            <Form.Group controlId="lastname">
-              <Form.Control
-                type="text"
-                placeholder="Nom"
-                name="lastname"
-                onChange={this.change}
-              />
-            </Form.Group>
-            <Form.Group controlId="firstname">
-              <Form.Control
-                type="text"
-                placeholder="Prénom"
-                name="firstname"
-                onChange={this.change}
-              />
-            </Form.Group>
+          <Row className="creerInscr">
+            <Col className="colInscr" xs={12} s={12} md={7}>
+              <h1 className="TitreInscription">Créer mon compte </h1>
+              <p className="sous-titre">
+                Merci de remplir les informations ci-dessous pour finaliser la
+                création de votre compte.
+              </p>
 
-            <Form.Group controlId="email">
-              <Form.Control
-                type="mail"
-                placeholder="Email"
-                name="email"
-                onChange={this.change}
-              />
-            </Form.Group>
-            <Form.Group controlId="password">
-              <Form.Control
-                type="password"
-                placeholder="Mot de passe"
-                name="password"
-                onChange={this.change}
-              />
-            </Form.Group>
-        
-          <Form className="form2">
-            <Form.Group controlId="gender">
-              <Form.Control
-                as="select"
-                type="text"
-                name="gender"
-                onChange={this.change}
-              >
-                <option>-</option>
-                <option>Femme</option>
-                <option>Homme</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId="adress">
-              <Form.Control
-                type="text"
-                placeholder="Ville"
-                name="adress"
-                onChange={this.change}
-              />
-            </Form.Group>
+              <Form className="form1">
+                <Form.Group controlId="lastname">
+                  <Form.Control
+                    type="text"
+                    placeholder="Nom"
+                    name="lastname"
+                    onChange={this.change}
+                  />
+                </Form.Group>
+                <Form.Group controlId="firstname">
+                  <Form.Control
+                    type="text"
+                    placeholder="Prénom"
+                    name="firstname"
+                    onChange={this.change}
+                  />
+                </Form.Group>
 
-            <Form.Group controlId="phone">
-              <Form.Control
-                type="text"
-                placeholder="Téléphone"
-                name="phone"
-                onChange={this.change}
-              />
-            </Form.Group>
-            <Form.Group controlId="age">
-              <Form.Control
-                type="text"
-                placeholder="Age"
-                name="age"
-                onChange={this.change}
-              />
-            </Form.Group>
-          </Form>
+                <Form.Group controlId="email">
+                  <Form.Control
+                    type="mail"
+                    placeholder="Email"
+                    name="email"
+                    onChange={this.change}
+                  />
+                </Form.Group>
+                <Form.Group controlId="password">
+                  <Form.Control
+                    type="password"
+                    placeholder="Mot de passe"
+                    name="password"
+                    onChange={this.change}
+                  />
+                </Form.Group>
 
-          <Form.Group controlId="formBasicCheckbox">
-                    <Row style={{ marginLeft: "2px" }}>
-                      <a
-                        className="cgvLink"
-                        href="/CGV_TIPTOTHANK.pdf"
-                        target="_blanck"
-                      >
-                        J'ai lu et j'accepte les CGU et CGV
-                      </a>
-                    </Row>
+                <Form className="form2">
+                  <Form.Group controlId="gender">
+                    <Form.Control
+                      as="select"
+                      type="text"
+                      name="gender"
+                      onChange={this.change}
+                    >
+                      <option>-</option>
+                      <option>Femme</option>
+                      <option>Homme</option>
+                    </Form.Control>
                   </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check
-              className="checkbox"
-              type="checkbox"
-              label="J'accepte que mes données soient utilisés à des fins commerciales."
-            />
-          </Form.Group>
-          </Form>
-          <Button
-            className="buttonInscri"
-            type="submit"
-            onClick={this.addNewRegister}
-          >
-            S'inscrire
-          </Button>
-         
-          <br />
-          <p>{this.state.message}</p>
-          </Col>
-          <Col className='backInscr' md={5}></Col>
+                  <Form.Group controlId="adress">
+                    <Form.Control
+                      type="text"
+                      placeholder="Ville"
+                      name="adress"
+                      onChange={this.change}
+                    />
+                  </Form.Group>
+
+                  <Form.Group controlId="phone">
+                    <Form.Control
+                      type="text"
+                      placeholder="Téléphone"
+                      name="phone"
+                      onChange={this.change}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="age">
+                    <Form.Control
+                      type="text"
+                      placeholder="Age"
+                      name="age"
+                      onChange={this.change}
+                    />
+                  </Form.Group>
+                </Form>
+
+                <Form.Group controlId="formBasicCheckbox">
+                  <Row style={{ marginLeft: "2px" }}>
+                    <a
+                      className="cgvLink"
+                      href="/CGV_TIPTOTHANK.pdf"
+                      target="_blanck"
+                    >
+                      J'ai lu et j'accepte les CGU et CGV
+                    </a>
+                  </Row>
+                </Form.Group>
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    className="checkbox"
+                    type="checkbox"
+                    label="J'accepte que mes données soient utilisés à des fins commerciales."
+                  />
+                </Form.Group>
+              </Form>
+              <Button
+                className="buttonInscri"
+                type="submit"
+                onClick={this.addNewRegister}
+              >
+                S'inscrire
+              </Button>
+
+              <br />
+              <p>{this.state.message}</p>
+            </Col>
+            <Col className="backInscr" md={5}></Col>
           </Row>
         </Container>
       </div>
