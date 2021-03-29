@@ -35,7 +35,7 @@
   margin-top: 5%;
 }
 
-.RowPourboire .col{
+.RowPourboire .col {
   text-align: center;
 }
 .titleTips {
@@ -60,6 +60,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 25%;
 }
 .amountMsg {
   text-align: center;
@@ -71,29 +72,27 @@
 @media only screen and (min-device-width: 768px) {
   .allButton {
     text-align: center;
-
   }
-  .containcheck{
-    margin-left: auto!important;
-
+  .containcheck {
+    margin-left: auto !important;
   }
 
-  .tipButton1{
-    padding-top: 2%!important;
-    padding-bottom: 2%!important;
+  .tipButton1 {
+    padding-top: 2% !important;
+    padding-bottom: 2% !important;
   }
 
-  .tipButton2{
-    padding-top: 2%!important;
-    padding-bottom: 2%!important;
+  .tipButton2 {
+    padding-top: 2% !important;
+    padding-bottom: 2% !important;
   }
 
-  .tipButton3{
-    padding-top: 2%!important;
-    padding-bottom: 2%!important;
+  .tipButton3 {
+    padding-top: 2% !important;
+    padding-bottom: 2% !important;
   }
   .tipButton2:hover {
-    background-color: rgb(39, 38, 37)  !important;
+    background-color: rgb(39, 38, 37) !important;
     color: white !important;
     border-color: yellow !important;
   }
@@ -103,7 +102,7 @@
     border-color: yellow !important;
   }
   .tipButton3:hover {
-    background-color: rgb(39, 38, 37)  !important;
+    background-color: rgb(39, 38, 37) !important;
     color: white !important;
     border-color: yellow !important;
   }
