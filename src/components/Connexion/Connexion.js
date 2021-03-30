@@ -16,7 +16,6 @@ class Connexion extends Component {
   change = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  
 
   loginClient = (e) => {
     e.preventDefault();
@@ -65,7 +64,7 @@ class Connexion extends Component {
         <Row>
           <Col>
             <h1>Déja membre ? </h1>
-            <h1>Connectez-vous!</h1>
+            <h1>Connectez-vous !</h1>
           </Col>
         </Row>
         <Form.Group controlId="formBasicEmail">
