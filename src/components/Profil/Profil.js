@@ -27,7 +27,6 @@ class Client extends Component {
     });
   };
 
-
   postDataClient = () => {
     const headers = new Headers({
       "Content-Type": "application/json",
@@ -111,7 +110,7 @@ class Client extends Component {
   };
   signOut = () => {
     localStorage.clear();
-    this.props.history.push("/Connexion");
+    this.props.history.push("/");
   };
   render() {
     return (
@@ -125,57 +124,52 @@ class Client extends Component {
           POURBOIRE
         </Button>
         <Row>
-        <Col >
-        
-          <h1 className="Titre-profil">Mon Profil Client</h1>
-        <div className="infoProfil">
+          <Col>
+            <h1 className="Titre-profil">Mon Profil Client</h1>
+            <div className="infoProfil">
               <p>
                 {this.state.client.firstname} {this.state.client.lastname}
               </p>
-              <p className="profilPara">
-                {this.state.client.adress} 
-              </p>
-              <p className="profilPara">
-                 {this.state.client.phone}
-              </p>
+              <p className="profilPara">{this.state.client.adress}</p>
+              <p className="profilPara">{this.state.client.phone}</p>
             </div>
-            </Col>
-            </Row>
-            <Row>
-              <Col s={12} xs={12} md={6}>
-        <Link to="/modifierMonProfil" className="modif">
-             <Button className="buttonedit" type="submit">
-                 Mettre à jour mon profil
-             </Button>
-         </Link>
-         </Col>
-         <Col s={12} xs={12} md={6}>
-         <Link to="/ListeServeurs" className="modif">
-             <Button className="buttonedit" type="submit">
-                 Donner un pourboire
-             </Button>
-         </Link>
-         </Col>
-        <Col s={12} xs={12} md={6}>
-         <Link to="/Historique" className="modif">
-             <Button className="buttonedit" type="submit">
-                 Historique de mes dons
-             </Button>
-         </Link>
-         </Col>
-         <Col s={12} xs={12} md={6}>
-        <div className="Titre">
-          <Button
-            className="buttondeco"
-            variant="outline-warning"
-            type="submit"
-            onClick={this.signOut}
-          >
-            Se déconnecter
-          </Button>
-        </div>
-        </Col>
-        <p>{this.state.message}</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col s={12} xs={12} md={6}>
+            <Link to="/modifierMonProfil" className="modif">
+              <Button className="buttonedit" type="submit">
+                Mettre à jour mon profil
+              </Button>
+            </Link>
+          </Col>
+          <Col s={12} xs={12} md={6}>
+            <Link to="/ListeServeurs" className="modif">
+              <Button className="buttonedit" type="submit">
+                Donner un pourboire
+              </Button>
+            </Link>
+          </Col>
+          <Col s={12} xs={12} md={6}>
+            <Link to="/Historique" className="modif">
+              <Button className="buttonedit" type="submit">
+                Historique de mes dons
+              </Button>
+            </Link>
+          </Col>
+          <Col s={12} xs={12} md={6}>
+            <div className="Titre">
+              <Button
+                className="buttondeco"
+                variant="outline-warning"
+                type="submit"
+                onClick={this.signOut}
+              >
+                Se déconnecter
+              </Button>
+            </div>
+          </Col>
+          <p>{this.state.message}</p>
         </Row>
       </Container>
     );
