@@ -4,10 +4,11 @@
 .connexion-container {
   margin-top: -5%;
   background-color: white;
-  border-radius: 28px;
+  border-radius: 22px;
   padding-top: 3%;
   padding-left: 10%;
   padding-right: 10%;
+  margin-bottom: 30%;
 }
 
 .connexion-container h1 {
@@ -93,8 +94,8 @@
     text-align: right;
   }
   .form-control {
-    padding: 1.300rem !important;
+    padding: 1.3rem !important;
     margin-bottom: 2%;
-    text-align: left!important;
+    text-align: left !important;
   }
 }
