@@ -4,6 +4,7 @@ import CheckoutForm from "../../assets/components/CheckoutForm/CheckoutForm";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
@@ -13,15 +14,65 @@ import axios from "axios";
 import "./TipCommun1.css";
 import { Alert } from "bootstrap";
 
+function MyVerticallyCenteredModal(props) {
+  let amount = localStorage.getItem("amount");
+  let attribution = amount * 0.016;
+  let total = amount + attribution + 0.1;
+  return (
+    <Modal {...props} centered backdrop="static">
+      <Modal.Header>
+        <img style={{ width: 150, height: 150 }} src="/logoTTT/icone.png" />
+        <h3 style={{ marginTop: 50, textAlign: "center" }}>
+          {" "}
+          Tipourboire le pourboire digitale !
+        </h3>
+      </Modal.Header>
+
+      <h3 style={{ textAlign: "center", marginTop: 25 }}>
+        Récapitulatif du pourboire
+      </h3>
+
+      <Modal.Body>
+        <p>
+          Montant du pourboire: {amount} €
+          <br />
+          Protection Attribution du Pourboire : {amount * 0.016} €
+          <br />
+          Total : {amount + amount * 0.016} €
+        </p>
+      </Modal.Body>
+      <Modal.Title id="contained-modal-title-center">
+        <h3 style={{ textAlign: "center" }}>Adresse de facturation</h3>
+      </Modal.Title>
+      <Modal.Body>
+        <p>
+          Adresse
+          <br />
+          Arnaud Puaud
+          <br />
+          95 Corniche Fleurie
+          <br />
+          06200 Nice
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button>Payer</Button>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 class TipCommun1 extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: {}, resultat: {}, walletID: "" };
+    this.state = { data: {}, resultat: {}, walletID: "", modal: false };
   }
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   postToken = () => {
     if (this.state.amount <= 1) {
       window.alert("Le montant minimum du tips doit être de 2 euros");
@@ -151,10 +202,21 @@ class TipCommun1 extends Component {
             </Form>
           </Col>
           <Col className="ButtonCol" xs={12} s={12} md={12}>
-            <Button className="communButtonVal" onClick={this.postToken}>
+            <Button
+              className="communButtonVal"
+              onClick={() => {
+                this.setState({ modal: true });
+                localStorage.setItem("amount", this.state.amount);
+                console.log("test", localStorage.getItem("amount"));
+              }}
+            >
               Payer
             </Button>
           </Col>
+          <MyVerticallyCenteredModal
+            show={this.state.modal}
+            onHide={() => this.setState({ modal: false })}
+          />
         </Row>
       </Container>
     );

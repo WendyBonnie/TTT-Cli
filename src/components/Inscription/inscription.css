@@ -15,7 +15,7 @@ body {
 }
 
 .blocprincipalClient .cgvLink {
-  color:  #f5a624 !important;
+  color: #f5a624 !important;
 }
 .TitreInscription {
   color: #f5a624 !important;
@@ -23,8 +23,9 @@ body {
   font-size: 25px !important;
 }
 
-.form-control{
-  height:2%!important;
+.form-control {
+  height: 2% !important;
+  border-radius: 28px !important;
 }
 
 .sous-titre {
@@ -69,6 +70,10 @@ body {
     width: 100%;
   }
 
+  .creerInscr {
+    justify-content: center;
+  }
+
   .buttonInscri {
     padding-bottom: 1% !important;
     padding-top: 1% !important;
@@ -77,7 +82,7 @@ body {
     border-radius: 28px !important;
   }
   .buttonInscri:hover {
-    background-color:#555 !important;
+    background-color: #555 !important;
     color: white !important;
     border-color: yellow !important;
   }
@@ -103,12 +108,5 @@ body {
 
   .bigBlocClient .col {
     padding-left: 0%;
-  }
-
-  .backInscr {
-    display: block;
-    background-image: url("/logoTTT/drink (7).jpg");
-    background-repeat: no-repeat;
-    width: 100%;
   }
 }

@@ -140,8 +140,7 @@ class Inscription extends Component {
                       as="select"
                       type="text"
                       name="gender"
-                      onChange={this.change}
-                    >
+                      onChange={this.change}>
                       <option>-</option>
                       <option>Femme</option>
                       <option>Homme</option>
@@ -179,8 +178,7 @@ class Inscription extends Component {
                     <a
                       className="cgvLink"
                       href="/CGV_TIPTOTHANK.pdf"
-                      target="_blanck"
-                    >
+                      target="_blanck">
                       J'ai lu et j'accepte les CGU et CGV
                     </a>
                   </Row>
@@ -196,15 +194,13 @@ class Inscription extends Component {
               <Button
                 className="buttonInscri"
                 type="submit"
-                onClick={this.addNewRegister}
-              >
+                onClick={this.addNewRegister}>
                 S'inscrire
               </Button>
 
               <br />
               <p>{this.state.message}</p>
             </Col>
-            <Col className="backInscr" md={5}></Col>
           </Row>
         </Container>
       </div>
