@@ -48,7 +48,7 @@ class Connexion extends Component {
             localStorage.setItem("token", responseObject.token);
             localStorage.setItem("userID", responseObject.userId);
             this.props.setLogin(true);
-            this.props.history.push("/ListeServeurs");
+            this.props.history.push("/Profil");
           }
         },
 
