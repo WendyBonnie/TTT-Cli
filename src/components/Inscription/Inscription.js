@@ -140,10 +140,11 @@ class Inscription extends Component {
                       as="select"
                       type="text"
                       name="gender"
-                      onChange={this.change}>
+                      onChange={this.change}
+                    >
                       <option>-</option>
-                      <option>Femme</option>
-                      <option>Homme</option>
+                      <option>Femme (facultatif)</option>
+                      <option>Homme (facultatif)</option>
                     </Form.Control>
                   </Form.Group>
                   <Form.Group controlId="adress">
@@ -166,7 +167,7 @@ class Inscription extends Component {
                   <Form.Group controlId="age">
                     <Form.Control
                       type="text"
-                      placeholder="Age"
+                      placeholder="Age (facultatif)"
                       name="age"
                       onChange={this.change}
                     />
@@ -178,7 +179,8 @@ class Inscription extends Component {
                     <a
                       className="cgvLink"
                       href="/CGV_TIPTOTHANK.pdf"
-                      target="_blanck">
+                      target="_blanck"
+                    >
                       J'ai lu et j'accepte les CGU et CGV
                     </a>
                   </Row>
@@ -194,9 +196,19 @@ class Inscription extends Component {
               <Button
                 className="buttonInscri"
                 type="submit"
-                onClick={this.addNewRegister}>
+                onClick={this.addNewRegister}
+              >
                 S'inscrire
               </Button>
+              <p className="annonce">
+                *TIPOURBOIRE est responsable du traitement des données
+                personnelles collectées sur ce site. Elles sont collectées aux
+                fins de : l'exécution du contrat/vous informer de nos nouveautés
+                et actualités/à des fins statistiques, les bases légales
+                respectives des traitements pouvant être l'exécution du contrat,
+                l'intérêt légitime, ou le consentement. Pour plus d'informations
+                voir notre politique de confidentialité.
+              </p>
 
               <br />
               <p>{this.state.message}</p>
