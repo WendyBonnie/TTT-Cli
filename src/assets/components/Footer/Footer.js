@@ -80,6 +80,9 @@ class footer extends Component {
               >
                 Confidentialité
               </Nav.Link>
+              <Nav.Link href="" className="textFooter">
+                Cookies
+              </Nav.Link>
               <Nav.Link
                 href="mailto:contact@tipourboire.com"
                 className="textFooter"
