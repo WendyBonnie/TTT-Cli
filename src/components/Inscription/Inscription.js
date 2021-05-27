@@ -35,12 +35,6 @@ class Inscription extends Component {
     });
   };
 
-  checkboxchange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.checked, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
-    });
-  };
-
   addNewRegister = (e) => {
     e.preventDefault();
 
@@ -53,10 +47,12 @@ class Inscription extends Component {
       age: this.state.age,
       adress: this.state.adress,
       phone: this.state.phone,
+      acceptControl: this.state.acceptControl,
     };
 
     const headers = new Headers({
       "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
     });
 
     const options = {
@@ -65,20 +61,13 @@ class Inscription extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/client/register", options)
+    fetch("http://localhost:8080/client/register", options)
       .then((response) => {
         return response.json();
       })
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
-
-          if (responseObject.success === true) {
-            alert(
-              "Votre inscription a bien été prise en compte. Vous pouvez désormais accéder à votre compte"
-            );
-            this.props.history.push("/");
-          } /* pour allez vers la page connexion une fois l'inscription done--success déclaré en back*/
         },
 
         (error) => {
@@ -99,7 +88,7 @@ class Inscription extends Component {
                 création de votre compte.
               </p>
 
-              <Form className="form1">
+              <Form onSubmit={this.addNewRegister}>
                 <Form.Group controlId="lastname">
                   <Form.Control
                     type="text"
@@ -134,72 +123,82 @@ class Inscription extends Component {
                   />
                 </Form.Group>
 
-                <Form className="form2">
-                  <Form.Group controlId="gender">
-                    <Form.Control
-                      as="select"
-                      type="text"
-                      name="gender"
-                      onChange={this.change}
-                    >
-                      <option>-</option>
-                      <option>Femme (facultatif)</option>
-                      <option>Homme (facultatif)</option>
-                    </Form.Control>
-                  </Form.Group>
-                  <Form.Group controlId="adress">
-                    <Form.Control
-                      type="text"
-                      placeholder="Ville"
-                      name="adress"
-                      onChange={this.change}
-                    />
-                  </Form.Group>
+                <Form.Group controlId="gender">
+                  <Form.Control
+                    as="select"
+                    type="text"
+                    name="gender"
+                    onChange={this.change}
+                  >
+                    <option>-</option>
+                    <option>Femme (facultatif)</option>
+                    <option>Homme (facultatif)</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="adress">
+                  <Form.Control
+                    type="text"
+                    placeholder="Ville"
+                    name="adress"
+                    onChange={this.change}
+                  />
+                </Form.Group>
 
-                  <Form.Group controlId="phone">
-                    <Form.Control
-                      type="text"
-                      placeholder="Téléphone"
-                      name="phone"
-                      onChange={this.change}
-                    />
-                  </Form.Group>
-                  <Form.Group controlId="age">
-                    <Form.Control
-                      type="text"
-                      placeholder="Age (facultatif)"
-                      name="age"
-                      onChange={this.change}
-                    />
-                  </Form.Group>
-                </Form>
+                <Form.Group controlId="phone">
+                  <Form.Control
+                    type="text"
+                    placeholder="Téléphone"
+                    name="phone"
+                    onChange={this.change}
+                  />
+                </Form.Group>
+                <Form.Group controlId="age">
+                  <Form.Control
+                    type="text"
+                    placeholder="Age (facultatif)"
+                    name="age"
+                    onChange={this.change}
+                  />
+                </Form.Group>
 
                 <Form.Group controlId="formBasicCheckbox">
-                  <Row style={{ marginLeft: "10px" }}>
-                    <a
-                      className="cgvLink"
-                      href="/CGV_TIPTOTHANK.pdf"
-                      target="_blanck"
-                    >
-                      CGU et CGV
-                    </a>
-                  </Row>
-                  <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check
-                      className="checkboxCGU"
-                      type="checkbox"
-                      label="J'ai lu et j'accepte les CGU et CGV"
-                    />
-                  </Form.Group>
+                  <Form.Check
+                    className="checkboxCGU"
+                    type="checkbox"
+                    name="acceptControl"
+                    label="J'ai lu et j'accepte les CGU et CGV"
+                    onChange={this.change}
+                    value={this.state.acceptControl}
+                    required
+                  />
+                  <a
+                    className="cgvLink"
+                    href="/CGV_TIPTOTHANK.pdf"
+                    target="_blanck"
+                  >
+                    CGU et CGV
+                  </a>
                 </Form.Group>
+
+                <Button
+                  className="buttonInscri"
+                  type="submit"
+                  variant="primary"
+                  block
+                  onClick={() => {
+                    if (!this.state.acceptControl) {
+                      this.setState({
+                        message:
+                          "Veuillez accepter les conditions générales d'utilisations",
+                      });
+                    } else {
+                      this.addNewRegister();
+                    }
+                  }}
+                >
+                  S'inscrire
+                </Button>
               </Form>
-              <Button
-                className="buttonInscri"
-                type="submit"
-                onClick={this.addNewRegister}
-              >
-                S'inscrire
-              </Button>
               <p className="annonce">
                 *TIPOURBOIRE est responsable du traitement des données
                 personnelles collectées sur ce site. Elles sont collectées aux
