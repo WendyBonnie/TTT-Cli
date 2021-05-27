@@ -37,6 +37,7 @@ class Liste extends Component {
           this.setState({ serveur: data });
           localStorage.setItem("restaurantName", data.restaurantName);
           localStorage.setItem("@idRestaurant", data._id);
+          console.log(data);
         },
 
         (error) => {
@@ -61,7 +62,12 @@ class Liste extends Component {
           </Row>
           <Row className="rowImage">
             <Col>
-              <Image src={"https://back-end.osc-fr1.scalingo.io/" + element.serveurPicture} />
+              <Image
+                src={
+                  "https://back-end.osc-fr1.scalingo.io/" +
+                  element.serveurPicture
+                }
+              />
             </Col>
           </Row>
           <Row className="butTips">
@@ -80,7 +86,10 @@ class Liste extends Component {
                     body: JSON.stringify(data),
                   };
 
-                  fetch("https://back-end.osc-fr1.scalingo.io/client/emailServeur", options)
+                  fetch(
+                    "https://back-end.osc-fr1.scalingo.io/client/emailServeur",
+                    options
+                  )
                     .then((response) => {
                       return response;
                     })
@@ -133,7 +142,10 @@ class Liste extends Component {
                   body: JSON.stringify(data),
                 };
 
-                fetch("https://back-end.osc-fr1.scalingo.io/client/emailServeur", options)
+                fetch(
+                  "https://back-end.osc-fr1.scalingo.io/client/emailServeur",
+                  options
+                )
                   .then((response) => {
                     return response;
                   })
