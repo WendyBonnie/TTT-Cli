@@ -140,10 +140,11 @@ class Inscription extends Component {
                       as="select"
                       type="text"
                       name="gender"
-                      onChange={this.change}>
+                      onChange={this.change}
+                    >
                       <option>-</option>
-                      <option>Femme</option>
-                      <option>Homme</option>
+                      <option>Femme (facultatif)</option>
+                      <option>Homme (facultatif)</option>
                     </Form.Control>
                   </Form.Group>
                   <Form.Group controlId="adress">
@@ -166,7 +167,7 @@ class Inscription extends Component {
                   <Form.Group controlId="age">
                     <Form.Control
                       type="text"
-                      placeholder="Age"
+                      placeholder="Age (facultatif)"
                       name="age"
                       onChange={this.change}
                     />
@@ -174,29 +175,40 @@ class Inscription extends Component {
                 </Form>
 
                 <Form.Group controlId="formBasicCheckbox">
-                  <Row style={{ marginLeft: "2px" }}>
+                  <Row style={{ marginLeft: "10px" }}>
                     <a
                       className="cgvLink"
                       href="/CGV_TIPTOTHANK.pdf"
-                      target="_blanck">
-                      J'ai lu et j'accepte les CGU et CGV
+                      target="_blanck"
+                    >
+                      CGU et CGV
                     </a>
                   </Row>
-                </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
-                  <Form.Check
-                    className="checkbox"
-                    type="checkbox"
-                    label="J'accepte que mes données soient utilisés à des fins commerciales."
-                  />
+                  <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check
+                      className="checkboxCGU"
+                      type="checkbox"
+                      label="J'ai lu et j'accepte les CGU et CGV"
+                    />
+                  </Form.Group>
                 </Form.Group>
               </Form>
               <Button
                 className="buttonInscri"
                 type="submit"
-                onClick={this.addNewRegister}>
+                onClick={this.addNewRegister}
+              >
                 S'inscrire
               </Button>
+              <p className="annonce">
+                *TIPOURBOIRE est responsable du traitement des données
+                personnelles collectées sur ce site. Elles sont collectées aux
+                fins de : l'exécution du contrat/vous informer de nos nouveautés
+                et actualités/à des fins statistiques, les bases légales
+                respectives des traitements pouvant être l'exécution du contrat,
+                l'intérêt légitime, ou le consentement. Pour plus d'informations
+                voir notre politique de confidentialité.
+              </p>
 
               <br />
               <p>{this.state.message}</p>

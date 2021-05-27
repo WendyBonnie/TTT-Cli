@@ -17,12 +17,21 @@ body {
 .blocprincipalClient .cgvLink {
   color: #f5a624 !important;
 }
+.blocprincipalClient .annonce {
+  margin-top: 20px;
+  color: #f5a624;
+  font-size: 8px;
+}
 .TitreInscription {
   color: #f5a624 !important;
   text-align: left;
   font-size: 25px !important;
 }
 
+.blocprincipalClient .checkboxCGU {
+  font-weight: bold;
+  color: #f5a624 !important;
+}
 .form-control {
   height: 2% !important;
   border-radius: 28px !important;
