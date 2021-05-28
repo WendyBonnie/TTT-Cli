@@ -28,6 +28,10 @@ body {
   font-size: 25px !important;
 }
 
+.blocprincipalClient .checkboxCGU {
+  font-weight: bold;
+  color: #f5a624 !important;
+}
 .form-control {
   height: 2% !important;
   border-radius: 28px !important;

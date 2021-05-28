@@ -38,6 +38,9 @@ class TipCommun extends Component {
       })
       .then((data) => {
         localStorage.setItem("@data", JSON.stringify(data));
+        localStorage.setItem("@dataFirstName", this.state.firstname);
+        localStorage.setItem("@dataLastName", this.state.lastname);
+        localStorage.setItem("@dataMail", this.state.email);
       });
     this.props.history.push("/TipCommun1");
   };
@@ -46,52 +49,47 @@ class TipCommun extends Component {
     return (
       <Container className="mainBlocCommun">
         <Row>
-          <Col className="blocCommun"xs={12} s={12} md={12}>
-         
-        <p className="titleCommun">
-          Information client
-        </p>
-        </Col>
-        <Col className="formCommun" xs={12} s={12} md={12}>
-        <Form className="formCommun">
-          <Form.Group className="formCommunGrp" controlId="formGroupAmount">
-            <Form.Control className="formMail"
-              name="email"
-              type="text"
-              placeholder="E-Mail"
-              onChange={this.handleInput}
-              value={this.state.email}
-              className='marginInput'
-            />
-            <Form.Control
-              name="lastname"
-              type="text"
-              placeholder="Nom"
-              onChange={this.handleInput}
-              value={this.state.lastname}
-              className='marginInput'
-            />
-            <Form.Control
-              name="firstname"
-              type="text"
-              placeholder="Prénom"
-              onChange={this.handleInput}
-              value={this.state.firstname}
-              className='marginInput'
-            />
-          </Form.Group>
-          </Form>
+          <Col className="blocCommun" xs={12} s={12} md={12}>
+            <p className="titleCommun">Information client</p>
+          </Col>
+          <Col className="formCommun" xs={12} s={12} md={12}>
+            <Form className="formCommun">
+              <Form.Group className="formCommunGrp" controlId="formGroupAmount">
+                <Form.Control
+                  className="formMail"
+                  name="email"
+                  type="text"
+                  placeholder="E-Mail"
+                  onChange={this.handleInput}
+                  value={this.state.email}
+                  className="marginInput"
+                />
+                <Form.Control
+                  name="lastname"
+                  type="text"
+                  placeholder="Nom"
+                  onChange={this.handleInput}
+                  value={this.state.lastname}
+                  className="marginInput"
+                />
+                <Form.Control
+                  name="firstname"
+                  type="text"
+                  placeholder="Prénom"
+                  onChange={this.handleInput}
+                  value={this.state.firstname}
+                  className="marginInput"
+                />
+              </Form.Group>
+            </Form>
           </Col>
           <Col className="ButtonCol" xs={12} s={12} md={12}>
-          <Button className="communButton" onClick={this.postInfoCard}>
-            Continuer vers la page de paiement
-          </Button>
+            <Button className="communButton" onClick={this.postInfoCard}>
+              Continuer vers la page de paiement
+            </Button>
           </Col>
-        
-      
-      </Row>
+        </Row>
       </Container>
-     
     );
   }
 }

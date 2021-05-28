@@ -1,30 +1,73 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState, useRef } from "react";
 
 import CheckoutForm from "../../assets/components/CheckoutForm/CheckoutForm";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Overlay from "react-bootstrap/Overlay";
+import Popover from "react-bootstrap/Popover";
+import { MdInfoOutline as Info } from "react-icons/md";
 
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import qs from "qs";
 import axios from "axios";
 
+import { useHistory } from "react-router-dom";
+
 import "./TipCommun1.css";
 import { Alert } from "bootstrap";
 
+function Icon() {
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
+  return (
+    <>
+      <button
+        onClick={() => setShow(!show)}
+        style={{
+          backgroundColor: "rgba(52, 52, 52, 0.0)",
+          borderColor: "rgba(52, 52, 52, 0.0)",
+        }}
+        ref={target}
+      >
+        <Info style={{ color: "black" }} />
+      </button>
+      <Overlay target={target.current} show={show} placement="right">
+        {(props) => (
+          <Popover id="popover-basic" {...props}>
+            <Popover.Title as="h3" style={{ textAlign: "center" }}>
+              Paiements sécurisés
+            </Popover.Title>
+            <Popover.Content style={{ textAlign: "left" }}>
+              Tous les paiements effectués sur Tipourboire sont cryptés. <br />
+              Ils sont gérés par MangoPay, notre partenaire de confiance.
+              <br /> Leur technologie sécurisée nous permet d'être assurés que
+              le montant reglé pour une transaction est bien envoyé et reçu par
+              le(s) serveur(s).
+            </Popover.Content>
+          </Popover>
+        )}
+      </Overlay>
+    </>
+  );
+}
+
 function MyVerticallyCenteredModal(props) {
+  const history = useHistory();
+
   let amount = localStorage.getItem("amount");
-  let attribution = amount * 0.016;
-  let total = amount + attribution + 0.1;
+  let dataMango = JSON.parse(localStorage.getItem("@data"));
   return (
     <Modal {...props} centered backdrop="static">
-      <Modal.Header>
+      <Modal.Header style={{ borderBlockColor: "#f5a624" }}>
         <img style={{ width: 150, height: 150 }} src="/logoTTT/icone.png" />
-        <h3 style={{ marginTop: 50, textAlign: "center" }}>
-          {" "}
-          Tipourboire le pourboire digitale !
+        <h3 style={{ marginTop: 20, textAlign: "center", color: "#f5a624" }}>
+          Tipourboire le pourboire digital !
         </h3>
       </Modal.Header>
 
@@ -36,28 +79,107 @@ function MyVerticallyCenteredModal(props) {
         <p>
           Montant du pourboire: {amount} €
           <br />
-          Protection Attribution du Pourboire : {amount * 0.016} €
+          Protection Bonne Attribution: {amount * 0.016 + 0.1} €
+          <Icon />
           <br />
-          Total : {amount + amount * 0.016} €
+          <p style={{ fontWeight: "bolder" }}>
+            Total prélevé: {Number(amount) + (Number(amount) * 0.016 + 0.1)} €
+          </p>
         </p>
       </Modal.Body>
       <Modal.Title id="contained-modal-title-center">
-        <h3 style={{ textAlign: "center" }}>Adresse de facturation</h3>
+        <h3 style={{ textAlign: "center" }}>Information de facturation</h3>
       </Modal.Title>
       <Modal.Body>
         <p>
-          Adresse
           <br />
-          Arnaud Puaud
+          Prénom : {localStorage.getItem("@dataFirstName")}
           <br />
-          95 Corniche Fleurie
+          Nom: {localStorage.getItem("@dataLastName")}
           <br />
-          06200 Nice
+          E-mail: {localStorage.getItem("@dataMail")}
         </p>
       </Modal.Body>
-      <Modal.Footer>
-        <Button>Payer</Button>
-        <Button onClick={props.onHide}>Close</Button>
+      <Modal.Footer style={{ borderBlockColor: "#f5a624" }}>
+        <Button
+          onClick={() => {
+            axios({
+              method: "post",
+              url: dataMango.CardRegistrationURL,
+              data: qs.stringify({
+                cardRegistrationId: dataMango.Id,
+                accessKeyRef: dataMango.AccessKey,
+                data: dataMango.PreregistrationData,
+                cardNumber: localStorage.getItem("cardNumber"),
+                cardExpirationDate: localStorage.getItem("expDate"),
+                cardCvx: localStorage.getItem("cvx"),
+              }),
+              headers: {
+                "content-type":
+                  "application/x-www-form-urlencoded;charset=utf-8",
+              },
+            }).then((result) => {
+              console.log(
+                dataMango.Id,
+                dataMango.AccessKey,
+                dataMango.PreregistrationData,
+                localStorage.getItem("cardNumber"),
+                localStorage.getItem("expDate"),
+                localStorage.getItem("cvx"),
+                dataMango.Id,
+                result.data
+              );
+              const headers = new Headers({
+                "Content-Type": "application/json",
+              });
+              const data1 = {
+                walletID: localStorage.getItem("walletID"),
+                amount: Number(amount) + (Number(amount) * 0.016 + 0.1),
+                cardRegistrationId: dataMango.Id,
+                registrationData: result.data,
+              };
+              const options = {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(data1),
+              };
+
+              fetch(
+                "https://back-end.osc-fr1.scalingo.io/client/payin",
+                options
+              )
+                .then((response) => {
+                  return response.json();
+                })
+                .then((result1) => {
+                  if (result1.Type === "param_error") {
+                    window.alert(
+                      "Une erreur s'est produite, veuillez réessayer."
+                    );
+                  } else {
+                    let r = window.confirm(
+                      "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."
+                    );
+
+                    if (r == true) {
+                      history.push("/Menu");
+                    } else {
+                      console.log("false");
+                    }
+                  }
+                });
+            });
+          }}
+          style={{ backgroundColor: "#f5a624", border: "none" }}
+        >
+          Payer
+        </Button>
+        <Button
+          style={{ backgroundColor: "#f5a624", border: "none" }}
+          onClick={props.onHide}
+        >
+          Annuler
+        </Button>
       </Modal.Footer>
     </Modal>
   );
@@ -73,62 +195,7 @@ class TipCommun1 extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  postToken = () => {
-    if (this.state.amount <= 1) {
-      window.alert("Le montant minimum du tips doit être de 2 euros");
-    } else {
-      axios({
-        method: "post",
-        url: this.state.data.CardRegistrationURL,
-        data: qs.stringify({
-          cardRegistrationId: this.state.data.Id,
-          accessKeyRef: this.state.data.AccessKey,
-          data: this.state.data.PreregistrationData,
-          cardNumber: this.state.cardNumber,
-          cardExpirationDate: this.state.cardExpirationDate,
-          cardCvx: this.state.cardCvx,
-        }),
-        headers: {
-          "content-type": "application/x-www-form-urlencoded;charset=utf-8",
-        },
-      }).then((result) => {
-        this.setState({ resultat: result });
-
-        this.payin();
-      });
-    }
-  };
-  payin = () => {
-    const headers = new Headers({
-      "Content-Type": "application/json",
-    });
-    const data1 = {
-      walletID: this.state.walletID,
-      amount: this.state.amount,
-      cardRegistrationId: this.state.data.Id,
-      registrationData: this.state.resultat.data,
-    };
-    const options = {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(data1),
-    };
-
-    fetch("https://back-end.osc-fr1.scalingo.io/client/payin", options)
-      .then((response) => {
-        return response.json();
-      })
-      .then((result) => {
-        if (result.Type === "param_error") {
-          window.alert("Une erreur s'est produite, veuillez réessayer.");
-        } else {
-          this.setState({ walletID: result });
-          window.alert(
-            "Merci pour votre pourboire. A bientôt dans nos restaurants partenaires"
-          );
-        }
-      });
-  };
+  payin = () => {};
   getWalletId = () => {
     const headers = new Headers({
       "Content-Type": "application/json",
@@ -149,6 +216,7 @@ class TipCommun1 extends Component {
       .then((result) => {
         this.setState({ walletID: result });
         this.setState({ message: result.message });
+        localStorage.setItem("walletID", result);
         console.log(result.ResultMessage);
       });
   };
@@ -187,14 +255,14 @@ class TipCommun1 extends Component {
                 <Form.Control
                   name="cardExpirationDate"
                   type="text"
-                  placeholder="Date d'expiration"
+                  placeholder="Date d'expiration MMAA"
                   onChange={this.handleInput}
                   className="marginInput"
                 />
                 <Form.Control
                   name="cardCvx"
                   type="text"
-                  placeholder="CVX"
+                  placeholder="CVC "
                   onChange={this.handleInput}
                   className="marginInput"
                 />
@@ -205,9 +273,22 @@ class TipCommun1 extends Component {
             <Button
               className="communButtonVal"
               onClick={() => {
-                this.setState({ modal: true });
-                localStorage.setItem("amount", this.state.amount);
-                console.log("test", localStorage.getItem("amount"));
+                if (this.state.amount <= 1) {
+                  window.alert(
+                    "Le montant minimum du tips doit être de 2 euros"
+                  );
+                } else {
+                  this.setState({ modal: true });
+                  localStorage.setItem("amount", this.state.amount);
+                  localStorage.setItem("cardNumber", this.state.cardNumber);
+                  localStorage.setItem("cvx", this.state.cardCvx);
+                  localStorage.setItem(
+                    "expDate",
+                    this.state.cardExpirationDate
+                  );
+
+                  console.log("test", localStorage.getItem("amount"));
+                }
               }}
             >
               Payer
