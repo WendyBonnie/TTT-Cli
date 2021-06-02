@@ -38,30 +38,14 @@ class Inscription extends Component {
   addNewRegister = (e) => {
     e.preventDefault();
 
-    const data = {
-      lastname: this.state.lastname,
-      firstname: this.state.firstname,
-      email: this.state.email,
-      password: this.state.password,
-      gender: this.state.gender,
-      age: this.state.age,
-      adress: this.state.adress,
-      phone: this.state.phone,
-      acceptControl: this.state.acceptControl,
-    };
-
-    const headers = new Headers({
-      "Content-Type": "application/json",
-      "X-Requested-With": "XMLHttpRequest",
-    });
+    const data = new FormData(e.target);
 
     const options = {
       method: "POST",
-      body: JSON.stringify(data),
-      headers: headers,
+      body: data,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/client/register", options)
+    fetch("http://localhost:8080/client/register", options)
       .then((response) => {
         return response.json();
       })
@@ -87,7 +71,6 @@ class Inscription extends Component {
                 Merci de remplir les informations ci-dessous pour finaliser la
                 création de votre compte.
               </p>
-
               <Form onSubmit={this.addNewRegister}>
                 <Form.Group controlId="lastname">
                   <Form.Control
@@ -160,15 +143,27 @@ class Inscription extends Component {
                     onChange={this.change}
                   />
                 </Form.Group>
-
                 <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    className="checkboxCGU"
+                    type="checkbox"
+                    name="acceptTTT"
+                    label="J'accepte la réception de courriers électroniques et de SMS publicitaires de la part de Tipourboire"
+                    onChange={this.change}
+                  />
+                  <Form.Check
+                    className="checkboxCGU"
+                    type="checkbox"
+                    name="acceptTier"
+                    label="J'accepte la réception de courriers électroniques et de SMS publicitaires de la part de tiers"
+                    onChange={this.change}
+                  />
                   <Form.Check
                     className="checkboxCGU"
                     type="checkbox"
                     name="acceptControl"
                     label="J'ai lu et j'accepte les CGU et CGV"
                     onChange={this.change}
-                    value={this.state.acceptControl}
                     required
                   />
                   <a
@@ -179,26 +174,16 @@ class Inscription extends Component {
                     CGU et CGV
                   </a>
                 </Form.Group>
-
                 <Button
                   className="buttonInscri"
                   type="submit"
                   variant="primary"
                   block
-                  onClick={() => {
-                    if (!this.state.acceptControl) {
-                      this.setState({
-                        message:
-                          "Veuillez accepter les conditions générales d'utilisations",
-                      });
-                    } else {
-                      this.addNewRegister();
-                    }
-                  }}
                 >
                   S'inscrire
                 </Button>
               </Form>
+
               <p className="annonce">
                 *TIPOURBOIRE est responsable du traitement des données
                 personnelles collectées sur ce site. Elles sont collectées aux
