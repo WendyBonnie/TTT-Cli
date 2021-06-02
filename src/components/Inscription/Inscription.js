@@ -12,37 +12,26 @@ class Inscription extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lastname: null,
-      firstname: null,
-      email: null,
-      password: null,
-      gender: null,
-      age: null,
-      adress: null,
-      phone: null,
-      cg: false,
+      lastname: "",
     };
   }
-  /* toggleChange = () => {
-    this.setState({
-      isChecked: !this.state.isChecked,
-    });
-  };*/
-  /*fonction pour ecrire dans nos input*/
-  change = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
-    });
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   addNewRegister = (e) => {
     e.preventDefault();
 
     const data = new FormData(e.target);
+    const headers = new Headers({
+      "X-Requested-With": "XMLHttpRequest",
+    });
 
     const options = {
       method: "POST",
       body: data,
+      headers: headers,
     };
 
     fetch("http://localhost:8080/client/register", options)
@@ -64,6 +53,10 @@ class Inscription extends Component {
     return (
       <div className="bigBlocClient">
         <Container className="blocprincipalClient ">
+          <Form>
+            <Form.Group></Form.Group>
+          </Form>
+
           <Row className="creerInscr">
             <Col className="colInscr" xs={12} s={12} md={7}>
               <h1 className="TitreInscription">Créer mon compte </h1>
@@ -72,75 +65,75 @@ class Inscription extends Component {
                 création de votre compte.
               </p>
               <Form onSubmit={this.addNewRegister}>
-                <Form.Group controlId="lastname">
+                <Form.Group controlId="formName">
                   <Form.Control
                     type="text"
                     placeholder="Nom"
                     name="lastname"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                 </Form.Group>
-                <Form.Group controlId="firstname">
+                <Form.Group controlId="formFirstName">
                   <Form.Control
                     type="text"
                     placeholder="Prénom"
                     name="firstname"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                 </Form.Group>
 
-                <Form.Group controlId="email">
+                <Form.Group controlId="formEmail">
                   <Form.Control
                     type="mail"
                     placeholder="Email"
                     name="email"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                 </Form.Group>
-                <Form.Group controlId="password">
+                <Form.Group controlId="formPassword">
                   <Form.Control
                     type="password"
                     placeholder="Mot de passe"
                     name="password"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                 </Form.Group>
 
-                <Form.Group controlId="gender">
+                <Form.Group controlId="formGender">
                   <Form.Control
                     as="select"
                     type="text"
                     name="gender"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   >
                     <option>-</option>
                     <option>Femme (facultatif)</option>
                     <option>Homme (facultatif)</option>
                   </Form.Control>
                 </Form.Group>
-                <Form.Group controlId="adress">
+                <Form.Group controlId="formAdress">
                   <Form.Control
                     type="text"
                     placeholder="Ville"
                     name="adress"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                 </Form.Group>
 
-                <Form.Group controlId="phone">
+                <Form.Group controlId="formPhone">
                   <Form.Control
                     type="text"
                     placeholder="Téléphone"
                     name="phone"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                 </Form.Group>
-                <Form.Group controlId="age">
+                <Form.Group controlId="formAge">
                   <Form.Control
                     type="text"
                     placeholder="Age (facultatif)"
                     name="age"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                 </Form.Group>
                 <Form.Group controlId="formBasicCheckbox">
@@ -149,21 +142,21 @@ class Inscription extends Component {
                     type="checkbox"
                     name="acceptTTT"
                     label="J'accepte la réception de courriers électroniques et de SMS publicitaires de la part de Tipourboire"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                   <Form.Check
                     className="checkboxCGU"
                     type="checkbox"
                     name="acceptTier"
                     label="J'accepte la réception de courriers électroniques et de SMS publicitaires de la part de tiers"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                   />
                   <Form.Check
                     className="checkboxCGU"
                     type="checkbox"
                     name="acceptControl"
                     label="J'ai lu et j'accepte les CGU et CGV"
-                    onChange={this.change}
+                    onChange={this.handleInput}
                     required
                   />
                   <a
