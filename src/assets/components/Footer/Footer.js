@@ -68,19 +68,20 @@ class footer extends Component {
               >
                 Mentions Légales
               </Nav.Link>
-              <Nav.Link
-                href="cgu-cgv/CGV_TIPTOTHANK.pdf"
-                className="textFooter"
-              >
+              <Nav.Link href="cgu-cgv/CGV.pdf" className="textFooter">
                 CGU
               </Nav.Link>
               <Nav.Link
-                href="cgu-cgv/CGV_TIPTOTHANK.pdf"
+                href="confidentialité/Politique_de_confidentialité.pdf"
                 className="textFooter"
               >
                 Confidentialité
               </Nav.Link>
-              <Nav.Link href="" className="textFooter">
+              <Nav.Link
+                href=""
+                className="textFooter"
+                href="cookies/POLITIQUE_DE_COOKIES.pdf"
+              >
                 Cookies
               </Nav.Link>
               <Nav.Link
