@@ -72,7 +72,7 @@ class footer extends Component {
                 CGU
               </Nav.Link>
               <Nav.Link
-                href="confidentialité/Politique_de_confidentialité.pdf"
+                href="confidentialité/Politique_de_confidentialité_client.pdf"
                 className="textFooter"
               >
                 Confidentialité
