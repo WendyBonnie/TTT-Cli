@@ -27,7 +27,7 @@ class Liste extends Component {
       /*body: JSON.stringify(data),*/
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/client/getDataServeur", options)
+    fetch("http://localhost:8080/client/getDataServeur", options)
       .then((response) => {
         return response.json();
       })
@@ -35,6 +35,7 @@ class Liste extends Component {
         (data) => {
           console.log(data);
           this.setState({ serveur: data });
+          console.log(this.state.serveur.pourboireGeneral);
           localStorage.setItem("restaurantName", data.restaurantName);
           localStorage.setItem("@idRestaurant", data._id);
           console.log(data);
@@ -45,41 +46,94 @@ class Liste extends Component {
         }
       );
   };
-  saveIdRestaurant = () => {};
+
   display = () => {
-    return this.state.serveur.tabServeur.map((element, index) => {
+    if (this.state.serveur.pourboireIndividuel === true) {
+      return this.state.serveur.tabServeur.map((element, index) => {
+        return (
+          <Container fluid>
+            <Row className="rowTitre">
+              <Col>
+                <h3>Donnez un tip à</h3>
+              </Col>
+            </Row>
+            <Row className="rowTitre2">
+              <Col s={12}>
+                <h3>{element.serveurName}</h3>
+              </Col>
+            </Row>
+            <Row className="rowImage">
+              <Col>
+                <Image
+                  src={
+                    "http://localhost:8080.scalingo.io/" +
+                    element.serveurPicture
+                  }
+                />
+              </Col>
+            </Row>
+            <Row className="butTips">
+              <Col>
+                <Button
+                  onClick={() => {
+                    const headers = new Headers({
+                      "Content-Type": "application/json",
+                    });
+                    const data = {
+                      email: element.serveurMail,
+                    };
+                    const options = {
+                      method: "POST",
+                      headers: headers,
+                      body: JSON.stringify(data),
+                    };
+
+                    fetch(
+                      "https://back-end.osc-fr1.scalingo.io/client/emailServeur",
+                      options
+                    )
+                      .then((response) => {
+                        return response;
+                      })
+                      .then(
+                        (data) => {
+                          console.log(data);
+                        },
+
+                        (error) => {
+                          console.log(error);
+                        }
+                      );
+                    this.props.history.push({
+                      pathname: "/Payment",
+                    });
+                  }}
+                >
+                  Donner un Pourboire
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        );
+      });
+    } else {
+      return;
+    }
+  };
+
+  displayGeneral = () => {
+    if (this.state.serveur.pourboireGeneral === true) {
       return (
-        <Container fluid>
-          <Row className="rowTitre">
-            <Col>
-              <h3>Donnez un tip à</h3>
-            </Col>
-          </Row>
-          <Row className="rowTitre2">
-            <Col s={12}>
-              <h3>{element.serveurName}</h3>
-            </Col>
-          </Row>
-          <Row className="rowImage">
-            <Col>
-              <Image
-                src={
-                  "https://back-end.osc-fr1.scalingo.io/" +
-                  element.serveurPicture
-                }
-              />
-            </Col>
-          </Row>
-          <Row className="butTips">
-            <Col>
+        <Container>
+          <Row>
+            {" "}
+            <Col className="colButton">
               <Button
                 onClick={() => {
                   const headers = new Headers({
                     "Content-Type": "application/json",
                   });
-                  const data = {
-                    email: element.serveurMail,
-                  };
+                  const data = {};
                   const options = {
                     method: "POST",
                     headers: headers,
@@ -103,19 +157,20 @@ class Liste extends Component {
                       }
                     );
                   this.props.history.push({
-                    pathname: "/Payment",
+                    pathname: "/TipCommun",
                   });
                 }}
               >
-                Donner un Pourboire
+                Donner à toute l'équipe !
               </Button>
             </Col>
           </Row>
         </Container>
       );
-    });
+    } else {
+      return;
+    }
   };
-
   render() {
     return (
       <Container className="blocPrincipalClient">
@@ -128,44 +183,7 @@ class Liste extends Component {
           </Col>
         </Row>
         <Row>
-          {" "}
-          <Col className="colButton">
-            <Button
-              onClick={() => {
-                const headers = new Headers({
-                  "Content-Type": "application/json",
-                });
-                const data = {};
-                const options = {
-                  method: "POST",
-                  headers: headers,
-                  body: JSON.stringify(data),
-                };
-
-                fetch(
-                  "https://back-end.osc-fr1.scalingo.io/client/emailServeur",
-                  options
-                )
-                  .then((response) => {
-                    return response;
-                  })
-                  .then(
-                    (data) => {
-                      console.log(data);
-                    },
-
-                    (error) => {
-                      console.log(error);
-                    }
-                  );
-                this.props.history.push({
-                  pathname: "/TipCommun",
-                });
-              }}
-            >
-              Donner à toute l'équipe !
-            </Button>
-          </Col>
+          <Col>{this.displayGeneral()}</Col>
         </Row>
         <Row className="display">
           <Col xs={12} s={12} md={4}>
