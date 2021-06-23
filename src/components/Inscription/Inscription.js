@@ -53,10 +53,6 @@ class Inscription extends Component {
     return (
       <div className="bigBlocClient">
         <Container className="blocprincipalClient ">
-          <Form>
-            <Form.Group></Form.Group>
-          </Form>
-
           <Row className="creerInscr">
             <Col className="colInscr" xs={12} s={12} md={7}>
               <h1 className="TitreInscription">Créer mon compte </h1>

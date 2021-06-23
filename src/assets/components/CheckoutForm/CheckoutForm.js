@@ -45,7 +45,6 @@ class CheckoutForm extends Component {
         (responseObject) => {
           const clientInfo = responseObject;
           this.setState({ client: clientInfo, object: clientInfo });
-          console.log(this.state.client.email);
         },
 
         (error) => {
@@ -66,7 +65,7 @@ class CheckoutForm extends Component {
 
       mode: "payment",
       successUrl:
-        "https://back-end.osc-fr1.scalingo.io/client/transfert?qte=" +
+        "http://localhost:8080/client/transfert?qte=" +
         10 +
         "&mail=" +
         this.state.client.email +
@@ -170,14 +169,14 @@ class CheckoutForm extends Component {
   }
   render() {
     return (
-      <Container className='check'>
+      <Container className="check">
         <div className="blocTips">
           <div className="allButton">
             <h1 className="titleTips">Don Tipourboire</h1>
             <Row className="RowPourboire">
               <Col>
                 <Button className="tipButton1" onClick={this.app1}>
-                   2 €
+                  2 €
                 </Button>
               </Col>
               <Col>
