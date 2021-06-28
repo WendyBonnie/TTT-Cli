@@ -2,7 +2,6 @@ body {
   background-color: #efefef;
 }
 
-
 .blocprincipalProfil {
   background: #ffffff;
   font-family: "Montserrat", sans-serif;
@@ -37,7 +36,6 @@ body {
   display: none;
 }
 
-
 .Titre-profil {
   color: #f4a521;
   text-align: center;
@@ -59,6 +57,10 @@ body {
   padding: 5%;
   width: 100%;
 }
+.buttondeco:hover {
+  background-color: #555 !important;
+  color: #f4a521 !important;
+}
 
 .buttonedit {
   margin-top: 10%;
@@ -68,6 +70,10 @@ body {
   border-color: #f5a624 !important;
   padding: 5%;
   width: 100%;
+}
+.buttonedit:hover {
+  background-color: #555 !important;
+  color: #f4a521 !important;
 }
 .buttondelete {
   margin-top: 10%;
@@ -109,7 +115,7 @@ body {
     margin-top: 0% !important;
     font-weight: bold;
   }
-  
+
   .buttondeco {
     padding: 3% !important;
     width: 100% !important;
