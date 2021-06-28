@@ -27,7 +27,7 @@ class Liste extends Component {
       /*body: JSON.stringify(data),*/
     };
 
-    fetch("http://localhost:8080/client/getDataServeur", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/client/getDataServeur", options)
       .then((response) => {
         return response.json();
       })
@@ -66,7 +66,7 @@ class Liste extends Component {
               <Col>
                 <Image
                   src={
-                    "http://localhost:8080.scalingo.io/" +
+                    "https://back-end.osc-fr1.scalingo.io/" +
                     element.serveurPicture
                   }
                 />
