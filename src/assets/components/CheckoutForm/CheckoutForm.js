@@ -65,13 +65,13 @@ class CheckoutForm extends Component {
 
       mode: "payment",
       successUrl:
-        "http://localhost:8080/client/transfert?qte=" +
+        "https://back-end.osc-fr1.scalingo.io/client/transfert?qte=" +
         10 +
         "&mail=" +
         this.state.client.email +
         "&RN=" +
         localStorage.getItem("restaurantName"),
-      cancelUrl: "http://localhost:3000/Payment",
+      cancelUrl: "https://client.tipourboire.com/ListeServeurs",
     });
     // If `redirectToCheckout` fails due to a browser or network
     // error, display the localized error message to your customer
@@ -96,7 +96,7 @@ class CheckoutForm extends Component {
         this.state.client.email +
         "&RN=" +
         localStorage.getItem("restaurantName"),
-      cancelUrl: "http://localhost:3000/Payment",
+      cancelUrl: "https://client.tipourboire.com/ListeServeurs",
     });
     // If `redirectToCheckout` fails due to a browser or network
     // error, display the localized error message to your customer
@@ -121,7 +121,7 @@ class CheckoutForm extends Component {
         this.state.client.email +
         "&RN=" +
         localStorage.getItem("restaurantName"),
-      cancelUrl: "http://localhost:3000/Payment",
+      cancelUrl: "https://client.tipourboire.com/ListeServeurs",
     });
     // If `redirectToCheckout` fails due to a browser or network
     // error, display the localized error message to your customer
@@ -152,7 +152,7 @@ class CheckoutForm extends Component {
           this.state.client.email +
           "&RN=" +
           localStorage.getItem("restaurantName"),
-        cancelUrl: "http://localhost:3000/Payment",
+        cancelUrl: "https://client.tipourboire.com/ListeServeurs",
       });
       // If `redirectToCheckout` fails due to a browser or network
       // error, display the localized error message to your customer
