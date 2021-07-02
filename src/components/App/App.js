@@ -1,7 +1,7 @@
 /**
  * App.js - Main app component
  */
-
+/* coucou*/
 /*Module imports*/
 import React, { Component } from "react";
 import Inscription from "../Inscription/Inscription";
