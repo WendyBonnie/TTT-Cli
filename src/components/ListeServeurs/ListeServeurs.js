@@ -11,9 +11,6 @@ class Liste extends Component {
 
   componentDidMount() {
     this.getDataServeurs();
-
-    console.log("localStorage.getItem()");
-    console.log(localStorage.getItem("@idRestaurant"));
   }
 
   getDataServeurs = (e) => {
@@ -24,7 +21,6 @@ class Liste extends Component {
     const options = {
       method: "GET",
       headers: headers,
-      /*body: JSON.stringify(data),*/
     };
 
     fetch("https://back-end.osc-fr1.scalingo.io/client/getDataServeur", options)
