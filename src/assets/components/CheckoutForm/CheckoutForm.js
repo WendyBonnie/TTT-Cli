@@ -58,7 +58,7 @@ class CheckoutForm extends Component {
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+          price: "price_1HlxiJHoh2Vgz5Qd1ZLHrP5G", // Replace with the ID of your price
           quantity: 10,
         },
       ],
@@ -83,7 +83,7 @@ class CheckoutForm extends Component {
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+          price: "price_1HlxiJHoh2Vgz5Qd1ZLHrP5G", // Replace with the ID of your price
           quantity: 2,
         },
       ],
@@ -108,7 +108,7 @@ class CheckoutForm extends Component {
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+          price: "price_1HlxiJHoh2Vgz5Qd1ZLHrP5G", // Replace with the ID of your price
           quantity: 5,
         },
       ],
@@ -139,7 +139,7 @@ class CheckoutForm extends Component {
       const { error } = await stripe.redirectToCheckout({
         lineItems: [
           {
-            price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+            price: "price_1HlxiJHoh2Vgz5Qd1ZLHrP5G", // Replace with the ID of your price
             quantity: Number(amount),
           },
         ],
