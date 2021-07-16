@@ -52,16 +52,6 @@ class Liste extends Component {
       return this.state.serveur.tabServeur.map((element, index) => {
         return (
           <Container fluid>
-            <Row className="rowTitre">
-              <Col>
-                <h3>Donnez un tip à</h3>
-              </Col>
-            </Row>
-            <Row className="rowTitre2">
-              <Col s={12}>
-                <h3>{element.serveurName}</h3>
-              </Col>
-            </Row>
             <Row className="rowImage">
               <Col>
                 <Image
@@ -72,8 +62,15 @@ class Liste extends Component {
                 />
               </Col>
             </Row>
+
+            <Row className="rowTitre2">
+              <Col s={12}>
+                <p>{element.serveurName}</p>
+              </Col>
+            </Row>
             <Row className="butTips">
               <Col>
+                {/*
                 <Button
                   onClick={() => {
                     const headers = new Headers({
@@ -110,7 +107,7 @@ class Liste extends Component {
                   }}
                 >
                   Donner un Pourboire
-                </Button>
+                </Button>*/}
               </Col>
             </Row>
           </Container>

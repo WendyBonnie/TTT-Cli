@@ -30,11 +30,16 @@
 
 .rowTitre {
   text-align: center;
+  font-weight: bold !important;
+  margin-top: 2% !important;
+  font-size: 20px !important;
 }
 
 .rowTitre2 {
   text-align: center;
-  margin-bottom: 10%;
+  margin-bottom: 2%;
+  font-weight: bold !important;
+  font-size: 20px !important;
 }
 
 .general {

@@ -154,7 +154,7 @@ function MyVerticallyCenteredModal(props) {
                 .then((result1) => {
                   if (result1.Type === "param_error") {
                     window.alert(
-                      "Une erreur s'est produite, veuillez réessayer."
+                      "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MMAA : (ex : 0622)."
                     );
                   } else {
                     let r = window.confirm(
@@ -255,7 +255,7 @@ class TipCommun1 extends Component {
                 <Form.Control
                   name="cardExpirationDate"
                   type="text"
-                  placeholder="Date d'expiration MMAA"
+                  placeholder="Date d'expiration format : MMAA"
                   onChange={this.handleInput}
                   className="marginInput"
                 />
