@@ -10,7 +10,7 @@ import Container from "react-bootstrap/Container";
 import "./checkoutForm.css";
 
 const stripePromise = loadStripe(
-  "pk_test_51HAxRlHoh2Vgz5QdMpHXhINQMDhyGPR4gFvzs9vVzocySBI4WCfw8oPa7De6PC2ZJZlQKVQFRDPLU7FIGmXZC0QA00XGutN1eU"
+  "pk_live_51HAxRlHoh2Vgz5Qdxu3AGz9GC1q2B453vaXplDn3J0Q5wXRCZqwkuoCG5O1Nsr1VsbNIHmjVWj7XJo9cZmljPw7L00wQbxBO6Y"
 );
 
 class CheckoutForm extends Component {
@@ -58,7 +58,7 @@ class CheckoutForm extends Component {
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+          price: "price_1HlxiJHoh2Vgz5Qd1ZLHrP5G", // Replace with the ID of your price
           quantity: 10,
         },
       ],
@@ -83,7 +83,7 @@ class CheckoutForm extends Component {
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+          price: "price_1HlxiJHoh2Vgz5Qd1ZLHrP5G", // Replace with the ID of your price
           quantity: 2,
         },
       ],
@@ -108,7 +108,7 @@ class CheckoutForm extends Component {
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+          price: "price_1HlxiJHoh2Vgz5Qd1ZLHrP5G", // Replace with the ID of your price
           quantity: 5,
         },
       ],
@@ -139,7 +139,7 @@ class CheckoutForm extends Component {
       const { error } = await stripe.redirectToCheckout({
         lineItems: [
           {
-            price: "price_1HlxlYHoh2Vgz5QdLB8yIwWQ", // Replace with the ID of your price
+            price: "price_1HlxiJHoh2Vgz5Qd1ZLHrP5G", // Replace with the ID of your price
             quantity: Number(amount),
           },
         ],
