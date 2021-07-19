@@ -60,6 +60,8 @@ function Icon() {
 function MyVerticallyCenteredModal(props) {
   const history = useHistory();
 
+  const [show, setShow] = useState(false);
+
   let amount = localStorage.getItem("amount");
   let dataMango = JSON.parse(localStorage.getItem("@data"));
   return (
@@ -120,16 +122,6 @@ function MyVerticallyCenteredModal(props) {
                   "application/x-www-form-urlencoded;charset=utf-8",
               },
             }).then((result) => {
-              console.log(
-                dataMango.Id,
-                dataMango.AccessKey,
-                dataMango.PreregistrationData,
-                localStorage.getItem("cardNumber"),
-                localStorage.getItem("expDate"),
-                localStorage.getItem("cvx"),
-                dataMango.Id,
-                result.data
-              );
               const headers = new Headers({
                 "Content-Type": "application/json",
               });
@@ -157,16 +149,12 @@ function MyVerticallyCenteredModal(props) {
                     window.alert(
                       "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MMAA : (ex : 0622)."
                     );
+                    setShow(false);
                   } else {
-                    let r = window.confirm(
+                    window.confirm(
                       "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."
                     );
-
-                    if (r == true) {
-                      history.push("/Menu");
-                    } else {
-                      console.log("false");
-                    }
+                    history.push("/Menu");
                   }
                 });
             });
