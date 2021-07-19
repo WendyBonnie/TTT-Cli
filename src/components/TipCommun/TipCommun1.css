@@ -32,8 +32,17 @@
   text-align: center !important;
 }
 
-.marginInput{
+.marginInput {
   margin-bottom: 7%;
+}
+.buttonModalPayout {
+  background-color: #f5a624 !important;
+  color: white;
+  border-color: #f5a624 !important;
+}
+.buttonModalPayout:hover {
+  background-color: #555 !important;
+  color: #f4a521 !important;
 }
 
 @media only screen and (min-device-width: 768px) {
@@ -68,7 +77,7 @@
     margin-top: -10%;
   }
   .communButton:hover {
-    background-color: #555!important;
+    background-color: #555 !important;
     color: white !important;
     border-color: yellow !important;
   }
@@ -79,5 +88,14 @@
   }
   .ButtonCol {
     text-align: center !important;
+  }
+  .buttonModalPayout {
+    background-color: #f5a624 !important;
+    color: white;
+    border-color: #f5a624 !important;
+  }
+  .buttonModalPayout:hover {
+    background-color: #555 !important;
+    color: #f4a521 !important;
   }
 }

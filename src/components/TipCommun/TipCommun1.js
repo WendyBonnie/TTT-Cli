@@ -102,6 +102,7 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Body>
       <Modal.Footer style={{ borderBlockColor: "#f5a624" }}>
         <Button
+          className="buttonModalPayout"
           onClick={() => {
             axios({
               method: "post",
@@ -175,6 +176,7 @@ function MyVerticallyCenteredModal(props) {
           Payer
         </Button>
         <Button
+          className="buttonModalPayout"
           style={{ backgroundColor: "#f5a624", border: "none" }}
           onClick={props.onHide}
         >
