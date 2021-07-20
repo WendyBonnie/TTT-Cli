@@ -44,8 +44,9 @@ class footer extends Component {
         return response.json();
       })
       .then(
-        (responseObject) => {
-          this.setState({ message: responseObject.message });
+        () => {
+          let link = "https://client.tipourboire.com/";
+          window.location.href = link;
         },
 
         (error) => {

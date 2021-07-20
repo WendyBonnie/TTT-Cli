@@ -70,7 +70,7 @@ class DailyMenu extends Component {
           <Col md={12}>
             <Link to={"/Home" + window.location.search}>
               <Button className="button" variant="outline-warning" size="lg">
-                POURBOIRE
+                Je donne un pourboire
               </Button>
             </Link>
           </Col>
