@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Button, Card, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./DailyMenu.css";
 
 class DailyMenu extends Component {
@@ -22,7 +22,11 @@ class DailyMenu extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/client/menu/", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/client/menu" +
+        window.location.search,
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -64,7 +68,7 @@ class DailyMenu extends Component {
         </Card>
         <Row>
           <Col md={12}>
-            <Link to="/Home">
+            <Link to={"/Home" + window.location.search}>
               <Button className="button" variant="outline-warning" size="lg">
                 POURBOIRE
               </Button>

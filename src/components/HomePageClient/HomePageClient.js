@@ -14,7 +14,7 @@ class HomePageClient extends Component {
             <h1>Donner un Tip</h1>
             <h2>Sans compte client</h2>
             <p>Donner un pourboire sans créer de compte</p>
-            <Link to={"/ListeServeurs"}>
+            <Link to={"/ListeServeurs" + window.location.search}>
               <Button className="rowButton">Donner un pourboire</Button>
             </Link>
           </Col>
@@ -22,7 +22,7 @@ class HomePageClient extends Component {
             <h1>Donner un Tip</h1>
             <h2>Avec compte client</h2>
             <p>Me connecter à mon espace Tipourboire</p>
-            <Link to={"/"}>
+            <Link to={"/" + window.location.search}>
               <Button className="rowButton">Donner un pourboire</Button>
             </Link>
           </Col>

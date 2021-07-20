@@ -30,7 +30,9 @@ class BarreMenu extends Component {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="/Profil">Mon profil</Dropdown.Item>
+            <Dropdown.Item href={"/Profil" + window.location.search}>
+              Mon profil
+            </Dropdown.Item>
             <Dropdown.Item
               onClick={() => {
                 window.confirm("Voulez vous vous déconnecter ?");
