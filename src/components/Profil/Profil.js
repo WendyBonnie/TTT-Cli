@@ -70,9 +70,10 @@ class Client extends Component {
 
     e.preventDefault();
     const data = {
-      userId: localStorage.getItem(
-        "userID"
-      ) /*on get l'Id qu'on a stocké durant la connexion*/,
+      userId:
+        localStorage.getItem(
+          "userID"
+        ) /*on get l'Id qu'on a stocké durant la connexion*/,
       /*userID avec le ID en majuscule car c'est comme ca qu'on l'a mis dans le local storage (/connexion) */
       client: this.state.client,
     };
@@ -137,21 +138,27 @@ class Client extends Component {
         </Row>
         <Row>
           <Col s={12} xs={12} md={6}>
-            <Link to="/modifierMonProfil" className="modif">
+            <Link
+              to={"/modifierMonProfil" + window.location.search}
+              className="modif"
+            >
               <Button className="buttonedit" type="submit">
                 Mettre à jour mon profil
               </Button>
             </Link>
           </Col>
           <Col s={12} xs={12} md={6}>
-            <Link to="/ListeServeurs" className="modif">
+            <Link
+              to={"/ListeServeurs" + window.location.search}
+              className="modif"
+            >
               <Button className="buttonedit" type="submit">
                 Donner un pourboire
               </Button>
             </Link>
           </Col>
           <Col s={12} xs={12} md={6}>
-            <Link to="/Historique" className="modif">
+            <Link to={"/Historique" + window.location.search} className="modif">
               <Button className="buttonedit" type="submit">
                 Historique de mes dons
               </Button>

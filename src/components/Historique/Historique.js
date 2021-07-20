@@ -9,7 +9,7 @@ class Historique extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      client : { historique : []} ,
+      client: { historique: [] },
     };
   }
   postDataClient = () => {
@@ -46,29 +46,27 @@ class Historique extends Component {
   display = () => {
     return this.state.client.historique.map((element, index) => {
       return (
-       
-          <tr>
-            <td type="text" id="montant" name="montant">
-              {" "}
-              {element.montant / 100}€
-            </td>
-            <td type="date" id="date" name="date">
-              {" "}
-              {new Date(element.date).toLocaleDateString()}
-            </td>
-            <td type="text" id="waiter" name="waiter">
-              {" "}
-              {element.waiter}
-            </td>
-            <td type="text" id="restaurantName" name="restaurantName">
-              {" "}
-              {element.restaurantName}
-            </td>
-          </tr>
-         
-      )
-    })
-  }
+        <tr>
+          <td type="text" id="montant" name="montant">
+            {" "}
+            {element.montant / 100}€
+          </td>
+          <td type="date" id="date" name="date">
+            {" "}
+            {new Date(element.date).toLocaleDateString()}
+          </td>
+          <td type="text" id="waiter" name="waiter">
+            {" "}
+            {element.waiter}
+          </td>
+          <td type="text" id="restaurantName" name="restaurantName">
+            {" "}
+            {element.restaurantName}
+          </td>
+        </tr>
+      );
+    });
+  };
 
   componentDidMount() {
     this.postDataClient();
@@ -76,33 +74,30 @@ class Historique extends Component {
 
   render() {
     return (
-      <Container className='histoClient'>
+      <Container className="histoClient">
         <Row>
-          <Col className='titleHisto'> <h3>Historique de vos pourboire</h3></Col>
+          <Col className="titleHisto">
+            {" "}
+            <h3>Historique de vos pourboires</h3>
+          </Col>
         </Row>
-       
-      <Row class="table-responsive">
-        <Table  striped hover>
-        <thead>
-      <tr>
-        <th>Montant</th>
-        <th>Date</th>
-        <th>Serveur</th>
-        <th>Restaurant</th>
-      </tr>
-      </thead>
-        <tbody>
-        {this.display()}
-        </tbody>
-      </Table>
-      </Row>
-        
-       
-      
+
+        <Row class="table-responsive">
+          <Table striped hover>
+            <thead>
+              <tr>
+                <th>Montant</th>
+                <th>Date</th>
+                <th>Serveur</th>
+                <th>Restaurant</th>
+              </tr>
+            </thead>
+            <tbody>{this.display()}</tbody>
+          </Table>
+        </Row>
       </Container>
-    
     );
   }
 }
 
-export default Historique
+export default Historique;

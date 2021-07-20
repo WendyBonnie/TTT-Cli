@@ -23,7 +23,11 @@ class Liste extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/client/getDataServeur", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/client/getDataServeur" +
+        window.location.search,
+      options
+    )
       .then((response) => {
         return response.json();
       })
