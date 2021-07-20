@@ -182,6 +182,7 @@ function MyVerticallyCenteredModal(props) {
         >
           Annuler
         </Button>
+        <img className="imgMango" src="/logoTTT/mangoPay.png" />
       </Modal.Footer>
     </Modal>
   );
