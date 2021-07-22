@@ -154,7 +154,7 @@ function MyVerticallyCenteredModal(props) {
                     window.confirm(
                       "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."
                     );
-                    history.push("/Menu");
+                    history.push("/Menu" + window.location.search);
                   }
                 });
             });
