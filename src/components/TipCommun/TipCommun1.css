@@ -44,8 +44,11 @@
   background-color: #555 !important;
   color: #f4a521 !important;
 }
-
-@media only screen and (min-device-width: 768px) {
+.imgMango {
+  height: 40px !important;
+  width: 480px !important;
+}
+@media only screen and (min-device-width: 760px) {
   .mainBlocCommun {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -97,5 +100,11 @@
   .buttonModalPayout:hover {
     background-color: #555 !important;
     color: #f4a521 !important;
+  }
+}
+@media only screen and (min-device-width: 320px) {
+  .imgMango {
+    height: 30px !important;
+    width: 320px !important;
   }
 }
