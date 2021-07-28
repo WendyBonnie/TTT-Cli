@@ -14,6 +14,12 @@
 .footer .navbar-light .navbar-brand:hover {
   color: white;
 }
+
+.footer .imgMango {
+  height: 25px !important;
+  width: 267px !important;
+}
+
 /**
 * Modal de suppression compte
 */

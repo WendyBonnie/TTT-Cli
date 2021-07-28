@@ -60,8 +60,7 @@ class footer extends Component {
         show={this.state.showModal}
         onHide={() => {
           this.setState({ showModal: false });
-        }}
-      >
+        }}>
         <Modal.Header closeButton>
           <Modal.Title className="modalTitle">Supprimer mon compte</Modal.Title>
         </Modal.Header>
@@ -74,8 +73,7 @@ class footer extends Component {
             variant="secondary"
             onClick={() => {
               this.deleteProfil();
-            }}
-          >
+            }}>
             Supprimer
           </Button>
           <Button
@@ -83,8 +81,7 @@ class footer extends Component {
             variant="primary"
             onClick={() => {
               this.setState({ showModal: false });
-            }}
-          >
+            }}>
             Annuler
           </Button>
         </Modal.Footer>
@@ -104,8 +101,7 @@ class footer extends Component {
             <Nav className="mr-auto">
               <Nav.Link
                 href="mentionsLegales/mentionsLégales.pdf"
-                className="textFooter"
-              >
+                className="textFooter">
                 Mentions Légales
               </Nav.Link>
               <Nav.Link href="cgu-cgv/CGA.pdf" className="textFooter">
@@ -113,27 +109,23 @@ class footer extends Component {
               </Nav.Link>
               <Nav.Link
                 href="confidentialité/Politique_de_confidentialité_client.pdf"
-                className="textFooter"
-              >
+                className="textFooter">
                 Confidentialité
               </Nav.Link>
               <Nav.Link
                 href=""
                 className="textFooter"
-                href="cookies/POLITIQUE_DE_COOKIES.pdf"
-              >
+                href="cookies/POLITIQUE_DE_COOKIES.pdf">
                 Cookies
               </Nav.Link>
               <Nav.Link
                 href="mailto:contact@tipourboire.com"
-                className="textFooter"
-              >
+                className="textFooter">
                 Contact
               </Nav.Link>
               <Nav.Link
                 className="textFooter"
-                onClick={() => this.setState({ showModal: true })}
-              >
+                onClick={() => this.setState({ showModal: true })}>
                 Supprimer mon compte
               </Nav.Link>
             </Nav>
@@ -142,6 +134,7 @@ class footer extends Component {
                 A propos
               </Nav.Link>
             </Nav>
+            <img className="imgMango" src="/logoTTT/mangopay-terms.png" />
           </Navbar.Collapse>
         </Navbar>
       </div>

@@ -33,8 +33,7 @@ function Icon() {
           backgroundColor: "rgba(52, 52, 52, 0.0)",
           borderColor: "rgba(52, 52, 52, 0.0)",
         }}
-        ref={target}
-      >
+        ref={target}>
         <Info style={{ color: "black" }} />
       </button>
       <Overlay target={target.current} show={show} placement="right">
@@ -114,7 +113,9 @@ function MyVerticallyCenteredModal(props) {
                 accessKeyRef: dataMango.AccessKey,
                 data: dataMango.PreregistrationData,
                 cardNumber: localStorage.getItem("cardNumber"),
-                cardExpirationDate: localStorage.getItem("expDate"),
+                cardExpirationDate: localStorage
+                  .getItem("expDate")
+                  .replace(/[^a-zA-Z0-9]/g, ""),
                 cardCvx: localStorage.getItem("cvx"),
               }),
               headers: {
@@ -159,15 +160,13 @@ function MyVerticallyCenteredModal(props) {
                 });
             });
           }}
-          style={{ backgroundColor: "#f5a624", border: "none" }}
-        >
+          style={{ backgroundColor: "#f5a624", border: "none" }}>
           Payer
         </Button>
         <Button
           className="buttonModalPayout"
           style={{ backgroundColor: "#f5a624", border: "none" }}
-          onClick={props.onHide}
-        >
+          onClick={props.onHide}>
           Annuler
         </Button>
         <img className="imgMango" src="/logoTTT/mangoPay.png" />
@@ -278,8 +277,7 @@ class TipCommun1 extends Component {
                     this.state.cardExpirationDate
                   );
                 }
-              }}
-            >
+              }}>
               Payer
             </Button>
           </Col>
