@@ -277,8 +277,6 @@ class TipCommun1 extends Component {
                     "expDate",
                     this.state.cardExpirationDate
                   );
-
-                  console.log("test", localStorage.getItem("amount"));
                 }
               }}
             >

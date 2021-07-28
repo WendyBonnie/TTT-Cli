@@ -42,7 +42,7 @@ class TipCommun extends Component {
         localStorage.setItem("@dataLastName", this.state.lastname);
         localStorage.setItem("@dataMail", this.state.email);
       });
-    this.props.history.push("/TipCommun1");
+    this.props.history.push("/TipCommun1" + window.location.search);
   };
   componentDidMount() {}
   render() {

@@ -154,7 +154,7 @@ class Liste extends Component {
                       }
                     );
                   this.props.history.push({
-                    pathname: "/TipCommun",
+                    pathname: "/TipCommun" + window.location.search,
                   });
                 }}
               >
