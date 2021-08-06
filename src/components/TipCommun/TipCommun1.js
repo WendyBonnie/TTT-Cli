@@ -236,55 +236,66 @@ class TipCommun1 extends Component {
                   type="number"
                   placeholder="Montant du Don Général"
                   onChange={this.handleInput}
-                  className="marginInput"
+                  className="inputPaymentTips"
                 />
                 <Form.Control
                   name="cardNumber"
                   type="text"
                   placeholder="Numéro de carte bleu"
                   onChange={this.handleInput}
-                  className="marginInput"
+                  className="inputPaymentTips"
                 />
-                <Form.Control
-                  name="cardExpirationDate"
-                  type="text"
-                  placeholder="Date d'expiration format : MM/AA"
-                  onChange={this.handleInput}
-                  className="marginInput"
-                />
-                <Form.Control
-                  name="cardCvx"
-                  type="text"
-                  placeholder="CVC "
-                  onChange={this.handleInput}
-                  className="marginInput"
-                />
+                <Row>
+                  <Col>
+                    <Form.Control
+                      name="cardExpirationDate"
+                      type="text"
+                      placeholder="MM/AA"
+                      onChange={this.handleInput}
+                      className="inputPaymentTipsCol"
+                    />
+                  </Col>
+                  <Col>
+                    <Form.Control
+                      name="cardCvx"
+                      type="text"
+                      placeholder="CVC "
+                      onChange={this.handleInput}
+                      className="inputPaymentTipsCol"
+                    />
+                  </Col>
+                </Row>
               </Form.Group>
+              <Col className="ButtonCol" xs={12} s={12} md={12}>
+                <Button
+                  className="communButtonVal"
+                  onClick={() => {
+                    if (this.state.amount <= 1) {
+                      window.alert(
+                        "Le montant minimum du tips doit être de 2 euros"
+                      );
+                    } else {
+                      this.setState({ modal: true });
+                      localStorage.setItem("amount", this.state.amount);
+                      localStorage.setItem("cardNumber", this.state.cardNumber);
+                      localStorage.setItem("cvx", this.state.cardCvx);
+                      localStorage.setItem(
+                        "expDate",
+                        this.state.cardExpirationDate
+                      );
+                    }
+                  }}
+                >
+                  Payer
+                </Button>
+                <img
+                  className="imgMango bottomMango"
+                  src="/logoTTT/mangoPay.png"
+                />
+              </Col>
             </Form>
           </Col>
-          <Col className="ButtonCol" xs={12} s={12} md={12}>
-            <Button
-              className="communButtonVal"
-              onClick={() => {
-                if (this.state.amount <= 1) {
-                  window.alert(
-                    "Le montant minimum du tips doit être de 2 euros"
-                  );
-                } else {
-                  this.setState({ modal: true });
-                  localStorage.setItem("amount", this.state.amount);
-                  localStorage.setItem("cardNumber", this.state.cardNumber);
-                  localStorage.setItem("cvx", this.state.cardCvx);
-                  localStorage.setItem(
-                    "expDate",
-                    this.state.cardExpirationDate
-                  );
-                }
-              }}
-            >
-              Payer
-            </Button>
-          </Col>
+
           <MyVerticallyCenteredModal
             show={this.state.modal}
             onHide={() => this.setState({ modal: false })}

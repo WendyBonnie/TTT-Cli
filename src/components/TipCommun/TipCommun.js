@@ -62,7 +62,7 @@ class TipCommun extends Component {
                   placeholder="E-Mail"
                   onChange={this.handleInput}
                   value={this.state.email}
-                  className="marginInput"
+                  className="inputPaymentTips"
                 />
                 <Form.Control
                   name="lastname"
@@ -70,7 +70,7 @@ class TipCommun extends Component {
                   placeholder="Nom"
                   onChange={this.handleInput}
                   value={this.state.lastname}
-                  className="marginInput"
+                  className="inputPaymentTips"
                 />
                 <Form.Control
                   name="firstname"
@@ -78,10 +78,14 @@ class TipCommun extends Component {
                   placeholder="Prénom"
                   onChange={this.handleInput}
                   value={this.state.firstname}
-                  className="marginInput"
+                  className="inputPaymentTips"
                 />
               </Form.Group>
             </Form>
+            <img
+              className="mangoImgResp mangoImgNormal"
+              src="/logoTTT/mangoPay.png"
+            />
           </Col>
           <Col className="ButtonCol" xs={12} s={12} md={12}>
             <Button className="communButton" onClick={this.postInfoCard}>

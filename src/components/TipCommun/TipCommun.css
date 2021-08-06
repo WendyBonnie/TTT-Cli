@@ -21,10 +21,14 @@
 .ButtonCol {
   text-align: center !important;
 }
-
-.marginInput{
-  margin-bottom: 7%;
+.mangoImgResp {
+  height: 30px !important;
+  width: 320px !important;
 }
+.marginInput {
+  margin-bottom: 2%;
+}
+
 @media only screen and (min-device-width: 768px) {
   .mainBlocCommun {
     margin-left: auto !important;
@@ -51,11 +55,14 @@
     text-align: center !important;
   }
   .communButton:hover {
-    background-color: #555!important;
+    background-color: #555 !important;
     color: white !important;
     border-color: yellow !important;
   }
   .ButtonCol {
     text-align: center !important;
+  }
+  .mangoImgNormal {
+    display: none !important;
   }
 }
