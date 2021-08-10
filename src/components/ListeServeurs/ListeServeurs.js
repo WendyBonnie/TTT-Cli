@@ -56,7 +56,7 @@ class Liste extends Component {
               <Col>
                 <Image
                   src={
-                    "https://back-end.osc-fr1.scalingo.io/" +
+                    "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
                     element.serveurPicture
                   }
                 />

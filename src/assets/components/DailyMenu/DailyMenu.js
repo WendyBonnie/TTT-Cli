@@ -55,12 +55,18 @@ class DailyMenu extends Component {
             <p className="datemenu"></p>
           </Card.Body>
           <a
-            href={"https://back-end.osc-fr1.scalingo.io/" + this.state.menu}
+            href={
+              "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+              this.state.menu
+            }
             target="_blank"
           >
             <Card.Img
               variant="top"
-              src={"https://back-end.osc-fr1.scalingo.io/" + this.state.menu}
+              src={
+                "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                this.state.menu
+              }
               className="dailyMenu"
               alt="Menu du Jour"
             />
