@@ -33,7 +33,8 @@ function Icon() {
           backgroundColor: "rgba(52, 52, 52, 0.0)",
           borderColor: "rgba(52, 52, 52, 0.0)",
         }}
-        ref={target}>
+        ref={target}
+      >
         <Info style={{ color: "black" }} />
       </button>
       <Overlay target={target.current} show={show} placement="right">
@@ -148,7 +149,7 @@ function MyVerticallyCenteredModal(props) {
                 .then((result1) => {
                   if (result1.Type === "param_error") {
                     window.alert(
-                      "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MMAA : (ex : 0622)."
+                      "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MM/AA : (ex : 06/22)."
                     );
                     setShow(false);
                   } else {
@@ -160,13 +161,15 @@ function MyVerticallyCenteredModal(props) {
                 });
             });
           }}
-          style={{ backgroundColor: "#f5a624", border: "none" }}>
+          style={{ backgroundColor: "#f5a624", border: "none" }}
+        >
           Payer
         </Button>
         <Button
           className="buttonModalPayout"
           style={{ backgroundColor: "#f5a624", border: "none" }}
-          onClick={props.onHide}>
+          onClick={props.onHide}
+        >
           Annuler
         </Button>
         <img className="imgMango" src="/logoTTT/mangoPay.png" />
@@ -233,54 +236,66 @@ class TipCommun1 extends Component {
                   type="number"
                   placeholder="Montant du Don Général"
                   onChange={this.handleInput}
-                  className="marginInput"
+                  className="inputPaymentTips"
                 />
                 <Form.Control
                   name="cardNumber"
                   type="text"
                   placeholder="Numéro de carte bleu"
                   onChange={this.handleInput}
-                  className="marginInput"
+                  className="inputPaymentTips"
                 />
-                <Form.Control
-                  name="cardExpirationDate"
-                  type="text"
-                  placeholder="Date d'expiration format : MMAA"
-                  onChange={this.handleInput}
-                  className="marginInput"
-                />
-                <Form.Control
-                  name="cardCvx"
-                  type="text"
-                  placeholder="CVC "
-                  onChange={this.handleInput}
-                  className="marginInput"
-                />
+                <Row>
+                  <Col>
+                    <Form.Control
+                      name="cardExpirationDate"
+                      type="text"
+                      placeholder="MM/AA"
+                      onChange={this.handleInput}
+                      className="inputPaymentTipsCol"
+                    />
+                  </Col>
+                  <Col>
+                    <Form.Control
+                      name="cardCvx"
+                      type="text"
+                      placeholder="CVC "
+                      onChange={this.handleInput}
+                      className="inputPaymentTipsCol"
+                    />
+                  </Col>
+                </Row>
               </Form.Group>
+              <Col className="ButtonCol" xs={12} s={12} md={12}>
+                <Button
+                  className="communButtonVal"
+                  onClick={() => {
+                    if (this.state.amount <= 1) {
+                      window.alert(
+                        "Le montant minimum du tips doit être de 2 euros"
+                      );
+                    } else {
+                      this.setState({ modal: true });
+                      localStorage.setItem("amount", this.state.amount);
+                      localStorage.setItem("cardNumber", this.state.cardNumber);
+                      localStorage.setItem("cvx", this.state.cardCvx);
+                      localStorage.setItem(
+                        "expDate",
+                        this.state.cardExpirationDate
+                      );
+                    }
+                  }}
+                >
+                  Payer
+                </Button>
+                <img
+                  className="imgMango bottomMango"
+                  src="/logoTTT/mangoPay.png"
+                />
+              </Col>
             </Form>
           </Col>
-          <Col className="ButtonCol" xs={12} s={12} md={12}>
-            <Button
-              className="communButtonVal"
-              onClick={() => {
-                if (this.state.amount <= 1) {
-                  window.alert(
-                    "Le montant minimum du tips doit être de 2 euros"
-                  );
-                } else {
-                  this.setState({ modal: true });
-                  localStorage.setItem("amount", this.state.amount);
-                  localStorage.setItem("cardNumber", this.state.cardNumber);
-                  localStorage.setItem("cvx", this.state.cardCvx);
-                  localStorage.setItem(
-                    "expDate",
-                    this.state.cardExpirationDate
-                  );
-                }
-              }}>
-              Payer
-            </Button>
-          </Col>
+
           <MyVerticallyCenteredModal
             show={this.state.modal}
             onHide={() => this.setState({ modal: false })}
