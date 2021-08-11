@@ -58,8 +58,9 @@ function MyVerticallyCenteredModal(props) {
   const [show, setShow] = useState(false);
 
   let amount = localStorage.getItem("amountIndiv");
-  let dataMango = JSON.parse(localStorage.getItem("@data"));
-
+  let dataMango = JSON.parse(localStorage.getItem("@dataIndiv"));
+  let protectionAmount = amount * 0.016 + 0.1;
+  let totalPreleve = Number(amount) + (Number(amount) * 0.016 + 0.1);
   useEffect(() => {}, []);
   return (
     <Modal {...props} centered backdrop="static">
@@ -78,11 +79,11 @@ function MyVerticallyCenteredModal(props) {
         <p>
           Montant du pourboire: {amount} €
           <br />
-          Protection Bonne Attribution: {amount * 0.016 + 0.1} €
+          Protection Bonne Attribution: {protectionAmount.toFixed(2)} €
           <Icon />
           <br />
           <p style={{ fontWeight: "bolder" }}>
-            Total prélevé: {Number(amount) + (Number(amount) * 0.016 + 0.1)} €
+            Total prélevé: {totalPreleve.toFixed(2)} €
           </p>
         </p>
       </Modal.Body>
@@ -125,6 +126,7 @@ function MyVerticallyCenteredModal(props) {
                 "Content-Type": "application/json",
               });
               const data1 = {
+                emailServeur: localStorage.getItem("@mailServeur"),
                 walletID: localStorage.getItem("walletIDIndiv"),
                 amount: Number(amount) + (Number(amount) * 0.016 + 0.1),
                 cardRegistrationId: dataMango.Id,
@@ -137,7 +139,8 @@ function MyVerticallyCenteredModal(props) {
               };
 
               fetch(
-                "https://back-end.osc-fr1.scalingo.io/client/payin-indiv",
+                "https://back-end.osc-fr1.scalingo.io/client/payin-indiv" +
+                  window.location.search,
 
                 options
               )
@@ -151,10 +154,11 @@ function MyVerticallyCenteredModal(props) {
                     );
                     setShow(false);
                   } else {
+                    localStorage.clear();
                     window.confirm(
                       "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."
                     );
-                    history.push("/Menu" + window.location.search);
+                    history.push("/Commentaires" + window.location.search);
                   }
                 });
             });

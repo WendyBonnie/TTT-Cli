@@ -72,34 +72,7 @@ class Liste extends Component {
               <Col>
                 <Button
                   onClick={() => {
-                    const headers = new Headers({
-                      "Content-Type": "application/json",
-                    });
-                    const data = {
-                      email: element.serveurMail,
-                    };
-                    const options = {
-                      method: "POST",
-                      headers: headers,
-                      body: JSON.stringify(data),
-                    };
-
-                    fetch(
-                      "https://back-end.osc-fr1.scalingo.io/client/emailServeur",
-                      options
-                    )
-                      .then((response) => {
-                        return response;
-                      })
-                      .then(
-                        (data) => {
-                          console.log(data);
-                        },
-
-                        (error) => {
-                          console.log(error);
-                        }
-                      );
+                    localStorage.setItem("@mailServeur", element.serveurMail);
                     this.props.history.push(
                       "/information-client" + window.location.search
                     );
