@@ -22,6 +22,8 @@ import Historique from "../Historique/Historique";
 import modifierMonProfil from "../modifierSonProfil/modifierSonProfil";
 import TipCommun from "../TipCommun/TipCommun";
 import TipCommun1 from "../TipCommun/TipCommun1";
+import TipIndividuel from "../TipsIndividuel/tipsIndividuel";
+import TipIndividuel1 from "../TipsIndividuel/tipsIndividuel1";
 import MangoCards from "../MangoCards/MangoCards";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
@@ -71,6 +73,12 @@ class App extends Component {
             <Route path="/Historique" exact component={Historique} />
             <Route path="/TipCommun" exact component={TipCommun} />
             <Route path="/TipCommun1" exact component={TipCommun1} />
+            <Route path="/information-client" exact component={TipIndividuel} />
+            <Route
+              path="/paiement-sécurisé-tipourboire"
+              exact
+              component={TipIndividuel1}
+            />
             <Route path="/MangoCards" exact component={MangoCards} />
             <Route
               path="/modifierMonProfil"

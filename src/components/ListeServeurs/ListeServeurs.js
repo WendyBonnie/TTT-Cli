@@ -101,7 +101,7 @@ class Liste extends Component {
                         }
                       );
                     this.props.history.push(
-                      "/TipCommun" + window.location.search
+                      "/information-client" + window.location.search
                     );
                   }}
                 >
