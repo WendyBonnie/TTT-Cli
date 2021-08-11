@@ -1,0 +1,122 @@
+.formCommun {
+  padding: 15px;
+}
+.mainBlocCommun {
+  border-radius: 28px !important;
+  background-color: white !important;
+  margin-top: -10% !important;
+  padding-top: 5% !important;
+  margin-bottom: 30% !important;
+}
+.titleCommun {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+.tipsMin {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+.communButtonVal {
+  background-color: #f5a624 !important;
+  font-size: 20px;
+  border-radius: 15px !important;
+  border-color: #f5a624 !important;
+  margin-top: 5px !important;
+}
+.ButtonCol {
+  text-align: center !important;
+}
+
+.inputPaymentTipsCol {
+  margin-bottom: 4%;
+  border-radius: 15px !important;
+  text-align: center !important;
+}
+.inputPaymentTips {
+  margin-bottom: 4%;
+  border-radius: 15px !important;
+  padding: 17px !important;
+}
+.buttonModalPayout {
+  background-color: #f5a624 !important;
+  color: white;
+  border-color: #f5a624 !important;
+}
+.buttonModalPayout:hover {
+  background-color: #555 !important;
+  color: #f4a521 !important;
+}
+.imgMango {
+  height: 40px !important;
+  width: 480px !important;
+}
+.bottomMango {
+  margin-top: 15px !important;
+}
+@media only screen and (min-device-width: 760px) {
+  .mainBlocCommun {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 0px !important;
+    background-color: white !important;
+    margin-top: 0% !important;
+    padding-top: 5% !important;
+  }
+  .formCommunGrp {
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+  .titleCommun {
+    font-size: 30px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  .communButton {
+    background-color: #f5a624 !important;
+    font-size: 20px;
+    border-radius: 28px !important;
+    border-color: #f5a624 !important;
+  }
+  .communButtonVal {
+    background-color: #f5a624 !important;
+    font-size: 20px;
+    border-radius: 15px !important;
+    border-color: #f5a624 !important;
+    margin-top: -10%;
+  }
+  .communButton:hover {
+    background-color: #555 !important;
+    color: white !important;
+    border-color: yellow !important;
+  }
+  .communButtonVal:hover {
+    background-color: #555 !important;
+    color: white !important;
+    border-color: yellow !important;
+  }
+  .ButtonCol {
+    text-align: center !important;
+  }
+  .buttonModalPayout {
+    background-color: #f5a624 !important;
+    color: white;
+    border-color: #f5a624 !important;
+  }
+  .buttonModalPayout:hover {
+    background-color: #555 !important;
+    color: #f4a521 !important;
+  }
+}
+@media only screen and (min-device-width: 320px) {
+  .imgMango {
+    height: 30px !important;
+    width: 320px !important;
+    margin-bottom: 15px !important;
+  }
+}

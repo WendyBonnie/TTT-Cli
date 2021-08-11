@@ -70,7 +70,6 @@ class Liste extends Component {
             </Row>
             <Row className="butTips">
               <Col>
-                {/*
                 <Button
                   onClick={() => {
                     const headers = new Headers({
@@ -102,12 +101,12 @@ class Liste extends Component {
                         }
                       );
                     this.props.history.push({
-                      pathname: "/Payment",
+                      pathname: "/TipCommun" + window.location.search,
                     });
                   }}
                 >
                   Donner un Pourboire
-                </Button>*/}
+                </Button>
               </Col>
             </Row>
           </Container>
