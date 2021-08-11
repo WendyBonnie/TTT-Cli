@@ -100,9 +100,9 @@ class Liste extends Component {
                           console.log(error);
                         }
                       );
-                    this.props.history.push({
-                      pathname: "/TipCommun" + window.location.search,
-                    });
+                    this.props.history.push(
+                      "/TipCommun" + window.location.search
+                    );
                   }}
                 >
                   Donner un Pourboire
@@ -152,9 +152,9 @@ class Liste extends Component {
                         console.log(error);
                       }
                     );
-                  this.props.history.push({
-                    pathname: "/TipCommun" + window.location.search,
-                  });
+                  this.props.history.push(
+                    "/TipCommun" + window.location.search
+                  );
                 }}
               >
                 Donner à toute l'équipe !
