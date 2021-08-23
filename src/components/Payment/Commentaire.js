@@ -49,7 +49,7 @@ class Commentaires extends Component {
             state: {
               serveurId: this.props.id,
             },
-            pathname: "/menu",
+            pathname: "/menu" + window.location.search,
           });
         },
 
