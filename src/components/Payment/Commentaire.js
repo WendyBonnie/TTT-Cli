@@ -45,12 +45,7 @@ class Commentaires extends Component {
         (responseObject) => {
           this.setState({ message: responseObject.message });
 
-          this.props.history.push({
-            state: {
-              serveurId: this.props.id,
-            },
-            pathname: "/menu" + window.location.search,
-          });
+          this.props.history.push("/menu" + window.location.search);
         },
 
         (error) => {
