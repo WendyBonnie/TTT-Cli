@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 class Commentaires extends Component {
   constructor(props) {
     super(props);
-    this.state = {commentaires:[{nom:"", prenom:"", texte:""}] };
+    this.state = { commentaires: [{ nom: "", prenom: "", texte: "" }] };
   }
 
   handleInput = (e) => {
@@ -20,18 +20,15 @@ class Commentaires extends Component {
   addNewStatut = (e) => {
     e.preventDefault();
     const data = {
-        prenom:this.state.prenom,
-        nom:this.state.nom,
-        texte: this.state.texte,
-        id:this.props.serveurId
-
-      
+      prenom: this.state.prenom,
+      nom: this.state.nom,
+      texte: this.state.texte,
+      id: this.props.serveurId,
     };
 
     const headers = new Headers({
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
-     
     });
 
     const options = {
@@ -46,18 +43,13 @@ class Commentaires extends Component {
       })
       .then(
         (responseObject) => {
-           
           this.setState({ message: responseObject.message });
-         
+
           this.props.history.push({
             state: {
               serveurId: this.props.id,
-            
-              
             },
-            pathname:"/menu",
-           
-
+            pathname: "/menu",
           });
         },
 
@@ -67,60 +59,57 @@ class Commentaires extends Component {
       );
   };
 
-  
-
   render() {
     return (
-      <Container className='contCom'>
-        <Row className='coms'>
-          <Col xs={12} s={12} md={12}><h1 className='titreCom'>Laissez un commentaire à votre serveur</h1></Col>
+      <Container className="contCom">
+        <Row className="coms">
+          <Col xs={12} s={12} md={12}>
+            <h1 className="titreCom">Laissez un commentaire à votre serveur</h1>
+          </Col>
         </Row>
-            <Row className='coms'>
-            <Col xs={12} s={12} md={12}>
+        <Row className="coms">
+          <Col xs={12} s={12} md={12}>
             <Form.Group>
-         
-            <Form.Control
+              <Form.Control
+                onChange={this.handleInput}
+                value={this.state.prenom}
+                name="prenom"
+                type="text"
+                placeholder="Mon prénom"
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
+                onChange={this.handleInput}
+                value={this.state.nom}
+                name="nom"
+                type="text"
+                placeholder="Mon nom"
+              />
+            </Form.Group>
+            <textarea
               onChange={this.handleInput}
-              value={this.state.prenom}
-              name="prenom"
+              value={this.state.texte}
+              name="texte"
               type="text"
-              placeholder="Prenom"
-            />
-          </Form.Group>
-          <Form.Group>
-           
-            <Form.Control
-              onChange={this.handleInput}
-              value={this.state.nom}
-              name="nom"
-              type="text"
-              placeholder="nom"
-            />
-          </Form.Group>
-          <textarea
-            onChange={this.handleInput}
-            value={this.state.texte}
-            name="texte"
-            type="text"
-            class="form-control formCommentaire"
-            placeholder="Votre commentaire"
-          ></textarea>
+              class="form-control formCommentaire"
+              placeholder="Votre commentaire"
+            ></textarea>
           </Col>
-          
+
           <Col>
-          <button
-            className="buttonStatut"
-            type="submit"
-            onClick={this.addNewStatut}
-          >
-            Publier
-          </button>
+            <button
+              className="buttonStatut"
+              type="submit"
+              onClick={this.addNewStatut}
+            >
+              Publier
+            </button>
           </Col>
-          <Col className='caract'>
-          <small>100 caractères maximum</small>
+          <Col className="caract">
+            <small>100 caractères maximum</small>
           </Col>
-          </Row>
-        
+        </Row>
       </Container>
     );
   }

@@ -91,7 +91,79 @@ class Liste extends Component {
   };
 
   displayGeneral = () => {
-    if (this.state.serveur.pourboireGeneral === true) {
+    if (
+      this.state.serveur.pourboireGeneral === true &&
+      this.state.serveur.pourboireIndividuel === false
+    ) {
+      return (
+        <Container className="tipsTrueFalse">
+          <Row>
+            <Col className="colButton">
+              <Button
+                onClick={() => {
+                  const headers = new Headers({
+                    "Content-Type": "application/json",
+                  });
+                  const data = {};
+                  const options = {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(data),
+                  };
+
+                  fetch(
+                    "https://back-end.osc-fr1.scalingo.io/client/emailServeur",
+                    options
+                  )
+                    .then((response) => {
+                      return response;
+                    })
+                    .then(
+                      (data) => {
+                        console.log(data);
+                      },
+
+                      (error) => {
+                        console.log(error);
+                      }
+                    );
+                  this.props.history.push(
+                    "/TipCommun" + window.location.search
+                  );
+                }}
+              >
+                Donner à toute l'équipe !
+              </Button>
+            </Col>
+          </Row>
+          {this.state.serveur.tabServeur.map((element, index) => {
+            return (
+              <Container fluid>
+                <Row className="rowImage">
+                  <Col>
+                    <Image
+                      src={
+                        "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                        element.serveurPicture
+                      }
+                    />
+                  </Col>
+                </Row>
+
+                <Row className="rowTitre2">
+                  <Col s={12}>
+                    <p>{element.serveurName}</p>
+                  </Col>
+                </Row>
+              </Container>
+            );
+          })}
+        </Container>
+      );
+    } else if (
+      this.state.serveur.pourboireGeneral === true &&
+      this.state.serveur.pourboireIndividuel === true
+    ) {
       return (
         <Container>
           <Row>
@@ -134,10 +206,84 @@ class Liste extends Component {
               </Button>
             </Col>
           </Row>
+          {this.state.serveur.tabServeur.map((element, index) => {
+            return (
+              <Container fluid>
+                <Row className="rowImage">
+                  <Col>
+                    <Image
+                      src={
+                        "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                        element.serveurPicture
+                      }
+                    />
+                  </Col>
+                </Row>
+
+                <Row className="rowTitre2">
+                  <Col s={12}>
+                    <p>{element.serveurName}</p>
+                  </Col>
+                </Row>
+                <Row className="butTips">
+                  <Col>
+                    <Button
+                      onClick={() => {
+                        localStorage.setItem(
+                          "@mailServeur",
+                          element.serveurMail
+                        );
+                        this.props.history.push(
+                          "/information-client" + window.location.search
+                        );
+                      }}
+                    >
+                      Donner un Pourboire
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
+            );
+          })}
         </Container>
       );
     } else {
-      return;
+      return this.state.serveur.tabServeur.map((element, index) => {
+        return (
+          <Container fluid>
+            <Row className="rowImage">
+              <Col>
+                <Image
+                  src={
+                    "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                    element.serveurPicture
+                  }
+                />
+              </Col>
+            </Row>
+
+            <Row className="rowTitre2">
+              <Col s={12}>
+                <p>{element.serveurName}</p>
+              </Col>
+            </Row>
+            <Row className="butTips">
+              <Col>
+                <Button
+                  onClick={() => {
+                    localStorage.setItem("@mailServeur", element.serveurMail);
+                    this.props.history.push(
+                      "/information-client" + window.location.search
+                    );
+                  }}
+                >
+                  Donner un Pourboire
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        );
+      });
     }
   };
   render() {
@@ -153,11 +299,6 @@ class Liste extends Component {
         </Row>
         <Row>
           <Col>{this.displayGeneral()}</Col>
-        </Row>
-        <Row className="display">
-          <Col xs={12} s={12} md={4}>
-            {this.display()}
-          </Col>
         </Row>
       </Container>
     );

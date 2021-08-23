@@ -51,6 +51,8 @@ class DailyMenu extends Component {
       <Container className="blocprincipal">
         <Card>
           <h2 className="Titre">MENU DU JOUR</h2>
+          <h2 className="Titre">{this.state.db1.restaurantName}</h2>
+
           <Card.Body>
             <p className="datemenu"></p>
           </Card.Body>
