@@ -59,8 +59,9 @@ function Icon() {
 
 function MyVerticallyCenteredModal(props) {
   const history = useHistory();
+  const hide = props.onHide;
 
-  const [show, setShow] = useState(false);
+  const [modal, setModal] = useState(false);
 
   let amount = localStorage.getItem("amount");
   let dataMango = JSON.parse(localStorage.getItem("@data"));
@@ -151,7 +152,7 @@ function MyVerticallyCenteredModal(props) {
                     window.alert(
                       "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MM/AA : (ex : 06/22)."
                     );
-                    setShow(false);
+                    hide();
                   } else {
                     window.confirm(
                       "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."

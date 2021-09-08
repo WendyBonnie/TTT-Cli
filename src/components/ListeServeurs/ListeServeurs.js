@@ -49,42 +49,44 @@ class Liste extends Component {
 
   display = () => {
     if (this.state.serveur.pourboireIndividuel === true) {
-      return this.state.serveur.tabServeur.map((element, index) => {
-        return (
-          <Container fluid>
-            <Row className="rowImage">
-              <Col>
-                <Image
-                  src={
-                    "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
-                    element.serveurPicture
-                  }
-                />
-              </Col>
-            </Row>
+      return this.state.serveur.tabServeur
+        .filter((filter) => filter.serveurPoste != "Manager (Pas de bourboire)")
+        .map((element, index) => {
+          return (
+            <Container fluid>
+              <Row className="rowImage">
+                <Col>
+                  <Image
+                    src={
+                      "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                      element.serveurPicture
+                    }
+                  />
+                </Col>
+              </Row>
 
-            <Row className="rowTitre2">
-              <Col s={12}>
-                <p>{element.serveurName}</p>
-              </Col>
-            </Row>
-            <Row className="butTips">
-              <Col>
-                <Button
-                  onClick={() => {
-                    localStorage.setItem("@mailServeur", element.serveurMail);
-                    this.props.history.push(
-                      "/information-client" + window.location.search
-                    );
-                  }}
-                >
-                  Donner un Pourboire
-                </Button>
-              </Col>
-            </Row>
-          </Container>
-        );
-      });
+              <Row className="rowTitre2">
+                <Col s={12}>
+                  <p>{element.serveurName}</p>
+                </Col>
+              </Row>
+              <Row className="butTips">
+                <Col>
+                  <Button
+                    onClick={() => {
+                      localStorage.setItem("@mailServeur", element.serveurMail);
+                      this.props.history.push(
+                        "/information-client" + window.location.search
+                      );
+                    }}
+                  >
+                    Donner un Pourboire
+                  </Button>
+                </Col>
+              </Row>
+            </Container>
+          );
+        });
     } else {
       return;
     }
@@ -136,28 +138,32 @@ class Liste extends Component {
               </Button>
             </Col>
           </Row>
-          {this.state.serveur.tabServeur.map((element, index) => {
-            return (
-              <Container fluid>
-                <Row className="rowImage">
-                  <Col>
-                    <Image
-                      src={
-                        "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
-                        element.serveurPicture
-                      }
-                    />
-                  </Col>
-                </Row>
+          {this.state.serveur.tabServeur
+            .filter(
+              (filter) => filter.serveurPoste != "Manager (Pas de bourboire)"
+            )
+            .map((element, index) => {
+              return (
+                <Container fluid>
+                  <Row className="rowImage">
+                    <Col>
+                      <Image
+                        src={
+                          "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                          element.serveurPicture
+                        }
+                      />
+                    </Col>
+                  </Row>
 
-                <Row className="rowTitre2">
-                  <Col s={12}>
-                    <p>{element.serveurName}</p>
-                  </Col>
-                </Row>
-              </Container>
-            );
-          })}
+                  <Row className="rowTitre2">
+                    <Col s={12}>
+                      <p>{element.serveurName}</p>
+                    </Col>
+                  </Row>
+                </Container>
+              );
+            })}
         </Container>
       );
     } else if (
@@ -206,84 +212,90 @@ class Liste extends Component {
               </Button>
             </Col>
           </Row>
-          {this.state.serveur.tabServeur.map((element, index) => {
-            return (
-              <Container fluid>
-                <Row className="rowImage">
-                  <Col>
-                    <Image
-                      src={
-                        "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
-                        element.serveurPicture
-                      }
-                    />
-                  </Col>
-                </Row>
+          {this.state.serveur.tabServeur
+            .filter(
+              (filter) => filter.serveurPoste != "Manager (Pas de bourboire)"
+            )
+            .map((element, index) => {
+              return (
+                <Container fluid>
+                  <Row className="rowImage">
+                    <Col>
+                      <Image
+                        src={
+                          "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                          element.serveurPicture
+                        }
+                      />
+                    </Col>
+                  </Row>
 
-                <Row className="rowTitre2">
-                  <Col s={12}>
-                    <p>{element.serveurName}</p>
-                  </Col>
-                </Row>
-                <Row className="butTips">
-                  <Col>
-                    <Button
-                      onClick={() => {
-                        localStorage.setItem(
-                          "@mailServeur",
-                          element.serveurMail
-                        );
-                        this.props.history.push(
-                          "/information-client" + window.location.search
-                        );
-                      }}
-                    >
-                      Donner un Pourboire
-                    </Button>
-                  </Col>
-                </Row>
-              </Container>
-            );
-          })}
+                  <Row className="rowTitre2">
+                    <Col s={12}>
+                      <p>{element.serveurName}</p>
+                    </Col>
+                  </Row>
+                  <Row className="butTips">
+                    <Col>
+                      <Button
+                        onClick={() => {
+                          localStorage.setItem(
+                            "@mailServeur",
+                            element.serveurMail
+                          );
+                          this.props.history.push(
+                            "/information-client" + window.location.search
+                          );
+                        }}
+                      >
+                        Donner un Pourboire
+                      </Button>
+                    </Col>
+                  </Row>
+                </Container>
+              );
+            })}
         </Container>
       );
     } else {
-      return this.state.serveur.tabServeur.map((element, index) => {
-        return (
-          <Container fluid>
-            <Row className="rowImage">
-              <Col>
-                <Image
-                  src={
-                    "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
-                    element.serveurPicture
-                  }
-                />
-              </Col>
-            </Row>
+      return this.state.serveur.tabServeur
+        .filter((filter) => filter.serveurPoste != "Manager (Pas de bourboire)")
+        .map((element, index) => {
+          return (
+            <Container fluid>
+              <Row className="rowImage">
+                <Col>
+                  <Image
+                    src={
+                      "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                      element.serveurPicture
+                    }
+                  />
+                </Col>
+              </Row>
 
-            <Row className="rowTitre2">
-              <Col s={12}>
-                <p>{element.serveurName}</p>
-              </Col>
-            </Row>
-            <Row className="butTips">
-              <Col>
-                <Button
-                  onClick={() => {
-                    localStorage.setItem("@mailServeur", element.serveurMail);
-                    this.props.history.push(
-                      "/information-client" + window.location.search
-                    );
-                  }}
-                >
-                  Donner un Pourboire
-                </Button>
-              </Col>
-            </Row>
-          </Container>
-        );
-      });
+              <Row className="rowTitre2">
+                <Col s={12}>
+                  <p>{element.serveurName}</p>
+                </Col>
+              </Row>
+              <Row className="butTips">
+                <Col>
+                  <Button
+                    onClick={() => {
+                      localStorage.setItem("@mailServeur", element.serveurMail);
+                      this.props.history.push(
+                        "/information-client" + window.location.search
+                      );
+                    }}
+                  >
+                    Donner un Pourboire
+                  </Button>
+                </Col>
+              </Row>
+            </Container>
+          );
+        });
     }
   };
   render() {
@@ -291,10 +303,17 @@ class Liste extends Component {
       <Container className="blocPrincipalClient">
         <Row className="vousEtes">
           <Col className="colLieu" s={12}>
-            <img src="/logoTTT/map.png" />
+            <Image
+              className="logoPicture"
+              src={
+                "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                this.state.serveur.logo
+              }
+            />
             <h1 className="Titre">
               Lieu : {this.state.serveur.restaurantName}
             </h1>
+            <Image />
           </Col>
         </Row>
         <Row>
