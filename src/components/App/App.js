@@ -18,6 +18,7 @@ import Menu from "../Menu/Menu";
 import PasswordRenew from "../PasswordRenew/PasswordRenew";
 import PasswordReset from "../PasswordReset/PasswordReset";
 import Commentaires from "../Payment/Commentaire";
+import CommentairesReferent from "../Payment/CommentaireReferent";
 import Historique from "../Historique/Historique";
 import modifierMonProfil from "../modifierSonProfil/modifierSonProfil";
 import TipCommun from "../TipCommun/TipCommun";
@@ -68,6 +69,11 @@ class App extends Component {
             <Route path="/Payment" exact component={Payment} />
             <Route path="/menu" exact component={Menu} />
             <Route path="/Commentaires" exact component={Commentaires} />
+            <Route
+              path="/CommentairesReferent"
+              exact
+              component={CommentairesReferent}
+            />
             <Route path="/passwordReset" exact component={PasswordReset} />
             <Route path="/passwordRenew" exact component={PasswordRenew} />
             <Route path="/Historique" exact component={Historique} />

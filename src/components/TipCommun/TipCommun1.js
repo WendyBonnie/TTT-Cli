@@ -33,8 +33,7 @@ function Icon() {
           backgroundColor: "rgba(52, 52, 52, 0.0)",
           borderColor: "rgba(52, 52, 52, 0.0)",
         }}
-        ref={target}
-      >
+        ref={target}>
         <Info style={{ color: "black" }} />
       </button>
       <Overlay target={target.current} show={show} placement="right">
@@ -157,20 +156,20 @@ function MyVerticallyCenteredModal(props) {
                     window.confirm(
                       "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."
                     );
-                    history.push("/Menu" + window.location.search);
+                    history.push(
+                      "/CommentairesReferent" + window.location.search
+                    );
                   }
                 });
             });
           }}
-          style={{ backgroundColor: "#f5a624", border: "none" }}
-        >
+          style={{ backgroundColor: "#f5a624", border: "none" }}>
           Payer
         </Button>
         <Button
           className="buttonModalPayout"
           style={{ backgroundColor: "#f5a624", border: "none" }}
-          onClick={props.onHide}
-        >
+          onClick={props.onHide}>
           Annuler
         </Button>
         <img className="imgMango" src="/logoTTT/mangoPay.png" />
@@ -285,8 +284,7 @@ class TipCommun1 extends Component {
                         this.state.cardExpirationDate
                       );
                     }
-                  }}
-                >
+                  }}>
                   Payer
                 </Button>
                 <img

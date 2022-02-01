@@ -11,6 +11,7 @@ class Liste extends Component {
 
   componentDidMount() {
     this.getDataServeurs();
+    console.log("serveur", this.state.serveur);
   }
 
   getDataServeurs = (e) => {
@@ -38,6 +39,7 @@ class Liste extends Component {
           console.log(this.state.serveur.pourboireGeneral);
           localStorage.setItem("restaurantName", data.restaurantName);
           localStorage.setItem("@idRestaurant", data._id);
+          localStorage.setItem("serveurReferent", data.referent.email);
           console.log(data);
         },
 
@@ -78,8 +80,7 @@ class Liste extends Component {
                       this.props.history.push(
                         "/information-client" + window.location.search
                       );
-                    }}
-                  >
+                    }}>
                     Donner un Pourboire
                   </Button>
                 </Col>
@@ -103,37 +104,10 @@ class Liste extends Component {
             <Col className="colButton">
               <Button
                 onClick={() => {
-                  const headers = new Headers({
-                    "Content-Type": "application/json",
-                  });
-                  const data = {};
-                  const options = {
-                    method: "POST",
-                    headers: headers,
-                    body: JSON.stringify(data),
-                  };
-
-                  fetch(
-                    "https://back-end.osc-fr1.scalingo.io/client/emailServeur",
-                    options
-                  )
-                    .then((response) => {
-                      return response;
-                    })
-                    .then(
-                      (data) => {
-                        console.log(data);
-                      },
-
-                      (error) => {
-                        console.log(error);
-                      }
-                    );
                   this.props.history.push(
                     "/TipCommun" + window.location.search
                   );
-                }}
-              >
+                }}>
                 Donner à toute l'équipe !
               </Button>
             </Col>
@@ -177,37 +151,16 @@ class Liste extends Component {
             <Col className="colButton">
               <Button
                 onClick={() => {
-                  const headers = new Headers({
-                    "Content-Type": "application/json",
-                  });
-                  const data = {};
-                  const options = {
-                    method: "POST",
-                    headers: headers,
-                    body: JSON.stringify(data),
-                  };
-
-                  fetch(
-                    "https://back-end.osc-fr1.scalingo.io/client/emailServeur",
-                    options
-                  )
-                    .then((response) => {
-                      return response;
-                    })
-                    .then(
-                      (data) => {
-                        console.log(data);
-                      },
-
-                      (error) => {
-                        console.log(error);
-                      }
-                    );
+                  {
+                    /*localStorage.setItem(
+                    "@mailServeurReferent",
+                    element.serveurMail
+                  );*/
+                  }
                   this.props.history.push(
                     "/TipCommun" + window.location.search
                   );
-                }}
-              >
+                }}>
                 Donner à toute l'équipe !
               </Button>
             </Col>
@@ -246,8 +199,7 @@ class Liste extends Component {
                           this.props.history.push(
                             "/information-client" + window.location.search
                           );
-                        }}
-                      >
+                        }}>
                         Donner un Pourboire
                       </Button>
                     </Col>
@@ -287,8 +239,7 @@ class Liste extends Component {
                       this.props.history.push(
                         "/information-client" + window.location.search
                       );
-                    }}
-                  >
+                    }}>
                     Donner un Pourboire
                   </Button>
                 </Col>
