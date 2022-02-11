@@ -65,6 +65,31 @@ function MyVerticallyCenteredModal(props) {
 
   let amount = localStorage.getItem("amount");
   let dataMango = JSON.parse(localStorage.getItem("@data"));
+
+  const postInfoCard1 = () => {
+    const headers = new Headers({
+      "Content-Type": "application/json",
+    });
+    const data = {
+      firstname: localStorage.getItem("@dataFirstName"),
+      lastname: localStorage.getItem("@dataLastName"),
+      email: localStorage.getItem("@dataMail"),
+    };
+    const options = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(data),
+    };
+
+    fetch("https://back-end.osc-fr1.scalingo.io/client/TipUser", options)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        localStorage.setItem("@data", JSON.stringify(data));
+      });
+  };
+
   return (
     <Modal {...props} centered backdrop="static">
       <Modal.Header style={{ borderBlockColor: "#f5a624" }}>
@@ -118,6 +143,7 @@ function MyVerticallyCenteredModal(props) {
                 cardExpirationDate: localStorage
                   .getItem("expDate")
                   .replace(/[^a-zA-Z0-9]/g, ""),
+
                 cardCvx: localStorage.getItem("cvx"),
               }),
               headers: {
@@ -152,11 +178,19 @@ function MyVerticallyCenteredModal(props) {
                     window.alert(
                       "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MM/AA : (ex : 06/22)."
                     );
+                    localStorage.removeItem("cardNumber");
+                    localStorage.removeItem("cvx");
+                    localStorage.removeItem("expDate");
+                    postInfoCard1();
                     hide();
                   } else {
                     window.confirm(
                       "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."
                     );
+                    localStorage.removeItem("cardNumber");
+                    localStorage.removeItem("cvx");
+                    localStorage.removeItem("expDate");
+                    localStorage.removeItem("@data");
                     history.push("/Menu" + window.location.search);
                   }
                 });
@@ -222,6 +256,7 @@ class TipCommun1 extends Component {
     console.log(JSON.parse(localStorage.getItem("@data")));
   }
   render() {
+    var shortDateRex = /^\d{1,2}\d{2}$/;
     return (
       <Container className="mainBlocCommun">
         <Row>
@@ -271,11 +306,9 @@ class TipCommun1 extends Component {
                 <Button
                   className="communButtonVal"
                   onClick={() => {
-                    if (this.state.amount <= 1) {
-                      window.alert(
-                        "Le montant minimum du tips doit être de 2 euros"
-                      );
-                    } else {
+                    if (
+                      shortDateRex.test(this.state.cardExpirationDate) == true
+                    ) {
                       this.setState({ modal: true });
                       localStorage.setItem("amount", this.state.amount);
                       localStorage.setItem("cardNumber", this.state.cardNumber);
@@ -284,6 +317,8 @@ class TipCommun1 extends Component {
                         "expDate",
                         this.state.cardExpirationDate
                       );
+                    } else {
+                      alert("Erreur sur le format de date");
                     }
                   }}
                 >

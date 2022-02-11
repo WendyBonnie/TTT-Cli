@@ -153,6 +153,7 @@ function MyVerticallyCenteredModal(props) {
                     window.alert(
                       "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MM/AA : (ex : 06/22)."
                     );
+                    localStorage.clear();
                     hide();
                   } else {
                     localStorage.clear();
