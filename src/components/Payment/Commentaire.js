@@ -20,6 +20,7 @@ class Commentaires extends Component {
   addNewStatut = (e) => {
     e.preventDefault();
     const data = {
+      email: localStorage.getItem("@mailServeur"),
       prenom: this.state.prenom,
       nom: this.state.nom,
       texte: this.state.texte,
@@ -88,16 +89,14 @@ class Commentaires extends Component {
               name="texte"
               type="text"
               class="form-control formCommentaire"
-              placeholder="Votre commentaire"
-            ></textarea>
+              placeholder="Votre commentaire"></textarea>
           </Col>
 
           <Col>
             <button
               className="buttonStatut"
               type="submit"
-              onClick={this.addNewStatut}
-            >
+              onClick={this.addNewStatut}>
               Publier
             </button>
           </Col>

@@ -187,11 +187,9 @@ function MyVerticallyCenteredModal(props) {
                     window.confirm(
                       "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."
                     );
-                    localStorage.removeItem("cardNumber");
-                    localStorage.removeItem("cvx");
-                    localStorage.removeItem("expDate");
-                    localStorage.removeItem("@data");
-                    history.push("/Menu" + window.location.search);
+                    history.push(
+                      "/CommentairesReferent" + window.location.search
+                    );
                   }
                 });
             });
