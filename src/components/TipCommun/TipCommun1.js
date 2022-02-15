@@ -176,7 +176,7 @@ function MyVerticallyCenteredModal(props) {
                 .then((result1) => {
                   if (result1.Type === "param_error") {
                     window.alert(
-                      "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MM/AA : (ex : 06/22)."
+                      "Une erreur s'est produite, veuillez réessayer"
                     );
                     localStorage.removeItem("cardNumber");
                     localStorage.removeItem("cvx");
@@ -254,13 +254,13 @@ class TipCommun1 extends Component {
     console.log(JSON.parse(localStorage.getItem("@data")));
   }
   render() {
-    var shortDateRex = /^\d{1,2}\d{2}$/;
+    var shortDateRex = /^(0?[1-9]|1[012])[\/\-]\d{2}$/;
     return (
       <Container className="mainBlocCommun">
         <Row>
           <Col className="blocCommun" xs={12} s={12} md={12}>
             <p className="titleCommun">Paiement du pourboire</p>
-            <h5 className="tipsMin">Le tips doit être de 2 euros minimum !</h5>
+            <h5 className="tipsMin">Le tips doit être de 1 euros minimum !</h5>
           </Col>
           <Col className="formCommun" xs={12} s={12} md={12}>
             <Form className="formCommun">
@@ -305,8 +305,20 @@ class TipCommun1 extends Component {
                   className="communButtonVal"
                   onClick={() => {
                     if (
-                      shortDateRex.test(this.state.cardExpirationDate) == true
+                      !this.state.cardNumber ||
+                      !this.state.cardExpirationDate ||
+                      !this.state.cardCvx
                     ) {
+                      alert("Veuillez remplir tout les champs du formulaire.");
+                    } else if (
+                      shortDateRex.test(this.state.cardExpirationDate) == false
+                    ) {
+                      alert(
+                        "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MM/AA : (ex : 06/22)."
+                      );
+                    } else if (this.state.amount < 1 || !this.state.amount) {
+                      alert("Le pourboire minimum est de 1 euro");
+                    } else {
                       this.setState({ modal: true });
                       localStorage.setItem("amount", this.state.amount);
                       localStorage.setItem("cardNumber", this.state.cardNumber);
@@ -315,8 +327,6 @@ class TipCommun1 extends Component {
                         "expDate",
                         this.state.cardExpirationDate
                       );
-                    } else {
-                      alert("Erreur sur le format de date");
                     }
                   }}
                 >
