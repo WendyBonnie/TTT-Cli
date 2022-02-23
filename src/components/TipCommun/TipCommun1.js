@@ -185,7 +185,7 @@ function MyVerticallyCenteredModal(props) {
                     hide();
                   } else {
                     window.confirm(
-                      "Merci pour votre pourboire. À bientôt dans nos restaurants partenaires."
+                      "Merci pour votre pourboire. À bientôt dans nos établissements partenaires."
                     );
                     history.push(
                       "/CommentairesReferent" + window.location.search

@@ -34,13 +34,12 @@ class Liste extends Component {
       })
       .then(
         (data) => {
-          console.log(data);
+          console.log("cc", data);
           this.setState({ serveur: data });
-          console.log(this.state.serveur.pourboireGeneral);
+
           localStorage.setItem("restaurantName", data.restaurantName);
           localStorage.setItem("@idRestaurant", data._id);
           localStorage.setItem("serveurReferent", data.referent.email);
-          console.log(data);
         },
 
         (error) => {
@@ -80,7 +79,8 @@ class Liste extends Component {
                       this.props.history.push(
                         "/information-client" + window.location.search
                       );
-                    }}>
+                    }}
+                  >
                     Donner un Pourboire
                   </Button>
                 </Col>
@@ -107,7 +107,8 @@ class Liste extends Component {
                   this.props.history.push(
                     "/TipCommun" + window.location.search
                   );
-                }}>
+                }}
+              >
                 Donner à toute l'équipe !
               </Button>
             </Col>
@@ -160,7 +161,8 @@ class Liste extends Component {
                   this.props.history.push(
                     "/TipCommun" + window.location.search
                   );
-                }}>
+                }}
+              >
                 Donner à toute l'équipe !
               </Button>
             </Col>
@@ -199,7 +201,8 @@ class Liste extends Component {
                           this.props.history.push(
                             "/information-client" + window.location.search
                           );
-                        }}>
+                        }}
+                      >
                         Donner un Pourboire
                       </Button>
                     </Col>
@@ -239,7 +242,8 @@ class Liste extends Component {
                       this.props.history.push(
                         "/information-client" + window.location.search
                       );
-                    }}>
+                    }}
+                  >
                     Donner un Pourboire
                   </Button>
                 </Col>
