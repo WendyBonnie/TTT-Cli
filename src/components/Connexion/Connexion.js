@@ -59,10 +59,15 @@ class Connexion extends Component {
       );
   };
 
+  componentDidMount() {
+    localStorage.clear();
+    this.props.setLogin(false);
+  }
+
   render() {
     return (
       <Container className="connexion-container">
-        <CookieConsent
+        {/* <CookieConsent
           location="bottom"
           buttonText="J'accepte"
           declineButtonText="Je refuse"
@@ -90,7 +95,7 @@ class Connexion extends Component {
             fontWeight: "bold",
           }}
           style={{
-            fontSize: "20px",
+            fontSize: "14px",
             fontfamily: "Montserrat",
             fontWeight: "bold",
           }}>
@@ -109,7 +114,7 @@ class Connexion extends Component {
             }}>
             Politique de cookies
           </a>
-        </CookieConsent>
+          </CookieConsent>*/}
         <Row>
           <Col>
             <h1>Déja inscrit ? </h1>

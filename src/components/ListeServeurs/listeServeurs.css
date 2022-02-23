@@ -15,6 +15,17 @@
   margin-bottom: 10%;
 }
 
+.hover:hover {
+  background-color: #555 !important;
+}
+.hover:active {
+  background-color: #555 !important;
+}
+
+.hover:visited {
+  background-color: #555 !important;
+}
+
 .display {
   margin-bottom: 18%;
 }

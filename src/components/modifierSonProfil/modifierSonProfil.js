@@ -58,9 +58,10 @@ class modifierMonProfil extends Component {
   editClient = (e) => {
     e.preventDefault();
     const data = {
-      userId: localStorage.getItem(
-        "userID"
-      ) /*on get l'Id qu'on a stocké durant la connexion*/,
+      userId:
+        localStorage.getItem(
+          "userID"
+        ) /*on get l'Id qu'on a stocké durant la connexion*/,
       /*userID avec le ID en majuscule car c'est comme ca qu'on l'a mis dans le local storage (/connexion) */
       client: this.state.client,
     };
@@ -91,7 +92,6 @@ class modifierMonProfil extends Component {
         }
       );
   };
-  
 
   componentDidMount() {
     this.postDataClient();
@@ -102,67 +102,59 @@ class modifierMonProfil extends Component {
       <div className="bloc-modifierProfil">
         <Row>
           <Col md={12} className="titreModif">
-       
-          <h1>Modification du profil</h1>
-        
-        
-        <Form>
-          <Form.Group controlId="formGroupName">
-            
-            <Form.Control
-              name="lastname"
-              type="text"
-              placeholder="Nom"
-              onChange={this.change}
-              value={this.state.client.lastname}
-            />
-          </Form.Group>
-          <Form.Group controlId="formGroupPrenom">
-         
-            <Form.Control
-              name="firstname"
-              type="text"
-              placeholder="Prénom"
-              onChange={this.change}
-              value={this.state.client.firstname}
-            />
-          </Form.Group>
-          <Form.Group controlId="formAdresse">
-            
-            <Form.Control
-              as="select"
-              type="text"
-              placeholder="Sexe"
-              name="gender"
-              onChange={this.change}
-              value={this.state.client.gender}
-            >
-            <option>-</option>
-            <option>Femme</option>
-            <option>Homme</option>
-            </Form.Control>
-          </Form.Group>
-          <Form.Group controlId="formVille">
-            
-            <Form.Control
-              type="text"
-              placeholder="Ville"
-              name="adress"
-              onChange={this.change}
-              value={this.state.client.adress}
-            />
-          </Form.Group>
-          <Form.Group controlId="formTel">
-            
-            <Form.Control
-              type="text"
-              placeholder="Telephone(Facultatif)"
-              name="phone"
-              onChange={this.change}
-              value={this.state.client.phone}
-            />
-          </Form.Group>
-          <Form.Group controlId="formAge">
+            <h1>Modification du profil</h1>
+
+            <Form>
+              <Form.Group controlId="formGroupName">
+                <Form.Control
+                  name="lastname"
+                  type="text"
+                  placeholder="Nom"
+                  onChange={this.change}
+                  value={this.state.client.lastname}
+                />
+              </Form.Group>
+              <Form.Group controlId="formGroupPrenom">
+                <Form.Control
+                  name="firstname"
+                  type="text"
+                  placeholder="Prénom"
+                  onChange={this.change}
+                  value={this.state.client.firstname}
+                />
+              </Form.Group>
+              <Form.Group controlId="formAdresse">
+                <Form.Control
+                  as="select"
+                  type="text"
+                  placeholder="Sexe"
+                  name="gender"
+                  onChange={this.change}
+                  value={this.state.client.gender}>
+                  <option>-</option>
+                  <option>Femme</option>
+                  <option>Homme</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlId="formVille">
+                <Form.Control
+                  type="text"
+                  placeholder="Ville"
+                  name="adress"
+                  onChange={this.change}
+                  value={this.state.client.adress}
+                />
+              </Form.Group>
+              <Form.Group controlId="formTel">
+                <Form.Control
+                  type="text"
+                  placeholder="Telephone(Facultatif)"
+                  name="phone"
+                  onChange={this.change}
+                  value={this.state.client.phone}
+                />
+              </Form.Group>
+              {/* <Form.Group controlId="formAge">
             
             <Form.Control
               type="text"
@@ -171,19 +163,18 @@ class modifierMonProfil extends Component {
               onChange={this.change}
               value={this.state.client.age}
             />
-          </Form.Group>
-        </Form>
-        <Button
-          className="submitButton"
-          variant="primary"
-          type="submit"
-          onClick={this.editClient}
-        >
-          Mettre à jour mon profil
-        </Button>
-        <br/>
-        {this.state.message}
-        </Col>
+           </Form.Group>*/}
+            </Form>
+            <Button
+              className="submitButton"
+              variant="primary"
+              type="submit"
+              onClick={this.editClient}>
+              Mettre à jour mon profil
+            </Button>
+            <br />
+            {this.state.message}
+          </Col>
         </Row>
       </div>
     );
