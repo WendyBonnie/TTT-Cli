@@ -59,19 +59,22 @@ class Connexion extends Component {
       );
   };
 
+  componentDidMount() {
+    localStorage.clear();
+    this.props.setLogin(false);
+  }
+
   render() {
     return (
       <Container className="connexion-container">
-        <CookieConsent
-          location="top"
+        {/* <CookieConsent
+          location="bottom"
           buttonText="J'accepte"
           declineButtonText="Je refuse"
           expires={30}
           enableDeclineButton
           onDecline={() => {
-            alert(
-              "Le refus de nos cookies vous permets tout de même une bonne navigation sur notre site. A bientot :)"
-            );
+            alert("REFUS de cookies, votre choix à bien été pris en compte.");
           }}
           cookieName="Tipourboire"
           style={{ background: "#ffffff", color: "#555" }}
@@ -92,11 +95,10 @@ class Connexion extends Component {
             fontWeight: "bold",
           }}
           style={{
-            fontSize: "20px",
+            fontSize: "14px",
             fontfamily: "Montserrat",
             fontWeight: "bold",
-          }}
-        >
+          }}>
           Le Site Tipourboire utilise différents cookies afin d’améliorer ses
           services et effectuer des suivis d’audience. Certains cookies sont
           indispensables au fonctionnement du Site. Vous pouvez accepter ces
@@ -109,14 +111,13 @@ class Connexion extends Component {
               fontSize: "20px",
               fontfamily: "Montserrat",
               fontWeight: "bold",
-            }}
-          >
+            }}>
             Politique de cookies
           </a>
-        </CookieConsent>
+          </CookieConsent>*/}
         <Row>
           <Col>
-            <h1>Déja membre ? </h1>
+            <h1>Déja inscrit ? </h1>
             <h1>Connectez-vous !</h1>
           </Col>
         </Row>
@@ -153,7 +154,7 @@ class Connexion extends Component {
         </Col>
         <Col className="alignRight">
           <Form.Label className="text2">
-            Pas encore membre ?{" "}
+            Pas encore inscrit ?{" "}
             <Link className="creerCompte" to="/Inscription">
               Créer mon compte
             </Link>

@@ -123,11 +123,13 @@ class footer extends Component {
                 className="textFooter">
                 Contact
               </Nav.Link>
-              <Nav.Link
-                className="textFooter"
-                onClick={() => this.setState({ showModal: true })}>
-                Supprimer mon compte
-              </Nav.Link>
+              {localStorage.getItem("token") ? (
+                <Nav.Link
+                  className="textFooter"
+                  onClick={() => this.setState({ showModal: true })}>
+                  Supprimer mon compte
+                </Nav.Link>
+              ) : null}
             </Nav>
             <Nav>
               <Nav.Link eventKey={2} href="#memes" className="textFooter">

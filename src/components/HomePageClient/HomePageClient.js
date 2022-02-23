@@ -10,22 +10,22 @@ class HomePageClient extends Component {
     return (
       <Container className="ContainerHome">
         <Row className="blocHome">
-          <Col xs={12} md={6}>
-            <h1>Donner un Tip</h1>
-            <h2>Sans compte client</h2>
-            <p>Donner un pourboire sans créer de compte</p>
+          <Col className="centerAll" xs={12} md={12}>
+            <h1>Donner un pourboire</h1>
+            <h2>sans créer de compte</h2>
+
             <Link to={"/ListeServeurs" + window.location.search}>
-              <Button className="rowButton">Donner un pourboire</Button>
+              <Button className="rowButton"> Je donne</Button>
             </Link>
           </Col>
-          <Col xs={12} md={6}>
+          {/*  <Col xs={12} md={6}>
             <h1>Donner un Tip</h1>
             <h2>Avec compte client</h2>
             <p>Me connecter à mon espace Tipourboire</p>
             <Link to={"/" + window.location.search}>
               <Button className="rowButton">Donner un pourboire</Button>
             </Link>
-          </Col>
+    </Col>*/}
         </Row>
       </Container>
     );

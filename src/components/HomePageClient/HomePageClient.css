@@ -23,17 +23,27 @@
   width: 80%;
 }
 
-.rowButton:hover{
+.rowButton:hover {
   background-color: rgb(39, 38, 37);
+}
+
+.blocHome {
+  justify-content: center;
 }
 .blocHome h1 {
   margin-top: 15%;
   font-size: 20px;
+  text-align: center;
+}
+
+.centerAll {
+  text-align: center;
 }
 
 .blocHome h2 {
   font-size: 28px;
   color: #f5a624;
+  text-align: center;
 }
 
 @media only screen and (min-device-width: 768px) {

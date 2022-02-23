@@ -18,6 +18,19 @@
   border-radius: 28px !important;
   border-color: #f5a624 !important;
 }
+
+.communButton:hover {
+  background-color: #555 !important;
+}
+
+.communButton:active {
+  background-color: #555 !important;
+}
+
+.communButton:visited {
+  background-color: #555 !important;
+}
+
 .ButtonCol {
   text-align: center !important;
 }

@@ -29,6 +29,19 @@
   border-color: #f5a624 !important;
   margin-top: 5px !important;
 }
+
+.communButtonVal:hover {
+  background-color: #555 !important;
+}
+
+.communButtonVal:active {
+  background-color: #555 !important;
+}
+
+.communButtonVal:visited {
+  background-color: #555 !important;
+}
+
 .ButtonCol {
   text-align: center !important;
 }
