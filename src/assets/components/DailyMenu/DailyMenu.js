@@ -55,24 +55,27 @@ class DailyMenu extends Component {
 
           <Card.Body>
             <p className="datemenu"></p>
+            {!this.state.menu ? (
+              <p>Aucun Menu ni Carte de Prestations téléchargés</p>
+            ) : (
+              <a
+                href={
+                  "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                  this.state.menu
+                }
+                target="_blank">
+                <Card.Img
+                  variant="top"
+                  src={
+                    "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                    this.state.menu
+                  }
+                  className="dailyMenu"
+                  alt="Aucun Menu ni Carte de Prestations téléchargés"
+                />
+              </a>
+            )}
           </Card.Body>
-          <a
-            href={
-              "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
-              this.state.menu
-            }
-            target="_blank"
-          >
-            <Card.Img
-              variant="top"
-              src={
-                "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
-                this.state.menu
-              }
-              className="dailyMenu"
-              alt="Menu du Jour"
-            />
-          </a>
         </Card>
         <Row>
           <Col md={12}>
