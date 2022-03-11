@@ -167,7 +167,8 @@ function MyVerticallyCenteredModal(props) {
               };
 
               fetch(
-                "https://back-end.osc-fr1.scalingo.io/client/payin",
+                "https://back-end.osc-fr1.scalingo.io/client/payin" +
+                  window.location.search,
                 options
               )
                 .then((response) => {
