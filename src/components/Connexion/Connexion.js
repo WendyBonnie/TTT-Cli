@@ -11,7 +11,7 @@ import CookieConsent, { Cookies } from "react-cookie-consent";
 class Connexion extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: null, password: null };
+    this.state = { email: "", password: "" };
   }
 
   change = (e) => {
@@ -125,18 +125,16 @@ class Connexion extends Component {
           <Form.Control
             name="email"
             type="email"
-            ClassName="formMail"
+            className="formMail"
             placeholder="Votre e-mail"
-            id="email"
             onChange={this.change}
             value={this.state.email}
           />
           <Form.Control
             name="password"
             type="password"
-            ClassName="formMail"
+            className="formMail"
             placeholder="Votre mot de passe"
-            id="password"
             onChange={this.change}
             value={this.state.password}
           />

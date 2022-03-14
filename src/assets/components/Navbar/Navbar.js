@@ -50,7 +50,11 @@ class BarreMenu extends Component {
     } else {
       return (
         <Dropdown className="nav justify-content-right">
-          <Dropdown.Toggle alignRight variant="success" id="dropdown-basic">
+          <Dropdown.Toggle
+            alignright="true"
+            variant="success"
+            id="dropdown-basic"
+          >
             <img src="/logoTTT/user.png" />
           </Dropdown.Toggle>
 
