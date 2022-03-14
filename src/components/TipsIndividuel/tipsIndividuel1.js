@@ -62,7 +62,7 @@ function MyVerticallyCenteredModal(props) {
   let dataMango = JSON.parse(localStorage.getItem("@dataIndiv"));
   let protectionAmount = amount * 0.016 + 0.1;
   let totalPreleve = Number(amount) + (Number(amount) * 0.016 + 0.1);
-  useEffect(() => {}, []);
+
   return (
     <Modal {...props} centered backdrop="static">
       <Modal.Header style={{ borderBlockColor: "#f5a624" }}>

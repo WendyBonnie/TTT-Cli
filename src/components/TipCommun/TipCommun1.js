@@ -19,7 +19,6 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import "./TipCommun1.css";
-import { Alert } from "bootstrap";
 
 function Icon() {
   const [show, setShow] = useState(false);
@@ -222,7 +221,6 @@ class TipCommun1 extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  payin = () => {};
   getWalletId = () => {
     const headers = new Headers({
       "Content-Type": "application/json",
