@@ -18,31 +18,35 @@ class TipCommun extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   postInfoCard = () => {
-    const headers = new Headers({
-      "Content-Type": "application/json",
-    });
-    const data = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      email: this.state.email,
-    };
-    const options = {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(data),
-    };
-
-    fetch("https://back-end.osc-fr1.scalingo.io/client/TipUser", options)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        localStorage.setItem("@data", JSON.stringify(data));
-        localStorage.setItem("@dataFirstName", this.state.firstname);
-        localStorage.setItem("@dataLastName", this.state.lastname);
-        localStorage.setItem("@dataMail", this.state.email);
+    const emailVerif = RegExp(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+    if (emailVerif.test(this.state.email) == false) {
+      alert(
+        "Le format de votre adresse mail est incorrect veuillez réessayer."
+      );
+    } else {
+      const headers = new Headers({
+        "Content-Type": "application/json",
       });
-    this.props.history.push("/TipCommun1" + window.location.search);
+      const data = {
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        email: this.state.email,
+      };
+      const options = {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(data),
+      };
+
+      fetch("https://back-end.osc-fr1.scalingo.io/client/TipUser", options)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {});
+      this.props.history.push("/TipCommun1" + window.location.search);
+    }
   };
   componentDidMount() {}
   render() {
@@ -56,13 +60,12 @@ class TipCommun extends Component {
             <Form className="formCommun">
               <Form.Group className="formCommunGrp" controlId="formGroupAmount">
                 <Form.Control
-                  className="formMail"
+                  className="formMail inputPaymentTips"
                   name="email"
                   type="text"
                   placeholder="E-Mail"
                   onChange={this.handleInput}
                   value={this.state.email}
-                  className="inputPaymentTips"
                 />
                 <Form.Control
                   name="lastname"
