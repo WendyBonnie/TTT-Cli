@@ -44,7 +44,12 @@ class TipCommun extends Component {
         .then((response) => {
           return response.json();
         })
-        .then((data) => {});
+        .then((data) => {
+          localStorage.setItem("@data", JSON.stringify(data));
+          localStorage.setItem("@dataFirstName", this.state.firstname);
+          localStorage.setItem("@dataLastName", this.state.lastname);
+          localStorage.setItem("@dataMail", this.state.email);
+        });
       this.props.history.push("/TipCommun1" + window.location.search);
     }
   };
