@@ -50,7 +50,7 @@ class Liste extends Component {
 
   display = () => {
     if (this.state.serveur.pourboireIndividuel === true) {
-      return this.state.serveur.tabServeur
+      return this.state.serveur?.tabServeur
         .filter((filter) => filter.serveurPoste != "Manager (Pas de bourboire)")
         .map((element, index) => {
           return (
@@ -79,8 +79,7 @@ class Liste extends Component {
                       this.props.history.push(
                         "/information-client" + window.location.search
                       );
-                    }}
-                  >
+                    }}>
                     Donner un Pourboire
                   </Button>
                 </Col>
@@ -108,13 +107,12 @@ class Liste extends Component {
                   this.props.history.push(
                     "/TipCommun" + window.location.search
                   );
-                }}
-              >
+                }}>
                 Donner à toute l'équipe !
               </Button>
             </Col>
           </Row>
-          {this.state.serveur.tabServeur
+          {this.state.serveur?.tabServeur
             .filter(
               (filter) => filter.serveurPoste != "Manager (Pas de bourboire)"
             )
@@ -162,13 +160,12 @@ class Liste extends Component {
                   this.props.history.push(
                     "/TipCommun" + window.location.search
                   );
-                }}
-              >
+                }}>
                 Donner à toute l'équipe !
               </Button>
             </Col>
           </Row>
-          {this.state.serveur.tabServeur
+          {this.state.serveur?.tabServeur
             .filter(
               (filter) => filter.serveurPoste != "Manager (Pas de bourboire)"
             )
@@ -202,8 +199,7 @@ class Liste extends Component {
                           this.props.history.push(
                             "/information-client" + window.location.search
                           );
-                        }}
-                      >
+                        }}>
                         Donner un Pourboire
                       </Button>
                     </Col>
@@ -214,7 +210,7 @@ class Liste extends Component {
         </Container>
       );
     } else {
-      return this.state.serveur.tabServeur
+      return this.state.serveur?.tabServeur
         .filter((filter) => filter.serveurPoste != "Manager (Pas de bourboire)")
         .map((element, index) => {
           return (
@@ -243,8 +239,7 @@ class Liste extends Component {
                       this.props.history.push(
                         "/information-client" + window.location.search
                       );
-                    }}
-                  >
+                    }}>
                     Donner un Pourboire
                   </Button>
                 </Col>
