@@ -34,10 +34,13 @@ class Liste extends Component {
       })
       .then(
         (data) => {
-          console.log("cc", data);
+          console.log("cc", data.tabServeur.length);
           console.log("cc", window.location.search);
           this.setState({ serveur: data });
-          if (window.location.search === "?restaurantName=null") {
+          if (
+            window.location.search === "?restaurantName=null" ||
+            data.tabServeur.length === 0
+          ) {
             this.setState({ isBenef: false });
           } else {
             localStorage.setItem("restaurantName", data.restaurantName);
@@ -258,7 +261,7 @@ class Liste extends Component {
       return (
         <Row className="vousEtes">
           <Col className="colLieu" s={12}>
-            <h1> Il n'y a pas encore de bénéficiaire dans cet établissement</h1>
+            <p> Il n'y a pas encore de bénéficiaire dans cet établissement</p>
           </Col>
         </Row>
       );
