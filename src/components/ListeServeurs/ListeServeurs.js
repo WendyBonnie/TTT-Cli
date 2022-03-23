@@ -6,7 +6,7 @@ import "./listeServeurs.css";
 class Liste extends Component {
   constructor(props) {
     super(props);
-    this.state = { serveur: { tabServeur: [] } };
+    this.state = { serveur: { tabServeur: [] }, isBenef: true };
   }
 
   componentDidMount() {
@@ -35,11 +35,15 @@ class Liste extends Component {
       .then(
         (data) => {
           console.log("cc", data);
+          console.log("cc", window.location.search);
           this.setState({ serveur: data });
-
-          localStorage.setItem("restaurantName", data.restaurantName);
-          localStorage.setItem("@idRestaurant", data._id);
-          localStorage.setItem("serveurReferent", data.referent.email);
+          if (window.location.search === "?restaurantName=null") {
+            this.setState({ isBenef: false });
+          } else {
+            localStorage.setItem("restaurantName", data.restaurantName);
+            localStorage.setItem("@idRestaurant", data._id);
+            localStorage.setItem("serveurReferent", data.referent.email);
+          }
         },
 
         (error) => {
@@ -94,8 +98,8 @@ class Liste extends Component {
 
   displayGeneral = () => {
     if (
-      this.state.serveur.pourboireGeneral === true &&
-      this.state.serveur.pourboireIndividuel === false
+      this.state.serveur?.pourboireGeneral === true &&
+      this.state.serveur?.pourboireIndividuel === false
     ) {
       return (
         <Container className="tipsTrueFalse">
@@ -141,8 +145,8 @@ class Liste extends Component {
         </Container>
       );
     } else if (
-      this.state.serveur.pourboireGeneral === true &&
-      this.state.serveur.pourboireIndividuel === true
+      this.state.serveur?.pourboireGeneral === true &&
+      this.state.serveur?.pourboireIndividuel === true
     ) {
       return (
         <Container>
@@ -250,28 +254,38 @@ class Liste extends Component {
     }
   };
   render() {
-    return (
-      <Container className="blocPrincipalClient">
+    if (this.state.isBenef === false) {
+      return (
         <Row className="vousEtes">
           <Col className="colLieu" s={12}>
-            <Image
-              className="logoPicture"
-              src={
-                "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
-                this.state.serveur.logo
-              }
-            />
-            <h1 className="Titre">
-              Lieu : {this.state.serveur.restaurantName}
-            </h1>
-            <Image />
+            <h1> Il n'y a pas encore de bénéficiaire dans cet établissement</h1>
           </Col>
         </Row>
-        <Row>
-          <Col>{this.displayGeneral()}</Col>
-        </Row>
-      </Container>
-    );
+      );
+    } else {
+      return (
+        <Container className="blocPrincipalClient">
+          <Row className="vousEtes">
+            <Col className="colLieu" s={12}>
+              <Image
+                className="logoPicture"
+                src={
+                  "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+                  this.state.serveur?.logo
+                }
+              />
+              <h1 className="Titre">
+                Lieu : {this.state.serveur?.restaurantName}
+              </h1>
+              <Image />
+            </Col>
+          </Row>
+          <Row>
+            <Col>{this.displayGeneral()}</Col>
+          </Row>
+        </Container>
+      );
+    }
   }
 }
 
