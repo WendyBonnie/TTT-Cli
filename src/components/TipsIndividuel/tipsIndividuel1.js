@@ -290,11 +290,14 @@ class TipIndividuel1 extends Component {
                       alert("Le pourboire minimum est de 1 euro");
                     } else {
                       this.setState({ modal: true });
-                      localStorage.setItem("amount", this.state.amount);
-                      localStorage.setItem("cardNumber", this.state.cardNumber);
-                      localStorage.setItem("cvx", this.state.cardCvx);
+                      localStorage.setItem("amountIndiv", this.state.amount);
                       localStorage.setItem(
-                        "expDate",
+                        "cardNumberIndiv",
+                        this.state.cardNumber
+                      );
+                      localStorage.setItem("cvxIndiv", this.state.cardCvx);
+                      localStorage.setItem(
+                        "expDateIndiv",
                         this.state.cardExpirationDate
                       );
                     }
