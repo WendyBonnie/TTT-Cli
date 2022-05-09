@@ -61,7 +61,7 @@ class Commentaires extends Component {
       <Container className="contCom">
         <Row className="coms">
           <Col xs={12} s={12} md={12}>
-            <h1 className="titreCom">Laissez un commentaire à votre serveur</h1>
+            <h1 className="titreCom">Laissez un commentaire</h1>
           </Col>
         </Row>
         <Row className="coms">
