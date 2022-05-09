@@ -32,8 +32,7 @@ function Icon() {
           backgroundColor: "rgba(52, 52, 52, 0.0)",
           borderColor: "rgba(52, 52, 52, 0.0)",
         }}
-        ref={target}
-      >
+        ref={target}>
         <Info style={{ color: "black" }} />
       </button>
       <Overlay target={target.current} show={show} placement="right">
@@ -175,6 +174,7 @@ function MyVerticallyCenteredModal(props) {
                 })
                 .then((result1) => {
                   if (result1.Type === "param_error") {
+                    console.log("test", result1);
                     window.alert(
                       "Une erreur s'est produite, veuillez réessayer"
                     );
@@ -194,15 +194,13 @@ function MyVerticallyCenteredModal(props) {
                 });
             });
           }}
-          style={{ backgroundColor: "#f5a624", border: "none" }}
-        >
+          style={{ backgroundColor: "#f5a624", border: "none" }}>
           Payer
         </Button>
         <Button
           className="buttonModalPayout"
           style={{ backgroundColor: "#f5a624", border: "none" }}
-          onClick={props.onHide}
-        >
+          onClick={props.onHide}>
           Annuler
         </Button>
         <img className="imgMango" src="/logoTTT/mangoPay.png" />
@@ -254,6 +252,8 @@ class TipCommun1 extends Component {
   }
   render() {
     var shortDateRex = /^(0?[1-9]|1[012])[\/\-]\d{2}$/;
+    var cbRex =
+      /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/;
     return (
       <Container className="mainBlocCommun">
         <Row>
@@ -303,17 +303,29 @@ class TipCommun1 extends Component {
                 <Button
                   className="communButtonVal"
                   onClick={() => {
+                    console.log(
+                      "test",
+                      !this.state.cardNumber,
+                      !this.state.cardExpirationDate,
+                      !this.state.cardCvx
+                    );
                     if (
                       !this.state.cardNumber ||
                       !this.state.cardExpirationDate ||
                       !this.state.cardCvx
                     ) {
-                      alert("Veuillez remplir tout les champs du formulaire.");
+                      console.log(
+                        "Veuillez remplir tout les champs du formulaire."
+                      );
                     } else if (
                       shortDateRex.test(this.state.cardExpirationDate) == false
                     ) {
                       alert(
                         "Une erreur s'est produite, veuillez vérifier le format de votre date d'expiration MM/AA : (ex : 06/22)."
+                      );
+                    } else if (cbRex.test(this.state.cardNumber) === false) {
+                      alert(
+                        "Une erreur s'est produite, veuillez rentrer votre bon numéro de carte bleue"
                       );
                     } else if (this.state.amount < 1 || !this.state.amount) {
                       alert("Le pourboire minimum est de 1 euro");
@@ -327,8 +339,7 @@ class TipCommun1 extends Component {
                         this.state.cardExpirationDate
                       );
                     }
-                  }}
-                >
+                  }}>
                   Payer
                 </Button>
                 <img
